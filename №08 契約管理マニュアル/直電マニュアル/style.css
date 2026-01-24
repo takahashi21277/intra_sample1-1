@@ -1,0 +1,63 @@
+body {
+  font-family: "Yu Gothic", sans-serif;
+  background-color: #f9f9f9;
+  margin: 30px;
+  color: #333;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px 30px;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #0a4b78;
+}
+
+h2 {
+  margin-top: 40px;
+  color: #0a4b78;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+}
+
+.steps ol {
+  margin-left: 20px;
+  line-height: 1.6;
+}
+
+.pattern-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.pattern-table th,
+.pattern-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+  vertical-align: top;
+  background-color: #ffffff;
+}
+
+.pattern-table th {
+  background-color: #eaeaea;
+}
+
+.direct-call {
+  background-color: #ffe5e5; /* 淡い赤 */
+  font-weight: bold;
+}
+
+.red {
+  background-color: red !important;
+  color: white;
+  font-weight: bold;
+}

@@ -1,0 +1,404 @@
+:root {
+    --menu-width: 220px; /* メニュー幅を一括管理 */
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
+}
+
+/* ヘッダーレイアウト */
+.header-wrapper {
+  background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-logo {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 10px;
+  color: #2c3e50;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+}
+
+/* 検索ボックス */
+.search-container {
+  flex: 1;
+  max-width: 600px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 12px 20px;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+#searchInput:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+#searchButton {
+  background: #3498db;
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+#searchButton:hover {
+  background: #2980b9;
+  transform: translateY(-1px);
+}
+
+/* メインレイアウト */
+.top {
+  display: flex;
+  margin-top: 90px; /* ヘッダーの高さ分 */
+  min-height: calc(100vh - 90px);
+}
+
+/* サイドメニュー */
+.top-menu {
+    width: var(--menu-width); /* 220pxに変更 */
+    position: fixed;
+    top: 90px;
+    left: 0;
+    height: calc(100vh - 90px);
+    overflow-y: auto;
+    background: linear-gradient(to right, #ffffff, #f8f9fa);
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    z-index: 100;
+}
+
+.top-menu ul {
+    list-style: none;
+}
+
+.top-title {
+    width: var(--menu-width); /* 220pxに変更 */
+    padding: 15px 10px;
+    background: linear-gradient(45deg, #2193b0, #6dd5ed);
+    color: white;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.second-menu {
+    width: var(--menu-width); /* 220pxに変更 */
+    padding: 12px 40px 12px 15px; /* 右側の余白を増やす */
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+    border: none;
+    border-bottom: 1px solid #dee2e6;
+    text-align: left;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.second-menu:hover {
+  background: linear-gradient(to right, #e3f2fd, #bbdefb);
+  padding-left: 20px;
+}
+
+.second-menu.active {
+  background: rgba(0,157,255,0.8);
+  color: white;
+  font-weight: bold;
+  padding-left: 20px;
+  border-left: 4px solid #0056b3;
+}
+
+/* メインコンテンツ */
+.ex {
+    margin-left: var(--menu-width); /* 220pxに変更 */
+    padding: 20px;
+    width: calc(100% - var(--menu-width)); /* 幅も調整 */
+    background: white;
+}
+
+.ex-top {
+  display: none;
+  padding: 20px;
+  background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* コンテンツスタイル */
+h2 {
+  color: #2c3e50;
+  padding: 15px 0;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #3498db;
+  font-size: 1.8em;
+}
+
+h3 {
+  color: #34495e;
+  margin: 20px 0 10px;
+  padding-left: 15px;
+  border-left: 4px solid #3498db;
+  font-size: 1.4em;
+}
+
+.ex li {
+  margin: 10px 0 10px 3em;
+  line-height: 1.6;
+}
+
+/* テーブル */
+table {
+  margin: 20px 0;
+  width: 95%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+thead {
+  background: linear-gradient(45deg, #2193b0, #6dd5ed);
+  color: white;
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #dee2e6;
+}
+
+/* リンク */
+a {
+  color: #3498db;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #2980b9;
+  text-decoration: underline;
+}
+
+/* ユーティリティ */
+.red {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.highlight {
+  background-color: yellow;
+  padding: 2px;
+}
+
+/* スクロールバー */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 768px) {
+  .header-content {
+      flex-direction: column;
+  }
+
+  .header-logo {
+      font-size: 24px;
+      letter-spacing: 5px;
+  }
+
+  .search-container {
+      width: 100%;
+  }
+
+    .top-menu {
+        width: 100%;
+        position: relative;
+        top: 0;
+        height: auto;
+    }
+
+    .second-menu {
+        width: 100%;
+    }
+
+    .ex {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .top-title {
+        width: 100%;
+    }
+
+  .ex-top {
+      width: 100%;
+  }
+
+  table {
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+  }
+}
+/* アクティブなボタンのスタイル */
+.second-menu.active {
+  background: linear-gradient(to right, #3498db, #2980b9);
+  color: white;
+  font-weight: bold;
+  padding-left: 25px;
+  position: relative;
+  border-left: 4px solid #1d6fa5;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* アクティブなボタンの左側のインジケーター */
+.second-menu.active::before {
+  content: '▶';
+  position: absolute;
+  left: 8px;
+  color: white;
+  font-size: 12px;
+}
+
+/* アクティブなボタンのホバー効果 */
+.second-menu.active:hover {
+  background: linear-gradient(to right, #2980b9, #2471a3);
+  padding-left: 28px;
+}
+
+/* 通常のボタンホバー効果との区別 */
+.second-menu:not(.active):hover {
+  background: linear-gradient(to right, #e3f2fd, #bbdefb);
+  padding-left: 22px;
+}
+
+
+/* 検索結果のハイライト */
+mark.highlight {
+  background: linear-gradient(120deg, rgba(255,255,0,0.4) 0%, rgba(255,255,0,0.7) 100%);
+  padding: 2px 4px;
+  border-radius: 3px;
+  color: #000;
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+/* ホバー効果（オプション） */
+mark.highlight:hover {
+  background: linear-gradient(120deg, rgba(255,255,0,0.6) 0%, rgba(255,255,0,0.9) 100%);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.history-table td {
+    padding: 12px;
+    border: 1px solid #dee2e6;
+}
+
+.history-table tr td:first-child {
+    width: 150px;
+    background: linear-gradient(45deg, #2193b0, #6dd5ed);
+    color: white;
+    font-weight: bold;
+}
+
+.history-table tr:hover {
+    background-color: #f8f9fa;
+}
+/* NEWバッジのスタイル */
+.new-badge {
+    position: absolute;
+    right: 8px; /* 右端からの距離を調整 */
+    top: 50%;
+    transform: translateY(-50%);
+    background: #ff4757;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.7em;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+
+/* 点滅アニメーション */
+@keyframes pulse {
+    0% {
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateY(-50%) scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+    }
+}
+
+/* ボタンのposition調整 */
+.second-menu {
+    position: relative;
+    /* 既存のスタイルはそのまま */
+}
+
+/* オプション：ホバー時の効果 */
+.second-menu:hover .new-badge {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateY(-50%) rotate(0); }
+    25% { transform: translateY(-50%) rotate(5deg); }
+    75% { transform: translateY(-50%) rotate(-5deg); }
+}

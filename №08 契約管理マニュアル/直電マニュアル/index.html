@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>直電業務フローとパターン一覧</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>直電業務フロー</h1>
+        
+        <div class="password-protect">
+            <h2>契約管理課ログイン情報（保護）</h2>
+            <p>パスワードを入力してアクセスしてください。</p>
+            <input type="password" id="passcode" placeholder="パスワードを入力">
+            <button onclick="checkPassword()">確認</button>
+            
+            <div id="protectedContent" style="display: none; margin-top: 15px;">
+            <p>📄 <a href="https://docs.google.com/spreadsheets/d/1-4j6eXiYZzAaBOxSQ44UdVcaEplGz-15z-F4e5iYfqg/edit?gid=0" target="_blank">
+              Googleスプレッドシートを開く
+            </a></p>
+                <p>契約管理課Googleアカウント</p>
+                <p><strong>ID：</strong>keiyaku1332@gmail.com</p>
+                <p><strong>パスワード：</strong>keiyakukanri1332</p>
+        </div>
+    </div>
+    
+
+    <script>
+    function checkPassword() {
+        const input = document.getElementById("passcode").value;
+        const content = document.getElementById("protectedContent");
+        if (input === "0046") {
+        content.style.display = "block";
+        } else {
+        alert("パスワードが違います");
+        }
+    }
+    </script>
+
+
+    <section class="steps">
+      <h2>業務手順（4ステップ）</h2>
+      <ol>
+        <li>日時指定された直電リストを確認する（B列・K列を参照）</li>
+        <li>記載された時間になったらお客様に電話をかける</li>
+        <li>電話が繋がったらGoogleドライブ上を編集して時間と挨拶者を入力</li>
+        <li>契約管理課へ内容を報告する</li>
+      </ol>
+    </section>
+
+    <section class="pattern-section">
+      <h2>直電パターン一覧</h2>
+      <table class="pattern-table">
+        <thead>
+          <tr>
+            <th>直電相手と手段</th>
+            <th>日付</th>
+            <th>時刻（B列）</th>
+            <th>契約者</th>
+            <th>確認者日時（K列）</th>
+            <th>確認者</th>
+            <th>続柄</th>
+            <th>電話番号</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="direct-call">
+            <td>両者同電話番号で挨拶</td>
+            <td>5/17</td>
+            <td class="red">同時</td>
+            <td>お客様A</td>
+            <td class="red">5/17 18:00 直電</td>
+            <td>確認者A</td>
+            <td>同娘</td>
+            <td>090-0000-0001</td>
+          </tr>
+          <tr class="direct-call">
+            <td>確認者→契約者</td>
+            <td>5/16</td>
+            <td class="red">確認後</td>
+            <td>お客様B</td>
+            <td class="red">5/16 12:00 直電</td>
+            <td>確認者B</td>
+            <td>別息</td>
+            <td>090-0000-0002</td>
+          </tr>
+          <tr class="direct-call">
+            <td>確認者のみ確認者携帯</td>
+            <td>5/17</td>
+            <td>10:45</td>
+            <td>お客様C</td>
+            <td class="red">5/17 12:30 直電</td>
+            <td>確認者C</td>
+            <td>別娘</td>
+            <td>090-0000-0003</td>
+          </tr>
+          <tr class="direct-call">
+            <td>確認者のみ契約者固定</td>
+            <td>5/17</td>
+            <td>12:00</td>
+            <td>お客様D</td>
+            <td class="red">5/17 10:00 直電</td>
+            <td>確認者D</td>
+            <td>同娘</td>
+            <td>同居</td>
+          </tr>
+          <tr class="direct-call">
+            <td>契約者のみ挨拶</td>
+            <td>5/17</td>
+            <td class="red">5/16 17:30 直電</td>
+            <td>お客様E</td>
+            <td>5/17 12:00 大城</td>
+            <td>確認者E</td>
+            <td>同娘</td>
+            <td>090-0000-0005</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</body>
+</html>

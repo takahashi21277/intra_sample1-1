@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>過量販売チェックシステム</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="container">
+        <h1>過量販売チェックシステム</h1>
+        
+        <div class="selection-container">
+            <div class="selection-box">
+                <h2>過去1年以内の契約内容</h2>
+                <div class="work-item">
+                    <label>
+                        <input type="checkbox" name="past" value="floor"> 床下商品
+                    </label>
+                </div>
+                <div class="work-item">
+                    <label>
+                        <input type="checkbox" name="past" value="ceiling"> 中天商品
+                    </label>
+                </div>
+                <div class="work-item">
+                    <label>
+                        <input type="checkbox" name="past" value="ceiling"> 上天商品
+                    </label>
+                </div>
+                <div class="work-item">
+                    <label>
+                        <input type="checkbox" name="past" value="foundation"> 基礎関連工事
+                    </label>
+                </div>
+                <div class="work-item">
+                    <label>
+                        <input type="checkbox" name="past" value="wall"> 外壁関連工事
+                    </label>
+                </div>
+                <div class="work-item">
+                    <label>
+                        <input type="checkbox" name="past" value="roof"> 屋根関連工事
+                    </label>
+                </div>
+            </div>
+
+            <div class="selection-box">
+                <h2>今回の契約内容</h2>
+                <div class="work-item">
+                    <label>
+                        <input type="checkbox" name="current" value="floor"> 床下商品
+                    </label>
+                </div>
+                <div class="work-item">
+                    <label>
+                        <input type="checkbox" name="current" value="ceiling"> 中天商品
+                    </label>
+                </div>
+                <div class="work-item">
+                    <label>
+                        <input type="checkbox" name="current" value="ceiling"> 上天商品
+                    </label>
+                </div>
+                <div class="work-item">
+                    <label>
+                        <input type="checkbox" name="current" value="foundation"> 基礎関連工事
+                    </label>
+                </div>
+                <div class="work-item">
+                    <label>
+                        <input type="checkbox" name="current" value="wall"> 外壁関連工事
+                    </label>
+                </div>
+                <div class="work-item">
+                    <label>
+                        <input type="checkbox" name="current" value="roof"> 屋根関連工事
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- check-buttonの前に以下を追加 -->
+        <div class="button-container">
+            <button class="check-button" onclick="checkOverSelling()">チェックする</button>
+            <button class="check-button reset-button" onclick="resetForm()">リセット</button>
+        </div>
+        <div id="result" class="result"></div>
+
+    </div>
+
+    <script>
+        function checkOverSelling() {
+            const pastContracts = document.querySelectorAll('input[name="past"]:checked').length;
+            const currentContract = document.querySelectorAll('input[name="current"]:checked').length;
+
+            const result = document.getElementById('result');
+            result.style.display = 'block';
+
+            if (!currentContract) {
+                result.className = 'result warning';
+                result.innerHTML = '⚠️ 今回の契約内容を選択してください。';
+                return;
+            }
+
+            const totalContracts = pastContracts + currentContract; // 過去の契約 + 今回の契約
+
+            if (totalContracts >= 3) {
+                result.className = 'result warning';
+                result.innerHTML = `⚠️ 注意: 1年以内の総契約件数が${totalContracts}件になります。<br>
+                                  過量販売規制対象のため、見積日から契約2日あけ、契約から8日あけ施工が必要です。<br>
+                                  （過去${pastContracts}件 + 今回1件）`;
+            } else {
+                result.className = 'result safe';
+                result.innerHTML = `✔️ OK: 1年以内の総契約件数は${totalContracts}件です。<br>
+                                  過量販売の規制対象外です。<br>
+                                  （過去${pastContracts}件 + 今回1件）`;
+            }
+        }
+
+        // 選択時の視覚的フィードバック
+        document.querySelectorAll('.work-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const input = this.querySelector('input');
+                if (input.type === 'radio') {
+                    document.querySelectorAll('.work-item input[type="radio"]').forEach(radio => {
+                        radio.closest('.work-item').classList.remove('selected');
+                    });
+                }
+                if (input.checked) {
+                    this.classList.add('selected');
+                } else {
+                    this.classList.remove('selected');
+                }
+            });
+        });
+    
+function resetForm() {
+    // チェックボックスをすべて解除
+    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+        checkbox.checked = false;
+    });
+
+    // 選択状態のスタイルをリセット
+    document.querySelectorAll('.work-item').forEach(item => {
+        item.classList.remove('selected');
+    });
+
+    // 結果表示をクリア
+    const result = document.getElementById('result');
+    result.style.display = 'none';
+    result.innerHTML = '';
+}
+
+    </script>
+</body>
+</html>
