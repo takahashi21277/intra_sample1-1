@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>契約管理業務ルール</title>
+    <style>
+        .manual-container {
+            font-family: "Helvetica Neue", Arial, "Hiragino Sans", "Meiryo", sans-serif;
+            max-width: 850px;
+            margin: 20px auto;
+            border: 1px solid #2c3e50;
+            background: #fff;
+            color: #333;
+            line-height: 1.6;
+        }
+        .header-box {
+            background: #2c3e50;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        /* 電話マークを白円で目立たせる設定 */
+        .contact-top {
+            background: #e74c3c;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .tel-circle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            margin-right: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .tel-link {
+            color: #fff;
+            text-decoration: none;
+        }
+        .content-inner {
+            padding: 25px;
+        }
+        .section-title {
+            background: #f4f7f6;
+            border-left: 5px solid #2c3e50;
+            padding: 8px 15px;
+            margin: 25px 0 15px 0;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .important-note {
+            border: 2px solid #e74c3c;
+            padding: 15px;
+            margin: 15px 0;
+            background: #fff5f5;
+        }
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .info-table th, .info-table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-size: 0.95rem;
+        }
+        .info-table th {
+            background: #eee;
+            width: 30%;
+        }
+        .highlight-red { color: #e74c3c; font-weight: bold; }
+        .new-customer-badge {
+            background: #e74c3c;
+            color: #fff;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+        .time-box {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        .time-card {
+            flex: 1;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-top: 4px solid #3498db;
+            background-color: #fcfcfc;
+        }
+        .time-card.overtime {
+            border-top-color: #e74c3c;
+            background-color: #fff9f9;
+        }
+        .footer-note {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 15px;
+            border-top: 1px dashed #ccc;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="manual-container">
+    <div class="contact-top">
+        <span class="tel-circle">📞</span>
+        お客様相談室 直通：<a href="tel:0924368884" class="tel-link">092-436-8884</a>
+    </div>
+
+    <div class="header-box">
+        <h1 style="margin:0; font-size: 1.5rem;">契約報告業務ルール（営業担当者用）</h1>
+    </div>
+
+    <div class="content-inner">
+        <div class="important-note">
+            <strong>【報告前の必須アクション】</strong><br>
+            契約報告の前に、お客様へ以下の配布・説明を必ず完了させてください。<br>
+            □ クーリングオフ説明　□ 赤チラシ　□ 外部相談窓口チラシ □ 商品カタログ
+        </div>
+
+        <div class="section-title">1. 報告内容（お客様情報・契約詳細）</div>
+        <table class="info-table">
+            <tr>
+                <th>基本情報 <small>(全員必須)</small></th>
+                <td><strong>お客様の電話番号</strong></td>
+            </tr>
+            <tr style="background-color: #fff9f9;">
+                <th><span class="new-customer-badge">新規のみ</span> 基本情報</th>
+                <td><strong>契約者氏名、契約者年齢</strong></td>
+            </tr>
+            <tr>
+                <th>契約詳細 <small>(全員必須)</small></th>
+                <td>商品、数量、金額(税抜)、施工日、支払方法、契約日、見積番号(住宅改修)</td>
+            </tr>
+            <tr>
+                <th>70歳以上の場合</th>
+                <td><strong>【確認者情報の伝達】</strong><br>年齢、続柄、同居か別居か、連絡先</td>
+            </tr>
+            <tr>
+                <th>確認未了の場合</th>
+                <td>挨拶（確認）がまだできそうにない場合は、「いつ頃確認が取れる予定か」または「いつ相談室が連絡すればよいか」を伝えてください。</td>
+            </tr>
+            <tr>
+                <th>重複報告の防止</th>
+                <td>
+                    <span class="highlight-red">先に情報を伝えている（報告済み）の場合：</span><br>
+                    案件の重複がないよう、必ず<strong>「〇月〇日に報告済みの案件」</strong>であることを伝えた上で、そのお客様が<strong>「いつ挨拶（確認）できるか」</strong>を報告してください。
+                </td>
+            </tr>
+        </table>
+
+        <div class="section-title">2. 受付時間および時間外対応</div>
+        <div class="time-box">
+            <div class="time-card">
+                <strong style="font-size: 1.1rem; color: #2980b9;">【通常受付】 9:00 ～ 18:30</strong><br>
+                <p style="margin: 10px 0 0 0; font-size: 0.9rem;">
+                    稼働日・公休日とも共通。<br>
+                    <strong>相談室直通電話</strong>へ連絡してください。
+                </p>
+            </div>
+            <div class="time-card overtime">
+                <strong style="font-size: 1.1rem; color: #e74c3c;">【時間外】 ～ 20:30 まで</strong><br>
+                <p style="margin: 10px 0 0 0; font-size: 0.9rem;">
+                    <span class="highlight-red">稼働日限定</span>の対応です。<br>
+                    <strong>本室課長</strong>へ連絡してください。
+                </p>
+            </div>
+        </div>
+
+        <div class="important-note" style="background: #fff; border-color: #2c3e50;">
+            <strong>■ 時間外連絡ルール（18:30 ～ 20:30）</strong><br>
+            <ul>
+                <li><strong>連絡先：本室課長 携帯（080-8560-9452）</strong></li>
+                <li><strong>条件：</strong>18:30までに報告済みの案件に限る。</li>
+                <li><span class="highlight-red">確認が取れない場合も必ず連絡をすること。</span></li>
+                <li>相談室からの連絡が取れる状態を維持すること。</li>
+            </ul>
+        </div>
+
+        <div class="footer-note">
+            最終更新：2026年2月24日
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
