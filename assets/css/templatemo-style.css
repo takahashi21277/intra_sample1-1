@@ -65,6 +65,12 @@ h4 {
 	letter-spacing: 0.25px;
 }
 
+h5 {
+	font-size: 19px;
+	font-weight: 600;
+	color: white;
+	letter-spacing: 0.25px;
+}
 img {
 	width: 100%;
 	overflow: hidden;
@@ -78,6 +84,7 @@ button {
     background-color: transparent;
 	display: inline-block;
 	padding: 8px 20px;
+    margin-bottom: 5px;
 	color: #535ba0;
 	border: 2px solid #535ba0;
 	transition: all 0.5s;
@@ -89,7 +96,7 @@ button:hover {
 }
 
 .primary-button{
-    display: inline;
+    display: inline;   
 }
 
 section#search {
@@ -141,32 +148,39 @@ section {
 	padding-right: 0px;
 }
 .main-banner .banner-content {
-	background-image: url(../images/sky_bg2.jpg);
+	background-image: url(../images/sky_bg3.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
 }
 
-.main-banner .banner-content .banner-caption {
-    max-width: 450px;
-	background-color: rgba(250,250,250,0.95);
-	margin: 50px;
-	padding: 50px;
+.main-banner .banner-content .banner-caption1 {
+    max-width: 400px;
+	background-color: transparent;
+	margin: 30px 0px 30px 50px;
+	padding: 25px;
 }
 
-.main-banner .banner-content .banner-caption h4 {
-	font-size: 38px;
+.main-banner .banner-content .banner-caption2 {
+    max-width: 400px;
+	background-color: rgba(250,250,250,0.95);
+	margin: 30px 0px 30px 50px;
+	padding: 25px;
+}
+
+.main-banner .banner-content .banner-caption1 h4 {
+	font-size: 43px;
 	font-weight: 700;
 	color: #31323a;
 	letter-spacing: 0.25px;
 	margin: 0px;
 }
 
-.main-banner .banner-content .banner-caption em {
+.main-banner .banner-content .banner-caption1 em {
 	font-style: normal;
-	color: #535ba0;
+	color: #040b57;
 }
 
-.main-banner .banner-content .banner-caption span {
+.main-banner .banner-content .banner-caption1 span {
 	font-size: 15px;
 	color: #aaaaaa;
 	letter-spacing: 0.5px;
@@ -175,7 +189,7 @@ section {
 	margin-bottom: 20px;
 }
 
-.main-banner .banner-content .banner-caption p {
+.main-banner .banner-content .banner-caption1 p {
 	margin-bottom: 30px;
 }
 
@@ -376,7 +390,7 @@ section.right-image {
 .simple-post .col-md-12{
     position:relative;overflow: hidden;
     margin:0 auto;
-    height:260px;    
+    height:400px;
 }
 
 .simple-post p {
