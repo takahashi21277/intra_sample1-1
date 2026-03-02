@@ -148,7 +148,7 @@ section {
 	padding-right: 0px;
 }
 .main-banner .banner-content {
-	background-image: url(../images/sky_bg3.jpg);
+	background-image: url(../images/sky_bg3-1.JPG);
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -388,9 +388,8 @@ section.right-image {
 }
 
 .simple-post .col-md-12{
-    position:relative;overflow: hidden;
-    margin:0 auto;
-    height:400px;
+    position:relative ; overflow: hidden;
+    height: 370px;
 }
 
 .simple-post p {
