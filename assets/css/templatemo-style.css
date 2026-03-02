@@ -68,7 +68,7 @@ h4 {
 h5 {
 	font-size: 19px;
 	font-weight: 600;
-	color: white;
+	color: rgb(196, 130, 0);
 	letter-spacing: 0.25px;
 }
 img {
@@ -148,7 +148,7 @@ section {
 	padding-right: 0px;
 }
 .main-banner .banner-content {
-	background-image: url(../images/sky_bg4-1.JPG);
+	background-image: url(../images/sky_bg7-2.JPG);
 	background-size: cover;
 	background-repeat: no-repeat;
 }
