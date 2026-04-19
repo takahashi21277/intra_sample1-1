@@ -213,7 +213,7 @@ section {
 .services .service-item {
 	margin-bottom: 3px;
 	background-color: #eaebef;
-	padding: 50px;
+	padding: 25px;
 	text-align: center;
 	transition: all 0.5s;
 }
