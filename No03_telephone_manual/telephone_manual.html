@@ -46,6 +46,21 @@
             z-index: 10;
         }
 
+        .sidebar-footer {
+            padding: 25px 20px;
+            background-color: var(--main-blue);
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            position: sticky;
+            bottom: 0;
+            z-index: 10;
+        }
+
+        .sidebar-footer a {
+            color:white;
+        }
+
         .category-title {
             background-color: #f1f3f5;
             padding: 12px 20px;
@@ -275,10 +290,13 @@
         <div class="menu-item" onclick="showContent('etc5')">・離島手数料</div>
         <!--ここから非表示
         <div class="menu-item" onclick="showContent('etc6')">・未設定</div>
-        ここまで-->
-        <div class="category-title">【前ページへ戻る】</div>
-        <div class="menu-item" onclick="window.location.href='https://snavi.sanix.jp/intranet/customer/index.html'">・お客様相談室ホーム</div>
+        ここまで-->       
         <br>
+
+        <div class="sidebar-footer">
+            <a href="https://snavi.sanix.jp/intranet/customer/index.html">お客様相談室ホームへ戻る</a>
+        </div>
+
     </div>
 
     <div class="main-content">
