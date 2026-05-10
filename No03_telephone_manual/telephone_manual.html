@@ -1,0 +1,2919 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>電話対応マニュアル</title>
+    <script src="https://kit.fontawesome.com/53e1f75a12.js" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --main-blue: #005599;
+            --sub-bg: #f8f9fa;
+            --accent-yellow: #ffcc00;
+            --border-color: #ddd;
+            --self-label: #7fbef1;
+            --cust-label: #a7a7a2c0;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            background-color: #e9ecef;
+            color: #333;
+        }
+
+        /* サイドバー */
+        .sidebar {
+            width: 300px;
+            background-color: #fff;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            padding: 25px 20px;
+            background-color: var(--main-blue);
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .category-title {
+            background-color: #f1f3f5;
+            padding: 12px 20px;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: black;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .menu-item {
+            padding: 10px 25px;
+            cursor: pointer;
+            border-bottom: 1px solid #f8f9fa;
+            font-size: 0.9em;
+            transition: 0.2s;
+        }
+
+        .menu-item:hover {
+            background-color: #f0f7ff;
+        }
+
+        .menu-item.active {
+            background-color: #fffde7;
+            border-left: 6px solid var(--main-blue);
+            font-weight: bold;
+            color: var(--main-blue);
+        }
+
+        /* メインコンテンツ */
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        .content-card {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: 0 auto;
+            min-height: 80vh;
+        }
+
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        h2 {
+            color: var(--main-blue);
+            border-bottom: 3px solid var(--main-blue);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .case-box {
+            margin-bottom: 25px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .case-title {
+            background: #f8f9fa;
+            padding: 12px 20px;
+            margin: 0;
+            font-size: 1.05em;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: bold;
+        }
+
+        .script-list {
+            list-style: none;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .script-list li {
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .label-self {
+            background: var(--self-label);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .label-cust {
+            background: var(--cust-label);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .highlight-box {
+            background-color: #fffbe6;
+            border: 2px dashed #f1c40f;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+
+        .pdf-link-box {
+            margin-top: 40px;
+            padding: 25px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #eee;
+            text-align: center;
+        }
+
+        .pdf-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 30px;
+            background-color: #d32f2f;
+            color: white !important;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        .pdf-button:hover {
+            background-color: #b71c1c;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <div class="sidebar-header">お客様電話対応マニュアル</div>
+
+        <div class="category-title">【シロアリ関連】</div>
+        <div class="menu-item active" onclick="showContent('id1')">・調査依頼</div>
+        <div class="menu-item" onclick="showContent('id2')">・再発</div>
+        <div class="menu-item" onclick="showContent('id3')">・価格（新規・保切れ）</div>
+        <div class="menu-item" onclick="showContent('id4')">・保証</div>
+        <div class="menu-item" onclick="showContent('id5')">・消毒時期</div>
+        <div class="menu-item" onclick="showContent('id6')">・羽アリ</div>
+        <div class="menu-item" onclick="showContent('id7')">・施工方法</div>
+        <div class="menu-item" onclick="showContent('id8')">・薬剤の影響</div>
+        <div class="menu-item" onclick="showContent('id9')">・ほかの害虫への効果</div>
+        <div class="menu-item" onclick="showContent('id10')">・ベイト工法</div>
+
+        <div class="category-title">【換気扇関連】</div>
+        <div class="menu-item" onclick="showContent('k1')">・床下換気扇の種類</div>
+        <div class="menu-item" onclick="showContent('k2')">・SOクリーンファン</div>
+        <div class="menu-item" onclick="showContent('k3')">・SOソーラークリーンファン</div>
+        <div class="menu-item" onclick="showContent('k4')">・床下拡散ファン</div>
+        <div class="menu-item" onclick="showContent('k5')">・天井裏換気扇</div>
+        <div class="menu-item" onclick="showContent('k6')">・DCコントローラー</div>
+        <div class="menu-item" onclick="showContent('k7')">・MCコントローラー</div>
+        <div class="menu-item" onclick="showContent('k8')">・TSブースター</div>
+        <div class="menu-item" onclick="showContent('k9')">・換気扇の寿命</div>
+        <div class="menu-item" onclick="showContent('k10')">・DCコン取説(AD-SNX)</div>
+        <div class="menu-item" onclick="showContent('k11')">・DCコン取説(AD-SNX-S)</div>
+        <div class="menu-item" onclick="showContent('k12')">・換気扇撤去</div>
+
+        <div class="category-title">【その他HS商品】</div>
+        <div class="menu-item" onclick="showContent('h1')">・家屋補強システム</div>
+        <div class="menu-item" onclick="showContent('h2')">・基礎補修工事</div>
+        <div class="menu-item" onclick="showContent('h3')">・基礎改修工事</div>
+        <div class="menu-item" onclick="showContent('h4')">・ブレスマット</div>
+        <div class="menu-item" onclick="showContent('h5')">・SSジャッキ</div>
+        <div class="menu-item" onclick="showContent('h6')">・防カビ</div>
+        <div class="menu-item" onclick="showContent('h7')">・天井裏遮熱</div>
+        <div class="menu-item" onclick="showContent('h8')">・床下断熱材</div>
+        <div class="menu-item" onclick="showContent('h9')">・リフォーム工事</div>
+        <div class="menu-item" onclick="showContent('h10')">・耐震診断</div>
+        <div class="menu-item" onclick="showContent('h11')">・ポータブル蓄電池</div>
+
+        <div class="category-title">【太陽光】</div>
+        <div class="menu-item" onclick="showContent('m1')">・メンテナンス</div>
+        <div class="menu-item" onclick="showContent('m2')">・パスワード／設備ID</div>
+        <div class="menu-item" onclick="showContent('m3')">・太陽光撤去</div>
+        <div class="menu-item" onclick="showContent('m4')">・太陽光名義変更</div>
+        <div class="menu-item" onclick="showContent('m5')">・太陽光買取価格終了</div>
+        <div class="menu-item" onclick="showContent('m6')">・蓄電池</div>
+        <div class="menu-item" onclick="showContent('m7')">・蓄電池設定変更</div>
+
+        <div class="category-title">【ES商品】</div>
+        <div class="menu-item" onclick="showContent('y1')">・排水管洗浄</div>
+        <div class="menu-item" onclick="showContent('y2')">・ドールマンショック</div>
+        <div class="menu-item" onclick="showContent('y3')">・害虫獣／PCS</div>
+
+        <div class="category-title">【契約関連】</div>
+        <div class="menu-item" onclick="showContent('c1')">・高齢者契約について</div>
+        <div class="menu-item" onclick="showContent('c2')">・クーリングオフ</div>
+        <div class="menu-item" onclick="showContent('c3')">・保証書</div>
+        <div class="menu-item" onclick="showContent('c4')">・支払い方法</div>
+        <div class="menu-item" onclick="showContent('c5')">・信販問合せ</div>
+        <div class="menu-item" onclick="showContent('c6')">・個人情報開示</div>
+        <div class="menu-item" onclick="showContent('c7')">・消費生活センター</div>
+        <div class="menu-item" onclick="showContent('c8')">・一般管理費</div>
+
+        <div class="category-title">【その他】</div>
+        <div class="menu-item" onclick="showContent('etc1')">・車両クレーム</div>
+        <div class="menu-item" onclick="showContent('etc2')">・つながるホームサポート</div>
+        <div class="menu-item" onclick="showContent('etc3')">・ハウスクリーニング</div>
+        <div class="menu-item" onclick="showContent('etc4')">・紹介制度</div>
+        <div class="menu-item" onclick="showContent('etc5')">・離島手数料</div>
+        <!--ここから非表示
+        <div class="menu-item" onclick="showContent('etc6')">・未設定</div>
+        ここまで-->
+        <div class="category-title">【前ページへ戻る】</div>
+        <div class="menu-item" onclick="window.location.href='https://snavi.sanix.jp/intranet/customer/index.html'">・お客様相談室ホーム</div>
+        <br>
+    </div>
+
+    <div class="main-content">
+        <div class="content-card">
+
+            <div id="id1" class="content-section active">
+                <h2>シロアリ調査・見積依頼</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">新規・調査依頼の受付フロー</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>調査・見積もりをお願いします。</li>
+                        <li><span class="label-self">サニックス：</span>かしこまりました。当社のご利用は初めてでしょうか。</li>
+                        <li><span class="label-cust">お客様：</span>はい、そうです。（または過去に利用あり）</li>
+                        <li><span class="label-self">サニックス：</span>こちらのお電話は福岡市博多区の本社につながっておりますので、最寄りの営業所より連絡を差し上げます。お客様のご連絡先等をお伺いしたいので、まずは電話番号から教えていただけますでしょうか。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <strong>【必須ヒアリング事項】</strong>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>電話番号・氏名・住所</li>
+                        <li>築年数・建物構造・階数</li>
+                        <li>現在気になっている事（羽アリや床の浮きなど）</li>
+                        <li>希望の調査日時</li>
+                        <li>お問い合わせのきっかけ（何を見て電話したか）</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の締めくくり（復唱・結び）</h3>
+                    <ul class="script-list">
+                        <li><span class="label-self">サニックス：</span>（氏名・電話番号・住所・希望日時を復唱）〜でございますね。</li>
+                        <li><span class="label-self">サニックス：</span>私、お客様相談室の〇〇と申します。早速、最寄りの営業所に連絡を取り、改めて担当の者よりご連絡差し上げます。</li>
+                        <li><span class="label-self">サニックス：</span>お電話ありがとうございました。失礼いたします。</li>
+                    </ul>
+                </div>
+
+                <div class="pdf-link-box">
+                    <a href="pdf/irai.pdf" target="blank" class="pdf-button">
+                        <i class="far fa-file-pdf"></i> 印刷用PDFを開く
+                    </a>
+                </div>
+
+            </div>
+
+            <div id="id2" class="content-section">
+                <h2>再発（保証期間内）</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">状況の聞き取りフロー</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>消毒してもらったのに、白蟻が出ています。 </li>
+                        <li><span class="label-self">サニックス：</span>申し訳ございません。現在どういった状況なのか教えていただけますでしょうか。 </li>
+                        <li><span class="label-cust">お客様：</span>（例：お風呂場から羽のついた蟻が何十匹も出ています。） </li>
+                        <li><span class="label-self">サニックス：</span>さようでございますか。こちらのお電話は福岡市博多区の本社につながっております。担当の営業所よりご連絡を差し上げますので、お客様のお名前と電話番号をお願いいたします。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <strong>【必ず確認する状況項目】</strong>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>いつ（発見の日時） </li>
+                        <li>どの場所で </li>
+                        <li>どのような状況か </li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の締めくくり（復唱・案内）</h3>
+                    <ul class="script-list">
+                        <li><span class="label-self">サニックス：</span>（氏名・電話番号を復唱）〜でございますね。 </li>
+                        <li><strong>【顧客履歴で確認】</strong></li>
+                        <li><span class="label-self">サニックス：</span>私、お客様相談室の〇〇と申します。早速、担当の営業所に連絡を取り、改めて担当の者よりご連絡差し上げます。</li>
+                        <li><span class="label-self">サニックス：</span>（※担当が外出している時間帯などの場合）ご連絡に少しお時間がかかる場合がございます。申し訳ございませんが、よろしくお願いいたします。</li>
+                        <li><span class="label-self">サニックス：</span>お電話ありがとうございました。失礼いたします。 </li>
+                    </ul>
+                </div>
+
+                <div class="pdf-link-box">
+                    <a href="pdf/saihatsu.pdf" target="blank" class="pdf-button">
+                        <i class="far fa-file-pdf"></i> 印刷用PDFを開く
+                    </a>
+                </div>
+
+            </div>
+
+            <div id="id3" class="content-section">
+                <h2>価格（新規・保証切れ）</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">価格案内の冒頭フロー</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>白蟻消毒の価格を教えてください。</li>
+                        <li><span class="label-self">サニックス：</span>以前、当社をご利用いただいたことはございますか。</li>
+                        <li><strong>【判定】</strong>
+                            <ul>
+                                <li>初めて・調査のみ → <strong>新規価格</strong></li>
+                                <li>保証切れ7ヶ月目以降5年以内 → <strong>保証切れ価格</strong></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">＜新規価格＞の案内</h3>
+                    <ul class="script-list">
+                        <li><span class="label-self">サニックス：</span>当社は、調査・見積もりまでは無料で行っております。</li>
+                        <li><span class="label-self">サニックス：</span>生息がなかった場合は「予防消毒」、生息・痕跡があった場合は「駆除消毒」となります。</li>
+                    </ul>
+                    <div style="padding: 0 20px 20px;">
+                        <table style="width: 100%; border-collapse: collapse; font-size: 0.9em;">
+                            <tr style="background: #f0f0f0;">
+                                <th style="border: 1px solid #ddd; padding: 8px;">項目</th>
+                                <th style="border: 1px solid #ddd; padding: 8px;">40㎡まで（基本）</th>
+                                <th style="border: 1px solid #ddd; padding: 8px;">40㎡超（1㎡当り）</th>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px;">予防消毒</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">（価格表参照）円</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">（価格表参照）円</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px;">駆除消毒</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">（価格表参照）円</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">（価格表参照）円</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">＜保証切れ価格＞の案内</h3>
+                    <p style="padding: 0 20px; font-size: 0.85em; color: #666;">※保証終了後7ヶ月以上〜5年以内のお客様が対象</p>
+                    <ul class="script-list">
+                        <li><span class="label-self">サニックス：</span>よろしければ履歴を確認いたしますので、お客様の電話番号とお名前を教えていただけますでしょうか。</li>
+                        <li><span class="label-self">サニックス：</span>保証切れ予防消毒は、40㎡までの基本価格が（価格表参照）円、40㎡を超える部分は1㎡当たり（価格表参照）円になります。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="border-color: #d32f2f; background-color: #fff9f9;">
+                    <i class="fas fa-exclamation-circle" style="color: #d32f2f; margin-right: 5px;"></i>
+                    <strong>【重要】</strong>別途、<strong>一般管理費として税込22,000円</strong>がかかることを必ずお伝えしてください。
+                </div>
+            </div>
+
+            <div id="id4" class="content-section">
+                <h2>保証について</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">5年間の保証内容の案内</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>白蟻消毒は保証がありますか。</li>
+                        <li><span class="label-self">サニックス：</span>5年間の保証がございます。</li>
+                        <li><span class="label-self">サニックス：</span>（詳細は保証書の表面および裏面の約款に記載しております）</li>
+                    </ul>
+                </div>
+                <div class="highlight-box">
+                    <strong>【保証の2大柱】</strong>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li><strong>無料再消毒：</strong>保証期間中に白蟻の生息を当社で確認した場合、再発箇所を無料で消毒します。</li>
+                        <li><strong>修復補償：</strong>修復が必要な損傷箇所に限り、1,000万円を限度とした原状回復工事の費用を補償します。</li>
+                    </ul>
+                </div>
+                <div class="case-box">
+                    <h3 class="case-title">建物の売却・名義変更について</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>保証中に建物を売却した時は、保証はどうなるのですか。</li>
+                        <li><span class="label-self">サニックス：</span>建物への保証ですので継続可能ですが、<strong>名義変更の手続き</strong>が必要となります。</li>
+                        <li><span class="label-self">サニックス：</span>新しく入居される方へ保証書をお渡しください。新しいオーナー様から当社へご連絡いただければ、手続きを開始いたします。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="background-color: #f0f7ff; border-color: #005599;">
+                    <strong>【名義変更の注意点】</strong>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>保証書の名義書き換え・再発行には、<strong>手数料 5,500円（税込）</strong>がかかります。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="id5" class="content-section">
+                <h2>消毒時期について</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">消毒に最適な時期の案内</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>白蟻消毒をするのに良い時期はありますか。</li>
+                        <li><span class="label-self">サニックス：</span>特に、いつが良いということはありません。</li>
+                        <li><span class="label-cust">お客様：</span>寒い時期に消毒しても、あまり効果がないのではないですか。</li>
+                        <li><span class="label-self">サニックス：</span>白蟻は冬眠する虫ではありませんので、いつ頃消毒するのが良いということはありません。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <strong>【補足：羽アリの発生時期について】</strong>
+                    <p style="margin-top: 10px;">4月の終わりから7月にかけては、羽をつけた蟻（羽アリ）がたくさん飛ぶ時期です。この時期に目にされてご連絡をいただくことも多くございます。</p>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-self">サニックス：</span>お電話ありがとうございました。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="id6" class="content-section">
+                <h2>羽アリ</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">羽アリの種類と見分け方</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>羽蟻はどんな虫ですか。</li>
+                        <li><span class="label-self">サニックス：</span>羽蟻には、白蟻の羽蟻と黒蟻の羽蟻があります。</li>
+                    </ul>
+
+                    <div style="padding: 0 20px 20px;">
+                        <table style="width: 100%; border-collapse: collapse; font-size: 0.9em; text-align: center;">
+                            <tr style="background: #f0f0f0;">
+                                <th style="border: 1px solid #ddd; padding: 10px; width: 20%;">特徴</th>
+                                <th style="border: 1px solid #ddd; padding: 10px; color: #d32f2f;">シロアリの羽アリ</th>
+                                <th style="border: 1px solid #ddd; padding: 10px; color: #555;">黒アリの羽アリ</th>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 10px; background: #fafafa; font-weight: bold;">腹部</td>
+                                <td style="border: 1px solid #ddd; padding: 10px;">くびれがなく寸胴</td>
+                                <td style="border: 1px solid #ddd; padding: 10px;">くびれている</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 10px; background: #fafafa; font-weight: bold;">触角</td>
+                                <td style="border: 1px solid #ddd; padding: 10px;">数珠状（じゅずじょう）</td>
+                                <td style="border: 1px solid #ddd; padding: 10px;">くの字型</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 10px; background: #fafafa; font-weight: bold;">羽の形状</td>
+                                <td style="border: 1px solid #ddd; padding: 10px;">4枚とも同じ形・大きさ</td>
+                                <td style="border: 1px solid #ddd; padding: 10px;">前2枚が大きく、後2枚が小さい</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 10px; background: #fafafa; font-weight: bold;">羽の動き</td>
+                                <td style="border: 1px solid #ddd; padding: 10px;">4枚別々に動く</td>
+                                <td style="border: 1px solid #ddd; padding: 10px;">1枚の羽のように動く</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">発生状況による判断と調査の案内</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>羽蟻が出たら、白蟻もいるのでしょうか。</li>
+                        <li><span class="label-self">サニックス：</span>数匹であればどこからか飛んできた可能性もございますが、大量に見られた場合はどこかに巣があることも考えられます。</li>
+                        <li><span class="label-self">サニックス：</span>もし気になられるようであれば、当社は無料で調査を行っておりますので、お伺いいたしましょうか。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>検討して、また連絡します。</li>
+                        <li><span class="label-self">サニックス：</span>よろしくお願いいたします。お電話ありがとうございました。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="id7" class="content-section">
+                <h2>施工方法について</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">標準的な3段階の消毒手順 </h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>白蟻消毒は、どんな方法でするのですか。 </li>
+                        <li><span class="label-self">サニックス：</span>当社では、主に3つの手順を組み合わせて徹底的に消毒を行います。 </li>
+                    </ul>
+
+                    <div style="padding: 0 20px 20px;">
+                        <div  style="margin-bottom: 15px; padding: 15px; border-left: 5px solid var(--main-blue); background: #f0f7ff;">
+                            <strong style="color: var(--main-blue);">STEP 1：木部穿孔（せんこう）注入処理</strong><br>
+                            <span style="font-size: 0.9em;">柱・土台・束柱（つかばしら）などの接合部や被害箇所に12mmの穴をあけ、薬剤を直接注入します。 </span>
+                        </div>
+                        <div style="margin-bottom: 15px; padding: 15px; border-left: 5px solid var(--main-blue); background: #f0f7ff;">
+                            <strong style="color: var(--main-blue);">STEP 2：木部吹き付け処理</strong><br>
+                            <span style="font-size: 0.9em;">木材の表面に薬剤を吹き付け、または塗布してバリアを作ります。 </span>
+                        </div>
+                        <div style="margin-bottom: 15px; padding: 15px; border-left: 5px solid var(--main-blue); background: #f0f7ff;">
+                            <strong style="color: var(--main-blue);">STEP 3：土壌散布処理</strong><br>
+                            <span style="font-size: 0.9em;">床下の土壌や基礎、配管の立ち上がり部分などに薬剤を散布し、地面からの侵入を防ぎます。 </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">特殊な箇所の処理 </h3>
+                    <ul class="script-list">
+                        <li><strong>玄関・浴室などの「タタキ」部分</strong>
+                        <br>床下に入れない場所は、タイルの目地に8mmの穴をあけて薬剤を注入します。 </li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="background-color: #fff5f5; border-color: #e57373;">
+                    <strong style="color: #c62828;">【池や井戸がある場合の注意】</strong><br>
+                    <p style="margin-top: 10px; font-size: 0.95em;">近隣に池や井戸がある場合は、安全を考慮して液体の代わりに<strong>「粒剤（りゅうざい）」</strong>を使用します。</p>
+                    <ul style="font-size: 0.9em; margin-top: 5px;">
+                        <li>井戸・池から5m以内：土壌に粒剤を散布 </li>
+                        <li>井戸・池から7m以内：タタキ処理は行いません </li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び </h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>分かりました。 </li>
+                        <li><span class="label-self">サニックス：</span>お電話ありがとうございました。失礼いたします。 </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="id8" class="content-section">
+                <h2>薬剤の影響について</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">人体への安全性</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>白蟻消毒の薬剤は人体に影響はないのですか。</li>
+                        <li><span class="label-self">サニックス：</span>人体や環境に影響の小さい、安全性の高い薬剤を使用しております。通常の施工であれば、お住まいの方への影響はございませんのでご安心ください。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="background-color: #fffde7; border-color: #fbc02d;">
+                    <strong>【受注時の注意点】</strong>
+                    <br>アレルギー体質や化学物質過敏症、特異体質の方については、施工をお断りする場合がございます。
+                    <p style="font-size: 0.9em; margin-top: 5px; color: #666;">※状況により、薬剤を撒かない「ベイト工法」での対応をご提案できる可能性があります。</p>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">臭いと換気について</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>消毒したあと、臭いは残りますか。</li>
+                        <li><span class="label-self">サニックス：</span>当社では低臭性の薬剤を使用しておりますので、臭いは非常に少なくなっております。</li>
+                        <li><span class="label-self">サニックス：</span>ただ、感じ方には個人差がございますので、念のため施工後1週間ほどは窓を開けるなどして、換気をよくしていただくようお願いしております。</li>
+                    </ul>
+                    <div style="margin: 10px 20px; padding: 10px; background: #f9f9f9; border-radius: 5px; font-size: 0.85em; color: #555;">
+                        <strong>（オペレーター用補足）</strong><br>
+                        薬剤の有効成分はほとんど蒸散しません。臭いの原因は主に溶媒によるもので、人体への影響はありません。
+                    </div>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">庭の植物への影響</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>庭の木や花に薬剤がかかっても大丈夫ですか。</li>
+                        <li><span class="label-self">サニックス：</span>通常の散布液は希釈して使用するため、植物が枯れることはありません。もし付着した場合は、水で洗い流していただければ大丈夫です。</li>
+                        <li><span class="label-self">サニックス：</span>ただし、<strong>食用の植物（家庭菜園など）</strong>にかかった場合は、口にしないようご注意ください。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>分かりました。安心しました。</li>
+                        <li><span class="label-self">サニックス：</span>お電話ありがとうございました。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="id9" class="content-section">
+                <h2>他の害虫（ゴキブリ等）への効果</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">基本の回答：シロアリ専用であること</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>シロアリ消毒をしましたが、ゴキブリ（ムカデ等）が出てきます。</li>
+                        <li><span class="label-self">サニックス：</span>サニックスで使用している薬剤は「シロアリ」を対象とした専用の薬剤でございます。そのため、他の害虫は対象外となっております。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">「昔はゴキブリにも効いた」と言われたら</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>以前はゴキブリも出なくなりました。薬剤が変わったのですか？</li>
+                        <li><span class="label-self">サニックス：</span>かなり以前は非常に強い成分を含んだ薬剤を使用していたこともございましたが、現在は環境性能を重視し、シロアリに特化して効果を発揮する薬剤に切り替わっております。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="background-color: #f0f4f8; border-color: #2b6cb0;">
+                    <strong>【「消毒後にゴキブリを見た」というお客様へ】</strong><br>
+                    <p style="margin-top: 10px; font-size: 0.95em;">
+                       薬剤が散布されたことで、それまで床下などに隠れていたゴキブリが苦しくなり、<strong>逃げ場を探して表に出てきた</strong>可能性が考えられます。
+                    </p>
+                    <p style="font-size: 0.9em; color: #555;">
+                        （※薬剤に反応している証拠である旨を丁寧にお伝えし、安心感を与えてください）
+                    </p>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>そうですか、分かりました。</li>
+                        <li><span class="label-self">サニックス：</span>お電話ありがとうございました。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="id10" class="content-section">
+                <h2>ベイト工法（MK）について</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">ベイト工法の仕組み</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>ベイト工法（MK）は、どんなものですか。</li>
+                        <li><span class="label-self">サニックス：</span>建物の周囲の土の中に「ステーション」という容器を設置し、その中に「ベイト剤」という薬剤を入れてシロアリを駆除する方法です。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="background-color: #fdf2f2; border-color: #f8d7da;">
+                    <strong>【受注時の重要ルール】</strong><br>
+                    ベイト工法のみの契約・工事は行っておりません。当社の<strong>シロアリ消毒と併用して行う工事</strong>としてお勧めしてください。
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">価格の案内</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>いくらですか。</li>
+                        <li><span class="label-self">サニックス：</span>ベイト工法の価格は、床下の面積（㎡数）で計算いたします。</li>
+                    </ul>
+                    <div style="padding: 0 20px 20px;">
+                        <table style="width: 100%; border-collapse: collapse; font-size: 0.9em;">
+                            <tr style="background: #f0f0f0;">
+                                <th style="border: 1px solid #ddd; padding: 8px;">項目</th>
+                                <th style="border: 1px solid #ddd; padding: 8px;">40㎡まで（基本）</th>
+                                <th style="border: 1px solid #ddd; padding: 8px;">40㎡超（1㎡当り）</th>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">新規設置</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">（価格表参照）円</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">（価格表参照）円</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">継続管理</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">（価格表参照）円</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">（価格表参照）円</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="border-color: #d32f2f; background-color: #fff9f9;">
+                    <i class="fas fa-exclamation-circle" style="color: #d32f2f; margin-right: 5px;"></i>
+                    <strong>【重要】</strong>別途、<strong>一般管理費として税込22,000円</strong>がかかることを必ずお伝えしてください。
+                </div>
+            </div>
+
+            <div id="k1" class="content-section">
+                <h2>床下換気扇の種類と効果</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">取り扱い換気扇のタイプ</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>床下換気扇にはどんな種類がありますか。</li>
+                        <li><span class="label-self">サニックス：</span>太陽電池で動く「ソーラータイプ」と、コンセントから電源を取る「商用電源タイプ」の2種類がございます。</li>
+                        <li><span class="label-self">サニックス：</span>どちらも、床下の湿気を強制的に外へ排出する「排気タイプ」の換気扇です。</li>
+                    </ul>
+
+                    <div style="display: flex; gap: 10px; padding: 0 20px 20px; flex-wrap: wrap;">
+                        <div
+                            style="flex: 1; min-width: 200px; padding: 15px; background: #fffde7; border: 1px solid #fbc02d; border-radius: 8px;">
+                            <strong style="color: #f57f17;">1. ソーラータイプ</strong><br>
+                            <span style="font-size: 0.85em;">（SOソーラークリーンファン）</span><br>
+                            <p style="font-size: 0.85em; margin-top: 5px;">太陽光で発電するため、電気代（ランニングコスト）がかかりません。</p>
+                        </div>
+                        <div
+                            style="flex: 1; min-width: 200px; padding: 15px; background: #f0f7ff; border: 1px solid #005599; border-radius: 8px;">
+                            <strong style="color: #005599;">2. 商用電源タイプ</strong><br>
+                            <span style="font-size: 0.85em;">（SOクリーンファン）</span><br>
+                            <p style="font-size: 0.85em; margin-top: 5px;">安定した出力で運転します。省エネ設計で電気代も抑えられています。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">電気代の目安（商用電源タイプ）</h3>
+                    <div class="highlight-box"
+                        style="background-color: #f9f9f9; border-color: #ddd; text-align: center;">
+                        <p style="margin: 0; font-size: 0.9em;">換気扇4台を1日8時間運転させた場合</p>
+                        <strong style="font-size: 1.2em; color: #d32f2f;">1ヶ月 約100円程度</strong>
+                    </div>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>分かりました。検討してみます。</li>
+                        <li><span class="label-self">サニックス：</span>お電話ありがとうございました。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="k2" class="content-section">
+                <h2>SOクリーンファン（商用電源タイプ）</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">商品の特徴</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>SOクリーンファンはどういった商品ですか。</li>
+                        <li><span class="label-self">サニックス：</span>コンセントから電源を取るタイプの床下換気扇です。家の外側の換気口に設置し、床下の湿った空気を強力に排出します。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">価格と必須部品の案内</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>いくらですか。</li>
+                        <li><span class="label-self">サニックス：</span>本体価格は以下の通りです。設置には別途、タイマー機能を持つ「DCコントローラー」が必要となります。</li>
+                    </ul>
+
+                    <div style="padding: 0 20px 20px;">
+                        <table style="width: 100%; border-collapse: collapse; font-size: 0.9em;">
+                            <tr style="background: #f0f0f0;">
+                                <th style="border: 1px solid #ddd; padding: 8px;">項目</th>
+                                <th style="border: 1px solid #ddd; padding: 8px;">価格（1台あたり）</th>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px;">本体：新規設置</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">（価格表参照）円</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px;">本体：買換え（当社分下取）</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">（価格表参照）円</td>
+                            </tr>
+                            <tr style="background: #fff9f9;">
+                                <td style="border: 1px solid #ddd; padding: 8px;"><strong>DCコントローラー（必須）</strong></td>
+                                <td style="border: 1px solid #ddd; padding: 8px;"><strong>（価格表参照）円</strong></td>
+                            </tr>
+                        </table>
+                        <p style="font-size: 0.85em; color: #666; margin-top: 10px;">
+                            ※必要台数は、床の高さや面積を調査した後に正確なお見積りをお出しします。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="border-color: #d32f2f; background-color: #fff9f9;">
+                    <i class="fas fa-exclamation-circle" style="color: #d32f2f; margin-right: 5px;"></i>
+                    <strong>【重要】</strong>別途、<strong>一般管理費として税込22,000円</strong>がかかることを必ずお伝えしてください。
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">保証について</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>保証はありますか。</li>
+                        <li><span class="label-self">サニックス：</span><strong>5年間の保証</strong>がございますので、安心してお使いいただけます。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>分かりました。検討します。</li>
+                        <li><span class="label-self">サニックス：</span>お電話ありがとうございました。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="k3" class="content-section">
+                <h2>SOソーラークリーンファン</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">商品の特徴</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>SOソーラークリーンファンはどういった商品ですか。</li>
+                        <li><span class="label-self">サニックス：</span>太陽光で発電して作動する床下換気扇です。天気の良い日中に、床下の湿った空気を排出し、乾いた空気を効率よく取り込みます。</li>
+                        <li><span class="label-self">サニックス：</span>電気代がかからないため、ランニングコストを気にせずお使いいただけます。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">セット内容と価格の案内</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>いくらですか。</li>
+                        <li><span class="label-self">サニックス：</span>設置する台数によって、以下のセット価格となっております。</li>
+                    </ul>
+
+                    <div style="padding: 0 20px 20px;">
+                        <table style="width: 100%; border-collapse: collapse; font-size: 0.9em;">
+                            <tr style="background: #f0f0f0;">
+                                <th style="border: 1px solid #ddd; padding: 8px;">セット内容（ファン＋パネル＋架台）</th>
+                                <th style="border: 1px solid #ddd; padding: 8px;">価格（工事費込み）</th>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px;">ファン 2台セット</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">（価格表参照）円</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px;">ファン 3台セット</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">（価格表参照）円</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px;">ファン 4台セット</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">（価格表参照）円</td>
+                            </tr>
+                        </table>
+                        <p style="font-size: 0.85em; color: #666; margin-top: 10px;">※すべてのセットに「ソーラーモジュール（パネル）1枚」と「設置用架台1台」が含まれます。</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="border-color: #d32f2f; background-color: #fff9f9;">
+                    <i class="fas fa-exclamation-circle" style="color: #d32f2f; margin-right: 5px;"></i>
+                    <strong>【重要】</strong>別途、<strong>一般管理費として税込22,000円</strong>がかかることを必ずお伝えしてください。
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">調査の案内</h3>
+                    <ul class="script-list">
+                        <li><span class="label-self">サニックス：</span>建物の面積や床下の高さによって、最適な設置台数が異なります。まずは床下の調査をさせていただいた上で、正確な見積もりをお出しいたします。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>分かりました。ありがとうございます。</li>
+                        <li><span class="label-self">サニックス：</span>お電話ありがとうございました。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="k4" class="content-section">
+                <h2>床下拡散ファン（よどみま扇）</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">商品の特徴と役割</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>拡散ファン（よどみま扇）とはどんな商品ですか。</li>
+                        <li><span class="label-self">サニックス：</span>床下換気扇の補助として使用する商品です。空気のよどみができやすい床下の角や中央部に設置します。</li>
+                        <li><span class="label-self">サニックス：</span>周囲360度の斜め下方向へ風を送り、空気のよどみを解消することで、換気扇全体の効率を向上させます。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">価格の案内</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>いくらですか。</li>
+                        <li><span class="label-self">サニックス：</span>1台あたり<strong>（価格表参照）円</strong>でございます。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="border-color: #d32f2f; background-color: #fff9f9;">
+                    <i class="fas fa-exclamation-circle" style="color: #d32f2f; margin-right: 5px;"></i>
+                    <strong>【重要】</strong>別途、<strong>一般管理費として税込22,000円</strong>がかかることを必ずお伝えしてください。
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">保証について</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>保証はありますか。</li>
+                        <li><span class="label-self">サニックス：</span><strong>5年間の保証</strong>がございます。</li>
+                    </ul>
+                    <p style="padding: 0 20px; font-size: 0.8em; color: #666;">※2002年1月以前の設置分は1年保証となります。</p>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>分かりました。検討します。</li>
+                        <li><span class="label-self">サニックス：</span>お電話ありがとうございました。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="k5" class="content-section">
+                <h2>天井裏換気扇</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">商品の特徴</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>天井裏換気扇はどういった商品ですか。</li>
+                        <li><span class="label-self">サニックス：</span>天井裏に設置し、太陽光を電源として作動する換気扇です。天気の良い日中に天井裏の湿気を排出し、空間を健やかに保ちます。</li>
+                        <li><span class="label-cust">お客様：</span>コンセントを使うタイプはありますか。</li>
+                        <li><span class="label-self">サニックス：</span>天井裏換気扇については、太陽電池を使用するタイプのみの取り扱いとなっております。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">価格とセット内容の案内</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>いくらですか。</li>
+                        <li><span class="label-self">サニックス：</span>設置場所（軒天・軒桁・壁型）に合わせて3タイプございますが、価格は共通です。</li>
+                    </ul>
+
+                    <div style="padding: 0 20px 20px;">
+                        <table style="width: 100%; border-collapse: collapse; font-size: 0.9em;">
+                            <tr style="background: #f0f0f0;">
+                                <th style="border: 1px solid #ddd; padding: 8px;">項目</th>
+                                <th style="border: 1px solid #ddd; padding: 8px;">価格</th>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px;">1台あたりの新設価格</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">（価格表参照）円</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px;">当社分下取・買換え（1台）</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">（価格表参照）円</td>
+                            </tr>
+                            <tr style="background: #f0f7ff;">
+                                <td style="border: 1px solid #ddd; padding: 8px;"><strong>4台セット（ファン2＋拡散2＋パネル）</strong>
+                                </td>
+                                <td style="border: 1px solid #ddd; padding: 8px;"><strong>（価格表参照）円</strong></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="border-color: #d32f2f; background-color: #fff9f9;">
+                    <i class="fas fa-exclamation-circle" style="color: #d32f2f; margin-right: 5px;"></i>
+                    <strong>【重要】</strong>別途、<strong>一般管理費として税込22,000円</strong>がかかることを必ずお伝えしてください。
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">保証について</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>保証はありますか。</li>
+                        <li><span class="label-self">サニックス：</span><strong>5年間の保証</strong>がございます。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>分かりました。一度見てもらいます。</li>
+                        <li><span class="label-self">サニックス：</span>ありがとうございます。建物の形状によって最適なタイプが異なりますので、しっかり調査させていただきます。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="k6" class="content-section">
+                <h2>DCコントローラー（タイマー）の設定・操作</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">設定方法の問い合わせへの対応</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>タイマーの設定方法を教えてほしい。</li>
+                        <li><span class="label-self">サニックス：</span>機種によって操作が異なりますので、まずは設置されている機種を確認させていただきます。お客様のご登録状況（お名前・お電話番号）をお調べしてもよろしいでしょうか。</li>
+                    </ul>
+                    <div style="margin: 10px 20px; padding: 10px; background: #fff9f9; border-left: 5px solid #d32f2f; font-size: 0.85em;">
+                        <strong>【オペレーター対応】</strong><br>
+                        登録確認後、手元の別紙マニュアルを参照して説明してください。説明が難しい場合やご不安な様子があれば「一度お伺いいたしましょうか」と訪問を提案してください。
+                    </div>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">説明書の送付について</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>説明書がないので送ってほしい。</li>
+                        <li><span class="label-self">サニックス：</span>はい、承知いたしました。コピーになりますが、本日（または数日中）に郵送させていただきます。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">【緊急】換気扇を止めたい場合</h3>
+                    <p style="padding: 0 20px; font-size: 0.9em; color: #d32f2f; font-weight: bold;">機種ごとの停止操作：</p>
+                    <div style="margin: 0 20px 20px; padding: 15px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 8px;">
+                        <p style="margin-bottom: 10px;"><strong>●旧機種（AD-SNX）の場合</strong><br>
+                            「切」ボタンを押し、液晶画面に<strong>「連続」</strong>という文字が出た状態で止めてください。<br>
+                            <span style="font-size: 0.85em; color: #666;">※「連続」が出ていない場合は一時的な停止となり、翌日の時間になると再び動き出します。</span>
+                        </p>
+
+                        <p style="margin: 0;"><strong>●新機種（SNX-401など）の場合</strong>
+                          <br>本体のスイッチを<strong>「切」</strong>にしてください。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>とりあえず止まったので大丈夫です。</li>
+                        <li><span class="label-self">サニックス：</span>承知いたしました。もし不都合がございましたら、いつでも再度ご連絡ください。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="k7" class="content-section">
+                <h2>MCコントローラーの操作・異常対応</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">異常ランプ点灯への対応</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>MCコントローラーの「異常ランプ」が点いています。</li>
+                        <li><span class="label-self">サニックス：</span>ご心配をおかけしております。機種や状況によって原因が異なりますので、まずはご登録状況を確認させていただき、詳しい内容をご説明いたします。</li>
+                    </ul>
+                    <div style="margin: 10px 20px; padding: 10px; background: #fff9f9; border-left: 5px solid #d32f2f; font-size: 0.85em;">
+                        <strong>【オペレーター対応】</strong><br>
+                        登録確認後、イントラネット「経営戦略本部」内の資料を参照して原因を説明してください。解決が難しい場合は、点検訪問を提案してください。
+                    </div>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">換気扇の停止方法</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>点検に来てもらうまで、換気扇を止めておきたいのですが。</li>
+                        <li><span class="label-self">サニックス：</span>はい、手動で止めることが可能です。コントローラー下部の蓋（ビス留めされている箇所）を開けていただくと、右上に「入」「切」のスイッチがございますので、そちらを「切」にしてください。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">説明書の送付について</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>操作方法が知りたいので説明書を送ってください。</li>
+                        <li><span class="label-self">サニックス：</span>承知いたしました。コピーになりますが、本日（または数日中）に郵送させていただきます。</li>
+                    </ul>
+                    <p style="padding: 0 20px; font-size: 0.8em; color: #666;">※イントラネット「経営戦略本部」より印刷して郵送してください。</p>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>分かりました。やってみます。</li>
+                        <li><span class="label-self">サニックス：</span>よろしくお願いいたします。操作が難しい場合や、状況が変わらない場合は再度ご連絡ください。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="k8" class="content-section">
+                <h2>TSブースター（旧型ソーラー換気扇の停止）</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">緊急時の停止方法（ツインソーラー等）</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>昔のソーラー換気扇を止めるにはどうしたらいいですか。すぐに止めたい事情があります。</li>
+                        <li><span class="label-self">サニックス：</span>基本的には担当者がお伺いして対応させていただきますが、お急ぎであれば、お客様ご自身で一時的に止めていただく方法もございます。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="background-color: #fff9f9; border-color: #d32f2f; color: #333;">
+                    <h3 style="color: #d32f2f; font-size: 1.1em; margin-top: 0;"><i class="fas fa-tools"></i> 具体的な停止手順</h3>
+                    <p style="font-weight: bold; color: #d32f2f; margin-bottom: 5px;">【1997年9月～2002年3月設置の場合】</p>
+                    <p style="font-size: 0.95em; line-height: 1.6; margin-left: 10px;">
+                       壁面に設置されている「TSブースター」という箱をドライバーで開けてください。<br>
+                        <strong>右側（出力側）</strong>にある端子台のビスを緩め、線を抜くと停止します。
+                    </p>
+
+                    <hr style="border: 0; border-top: 1px dotted #d32f2f; margin: 15px 0;">
+
+                    <p style="font-weight: bold; color: #d32f2f; margin-bottom: 5px;">【1997年9月以前の設置（ブースターなし）の場合】</p>
+                    <p style="font-size: 0.95em; line-height: 1.6; margin-left: 10px;">
+                       このタイプはスイッチがございませんので、<strong>配線を切断</strong>するしか方法がありません。<br>
+                       切断後は必ず切り口を<strong>ビニールテープで巻いて絶縁</strong>してください。
+                    </p>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">案内上の注意点</h3>
+                    <ul class="script-list">
+                        <li><span class="label-self">サニックス：</span>作業が難しい場合や、危険を感じる場合は無理をせず、担当の到着をお待ちください。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>分かりました。やってみます。</li>
+                        <li><span class="label-self">サニックス：</span>お怪我のないようご注意ください。それでは、失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="k9" class="content-section">
+                <h2>換気扇・パネルの寿命と撤去費用</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">耐用年数（寿命）についての回答</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>換気扇はどれくらいで故障するものですか。</li>
+                        <li><span class="label-self">サニックス：</span>設置環境（床下や天井裏の状況）に左右されますので、一概に何年とは申し上げられませんが、一般的な家庭用電化製品と同じように、モーターなどの消耗部品の寿命で故障することは考えられます。</li>
+                    </ul>
+                    <div
+                        style="margin: 10px 20px; padding: 10px; background: #fff9f9; border-left: 5px solid #d32f2f; font-size: 0.85em;">
+                        <strong>【重要：オペレーターの注意点】</strong>
+                        <br>クレームの基になる可能性があるため、具体的な耐用年数は極力伝えないようにしてください。聞かれた場合は「状況によります」という前置きを徹底してください。
+                    </div>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">技術的な目安（参考値）</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>メーカーの基準などはありますか？</li>
+                        <li><span class="label-self">サニックス：</span>メーカー（パナソニック製）の設計上の目安としては、モーターの作動時間は約15,000〜30,000時間、太陽光パネルは約20〜25年とされていますが、これらもあくまで目安であり、実際の環境により異なります。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">取り外し・撤去について</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>動かなくなったので取り外したいのですが、お金はかかりますか？</li>
+                        <li><span class="label-self">サニックス：</span>はい、取り外しや撤去（移設）に関しては有料にて承っております。</li>
+                        <li><span class="label-self">サニックス：</span>費用については、設置状況や台数によって異なりますので、価格表を確認の上、お見積りさせていただきます。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>わかりました。</li>
+                        <li><span class="label-self">サニックス：</span>お電話ありがとうございました。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="k10" class="content-section">
+                <h2>DCコン取説(AD-SNX)</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">設定の前の準備</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>昔のタイプのタイマー（AD-SNX）の設定を変えたい。</li>
+                        <li><span class="label-self">サニックス：</span>承知いたしました。左側にボタンがあるタイプでございますね。操作をご案内いたしますので、本体の前でお電話いただけますでしょうか。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">操作手順（例：10時〜16時運転の場合）</h3>
+                    <div style="margin: 0 20px 20px; padding: 15px; background: #f0f7ff; border-radius: 8px; font-size: 0.9em;">
+                        <ol style="line-height: 1.8;">
+                            <li><strong>現在時刻の確認：</strong>合っていない場合は「時計」キーで合わせます。</li>
+                            <li><strong>「設定」キー</strong>を1回押します。</li>
+                            <li>液晶に<strong>「設定1」</strong>と出たら、時刻を「10:00」に合わせます。</li>
+                            <li><strong>「設定」キー</strong>をもう1回押します。</li>
+                            <li>液晶に<strong>「設定2」</strong>と出たら、時刻を「16:00」に合わせます。</li>
+                            <li><strong>重要：</strong>その後、液晶に<strong>「End」</strong>が出るまで「設定」キーを繰り返し押してください。</li>
+                            <li>最後に<strong>「現在時刻」キー</strong>を押して完了です。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="background-color: #fff9f9; border-color: #d32f2f;">
+                    <strong>【案内時のポイント】</strong><br>
+                    <p style="margin-top: 5px; font-size: 0.85em;">
+                        ・「設定1」が開始時刻、「設定2」が終了時刻です。<br>
+                        ・<strong>「End」まで進めてから「現在時刻」キーを押さないと設定が保存されません。</strong>ここを必ず念押ししてください。
+                    </p>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>「End」が出ました。できました。</li>
+                        <li><span class="label-self">サニックス：</span>ご確認ありがとうございます。これで設定完了です。もしまた不明な点がございましたら、いつでもご連絡ください。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="k11" class="content-section">
+                <h2>DCコントローラー（AD-SNX-S）の設定方法</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">設定の前の準備</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>タイマー（AD-SNX-S）の設定をやり直したい。</li>
+                        <li><span class="label-self">サニックス：</span>承知いたしました。液晶画面に地区番号などが表示されるタイプですね。順番にご案内いたしますので、本体の前でお電話いただけますでしょうか。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">操作手順（3つのステップ）</h3>
+                    <div
+                        style="margin: 0 20px 20px; padding: 15px; background: #f0f7ff; border-radius: 8px; font-size: 0.9em;">
+                        <ol style="line-height: 1.8;">
+                            <li><strong>地区設定：</strong>「機能」キーを押すと画面左側で<strong>地区番号</strong>が点滅します。▲▼キーでお住まいの地域の番号（例：関東は「4」）に合わせて「決定」を押します。</li>
+                            <li><strong>月日設定：</strong>「機能」キーを再度押すと画面右側で<strong>月日</strong>が点滅します。▲▼キーで今日の日付に合わせて「決定」を押します。</li>
+                            <li><strong>時刻設定：</strong>「機能」キーを再度押すと<strong>時刻</strong>が点滅します。▲▼キーで現在の時刻に合わせて「決定」を押します。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">【参考】地区番号一覧</h3>
+                    <div style="margin: 0 20px 20px; padding: 10px; background: #fff; border: 1px solid #ddd; font-size: 0.85em;">
+                        1:北海道 / 2:東北 / 3:北信越 / <strong>4:関東</strong> / 5:東海 / 6:近畿 / 7:中国 / 8:四国 / <strong>9:九州</strong>
+                        / 10:沖縄
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="background-color: #fff9f9; border-color: #d32f2f;">
+                    <strong>【案内時のポイント】</strong><br>
+                    <p style="margin-top: 5px; font-size: 0.85em;">
+                        ・この機種は、地区と日付を設定すると、季節に合わせた最適な時間に自動で運転・停止を行います。<br>
+                        ・最後に必ず<strong>「現在時刻」の表示に戻っていること</strong>をお客様と一緒に確認してください。
+                    </p>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>今の時間に設定できました。</li>
+                        <li><span class="label-self">サニックス：</span>ありがとうございます。これで季節に合わせて自動的に動くようになります。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="k12" class="content-section">
+                <h2>換気扇の撤去・移設</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">建物の解体に伴う撤去</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>家を解体することになったのですが、ソーラー換気扇も一緒に壊していいですか？</li>
+                        <li><span class="label-self">サニックス：</span>はい、解体業者様にそのまま取り壊していただいて構いません。</li>
+                        <li><span class="label-cust">お客様：</span>解体業者が外してくれない（または自分たちで外したい）場合は？</li>
+                        <li><span class="label-self">サニックス：</span>もし解体業者様での対応が難しい場合は、当社で取り外し・回収を行うことも可能です。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">撤去・移設の費用</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>サニックスに撤去を頼むといくらかかりますか。</li>
+                        <li><span class="label-self">サニックス：</span>台数や状況にもよりますが、撤去・回収の費用として<strong>税込44,000円〜</strong>（税抜40,000円〜）いただいております。</li>
+                        <li><span class="label-cust">お客様：</span>別の建物に移設（付け替え）はできますか。</li>
+                        <li><span class="label-self">サニックス：</span>はい、移設も承っております。移設先が自所属のエリア内か、他部署のエリアかによって費用が変わりますので、まずは担当より詳しいお見積りをご案内させていただきます。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="border-color: #d32f2f;">
+                    <strong>【オペレーター対応のポイント】</strong><br>
+                    <p style="margin-top: 5px; font-size: 0.85em;">
+                        基本台数（床下8台・天井裏6台など）を超える場合は、1台（1枚）につき<strong>5,000円（税抜）の追加費用</strong>が発生します。正確な台数を確認の上、担当拠点へ連携してください。
+                    </p>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>わかりました。一度解体業者に聞いてみます。</li>
+                        <li><span class="label-self">サニックス：</span>承知いたしました。当社での撤去が必要な際はお気軽にご相談ください。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="h1" class="content-section">
+                <h2>家屋補強システム（HS）</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">商品の特徴と目的</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>家屋補強システムとは、どういった商品ですか。</li>
+                        <li><span class="label-self">サニックス：</span>家の骨組みである柱、梁（はり）、桁（けた）、土台の接合部に専用の金物を取り付けるシステムです。</li>
+                        <li><span class="label-self">サニックス：</span>地震や台風の際に起こる柱の「倒れ」や「抜け」を抑えることで、自然災害による家の倒壊を軽減する役割があります。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">価格の案内</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>いくらくらいかかりますか。</li>
+                        <li><span class="label-self">サニックス：</span>100㎡（約30坪）までの基本価格は<strong>（価格表参照）円</strong>で、それを超える部分は1㎡あたり<strong>（価格表参照）円</strong>となります。</li>
+                    </ul>
+                    <div
+                        style="margin: 0 20px 10px; padding: 10px; background: #f9f9f9; border: 1px solid #ddd; font-size: 0.85em;">
+                        <strong>【面積の計算方法】</strong><br>
+                        ・平屋の場合：天井裏 ＋ 床下の合計面積<br>
+                        ・2階建の場合：上天井 ＋ 中天井 ＋ 床下の合計面積
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="border-color: #d32f2f; background-color: #fff9f9;">
+                    <i class="fas fa-exclamation-circle" style="color: #d32f2f; margin-right: 5px;"></i>
+                    <strong>【重要】</strong>別途、<strong>一般管理費として税込22,000円</strong>がかかることを必ずお伝えしてください。
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">工事内容の目安</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>金具を何個くらい付けるのですか。</li>
+                        <li><span class="label-self">サニックス：</span>お家の構造によりますが、目安として20坪程度の平屋で<strong>約200個</strong>の金物を取り付けます。</li>
+                        <li><span class="label-cust">お客様：</span>工事は何日くらいかかりますか。</li>
+                        <li><span class="label-self">サニックス：</span>平屋で1〜2日、2階建ての場合は2〜4日程度が目安となります。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>わかりました。一度検討します。</li>
+                        <li><span class="label-self">サニックス：</span>大切なお住まいを守るための補強ですので、ぜひご検討ください。お電話ありがとうございました。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="h2" class="content-section">
+                <h2>基礎補修工事</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">工事の内容と目的</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>基礎補修工事とは、どういった工事ですか。</li>
+                        <li><span class="label-self">サニックス：</span>ウレタン樹脂と「アラミド繊維シート」を使用して、基礎のヒビ割れを補修し、新たなヒビの発生を抑える工事です。</li>
+                        <li><span class="label-cust">お客様：</span>アラミド繊維シートとは何ですか。</li>
+                        <li><span class="label-self">サニックス：</span>防弾チョッキや消防服、高速道路の橋脚補強にも使われる、非常に強度と弾力性が高い特殊な繊維シートです。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">樹脂の安全性について</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>変な臭いなどはしませんか。</li>
+                        <li><span class="label-self">サニックス：</span>現在使用しているウレタン樹脂は、接着力が強く収縮もほとんどありません。また、臭いもほとんどございませんのでご安心ください。</li>
+                    </ul>
+                    <p style="padding: 0 20px; font-size: 0.8em; color: #666;">※2024年6月よりエポキシ樹脂からウレタン樹脂へ変更となりました。</p>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">保証について</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>保証はありますか。</li>
+                        <li><span class="label-self">サニックス：</span><strong>5年間の保証</strong>がございます。施工箇所に万が一損傷（変色を除く）が認められた場合は、無料で再施工させていただきます。</li>
+                        <li><span class="label-cust">お客様：</span>これをすれば二度とヒビは入りませんか。</li>
+                        <li><span class="label-self">サニックス：</span>既存のヒビの進行や発生を抑えるものですが、建物の動きや地盤沈下など、外部要因により新しいヒビが入る可能性はゼロではございません。そのため、定期的な点検をお勧めしております。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="border-color: #d32f2f;">
+                    <strong style="color: #d32f2f;">【案内時の注意点】</strong><br>
+                    価格については、ヒビの長さや箇所によって異なるため、<strong>必ず現地の調査・見積もりが必要</strong>であることをお伝えしてください。
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>わかりました。一度見てもらいます。</li>
+                        <li><span class="label-self">サニックス：</span>ありがとうございます。基礎は家を支える大切な土台ですので、しっかり確認させていただきます。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="h3" class="content-section">
+                <h2>基礎改修工事</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">工事の内容と「基礎補修」との違い</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>基礎改修工事とは、どういった工事ですか。</li>
+                        <li><span class="label-self">サニックス：</span>劣化がかなり進行してしまい、通常の「基礎補修工事」では対応できないレベルの基礎を改修する工事です。</li>
+                        <li><span class="label-cust">お客様：</span>具体的には何をしますか。</li>
+                        <li><span class="label-self">サニックス：</span>状況に合わせて、基礎の横に新しくコンクリートを打ち足す「増し打ち工事」や、表面を整える「表面補修工事」、アンカーボルトの改修などを行います。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="border-color: #d32f2f; background-color: #fff9f9;">
+                    <i class="fas fa-exclamation-circle" style="color: #d32f2f; margin-right: 5px;"></i>
+                    <strong>【重要：保証について】</strong><br>
+                    <p style="margin-top: 5px; font-size: 0.85em;">
+                       基礎改修工事については、効果の持続等に関する<strong>保証は提供しておりません。</strong>この点は、トラブル防止のため必ず事前にお伝えしてください。
+                    </p>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">調査と見積もりの案内</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>いくらくらいかかりますか。</li>
+                        <li><span class="label-self">サニックス：</span>基礎の劣化具合や、補強が必要な範囲によって工事内容が大きく変わります。そのため、まずは専門スタッフが現地を詳しく調査した上で、お見積りをご提示させていただきます。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>わかりました。調査をお願いします。</li>
+                        <li><span class="label-self">サニックス：</span>ありがとうございます。お家の安全を支える大切な部分ですので、しっかり確認させていただきます。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="h4" class="content-section">
+                <h2>ブレスマット（床下調湿材）</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">商品の特徴と仕組み</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>ブレスマットとは、どんな商品ですか。</li>
+                        <li><span class="label-self">サニックス：</span>床下換気扇の補助として、地面に敷くマット状の調湿材です。土壌からの水分蒸発を抑え、中の「多孔質天然鉱物」が湿気を吸ったり吐いたりして、床下を快適な状態に保ちます。</li>
+                        <li><span class="label-cust">お客様：</span>中に入っている鉱物とは何ですか？</li>
+                        <li><span class="label-self">サニックス：</span>「パリゴルスカイト」という天然の粘土鉱物です。非常に細かい穴が無数に開いており、炭のように湿気を調整する力が非常に強いのが特徴です。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">価格の案内</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>いくらですか。</li>
+                        <li><span class="label-self">サニックス：</span>通常、1枚あたり<strong>（価格表参照）円</strong>でございます。</li>
+                        <li><span class="label-self">サニックス：</span>ただし、シロアリ消毒や換気扇、家屋補強などの他の工事と一緒に施工される場合は、セット価格で1枚<strong>（価格表参照）円</strong>とお得になります。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="border-color: #d32f2f; background-color: #fff9f9;">
+                    <i class="fas fa-exclamation-circle" style="color: #d32f2f; margin-right: 5px;"></i>
+                    <strong>【重要】</strong>別途、<strong>一般管理費として税込22,000円</strong>がかかることを必ずお伝えしてください。
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">必要枚数の目安</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>何枚くらい必要ですか。</li>
+                        <li><span class="label-self">サニックス：</span>床下の構造によりますが、目安として<strong>1坪あたり約14枚〜16枚</strong>程度を使用します。部分的な設置も可能ですので、状況に合わせてご提案いたします。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>わかりました。</li>
+                        <li><span class="label-self">サニックス：</span>床下の湿気状況を調査した上で、最適な枚数をご案内させていただきます。お電話ありがとうございました。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="h5" class="content-section">
+                <h2>SSジャッキ（床下補強支持材）</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">商品の特徴と役割</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>SSジャッキとは、どういった商品ですか。</li>
+                        <li><span class="label-self">サニックス：</span>床を支えている「束柱（つかばしら）」と、土台となる「束石（つかいし）」の間に隙間ができた際や、シロアリ被害で弱くなった柱を補強するために使用するステンレス製の支持材です。</li>
+                        <li><span class="label-cust">お客様：</span>古い柱は取り外すのですか。</li>
+                        <li><span class="label-self">サニックス：</span>いいえ、基本的には現状の柱の周囲に設置して補強を目的とする商品ですので、そのまま残して併用いたします。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">耐久性と材質</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>材質は何ですか？錆びたりしませんか。</li>
+                        <li><span class="label-self">サニックス：</span>非常にサビに強い<strong>ステンレス</strong>を使用しておりますので、湿気の多い床下でも安心してお使いいただけます。</li>
+                        <li><span class="label-cust">お客様：</span>どれくらいの重さに耐えられますか。</li>
+                        <li><span class="label-self">サニックス：</span>コンパクトな見た目ですが非常に頑丈で、<strong>1本で最大約4,000kg（4トン）</strong>の重さを支えることが可能です。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">価格と設置場所</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>いくらですか。</li>
+                        <li><span class="label-self">サニックス：</span>1本あたり<strong>（価格表参照）円</strong>でございます。</li>
+                        <li><span class="label-cust">お客様：</span>床下以外にも使えますか。</li>
+                        <li><span class="label-self">サニックス：</span>こちらは床下の束柱と同じ役割を果たす専用の商品ですので、床下以外への設置は承っておりません。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="border-color: #d32f2f; background-color: #fff9f9;">
+                    <i class="fas fa-exclamation-circle" style="color: #d32f2f; margin-right: 5px;"></i>
+                    <strong>【重要】</strong>別途、<strong>一般管理費として税込22,000円</strong>がかかることを必ずお伝えしてください。
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>わかりました。検討します。</li>
+                        <li><span class="label-self">サニックス：</span>お家の傾きや床のしなりを防ぐための大切な補強ですので、ぜひご検討ください。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="h6" class="content-section">
+                <h2>防カビ工事</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">工事の目的と効果</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>防カビを行えば、今生じているカビはなくなりますか。</li>
+                        <li><span class="label-self">サニックス：</span>いいえ、現在あるカビを除去したり、永久に生えなくなるという効果ではございません。あくまでも現状からカビの繁殖を「抑制」するものです。</li>
+                        <li><span class="label-cust">お客様：</span>どんな薬剤を使いますか。臭いは？</li>
+                        <li><span class="label-self">サニックス：</span>「エバーウッドＳフロアブル」という薬剤を使用します。成分はイミダゾール系および有機ヨウ素系化合物で、安全面に配慮された薬剤です。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">価格とセット割引</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>いくらくらいかかりますか。</li>
+                        <li><span class="label-self">サニックス：</span>通常は1㎡あたり<strong>（価格表参照）円</strong>でございます。</li>
+                        <li><span class="label-self">サニックス：</span>シロアリ消毒と併用される場合は1㎡あたり<strong>（価格表参照）円</strong>、床下換気扇や基礎補修工事と同時に施工される場合は1㎡あたり<strong>（価格表参照）円</strong>と、セット価格でお得になります。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="border-color: #d32f2f; background-color: #fff9f9;">
+                    <i class="fas fa-exclamation-circle" style="color: #d32f2f; margin-right: 5px;"></i>
+                    <strong>【重要：保証について】</strong><br>
+                    <p style="margin-top: 5px; font-size: 0.85em;">
+                        防カビ工事については、<strong>保証はございません。</strong><br>
+                        カビの発生は環境（湿度や風通し）に大きく左右され予測が困難なため、保証はできかねる旨を必ず丁寧にお伝えしてください。
+                    </p>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">別途費用と調査の案内</h3>
+                    <p style="padding: 0 20px; font-size: 0.9em;">
+                        ※別途、<strong>一般管理費として税込22,000円</strong>がかかります。<br>
+                        ※正確な面積やカビの状況を確認するため、まずは無料調査にお伺いいたします。
+                    </p>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>わかりました。一度検討します。</li>
+                        <li><span class="label-self">サニックス：</span>ありがとうございます。床下の環境を整えることはお家を長持ちさせることに繋がりますので、ぜひご検討ください。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="h7" class="content-section">
+                <h2>天井裏遮熱</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">商品の特徴</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>天井裏遮熱施工とは、どういったものですか。</li>
+                        <li><span class="label-self">サニックス：</span>天井裏に高反射の遮熱シートを貼ることで、屋根からの熱を遮断し、夏の暑さや冬の寒さを緩和する施工です。</li>
+                        <li><span class="label-cust">お客様：</span>素材や工事の方法を教えてください。</li>
+                        <li><span class="label-self">サニックス：</span>素材は両面アルミ箔の7層構造シートを使用します。工事は天井裏の軒桁から棟に向かって、シートを母屋に固定しながら貼り付けていきます。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">価格の案内</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>価格はいくらですか。</li>
+                        <li><span class="label-self">サニックス：</span>33㎡までの基本価格は（価格表参照）円、それを超える場合は1㎡あたり（価格表参照）円で承っております。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="border-color: #d32f2f; background-color: #fff9f9;">
+                    <i class="fas fa-exclamation-circle" style="color: #d32f2f; margin-right: 5px;"></i>
+                    <strong>【重要】</strong>別途、<strong>一般管理費として税込22,000円</strong>がかかることを必ずお伝えしてください。
+                </div>
+            </div>
+
+            <div id="h8" class="content-section">
+                <h2>床下断熱材</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">商品の特徴とメリット</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>床下断熱材の工事とは、どういったものですか。</li>
+                        <li><span class="label-self">サニックス：</span>床を解体することなく、住みながら断熱リフォームができる商品です。床板の裏面に断熱材（ポリウレタン）を隙間なく設置することで、冬場の足元の冷え込みを和らげます。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">価格の案内</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>価格はいくらですか。</li>
+                        <li><span class="label-self">サニックス：</span>33㎡までの基本価格は（価格表参照）円（防腐処理・工事費込）、それを超える場合は1㎡あたり（価格表参照）円で承っております。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="border-color: #d32f2f; background-color: #fff9f9;">
+                    <i class="fas fa-exclamation-circle" style="color: #d32f2f; margin-right: 5px;"></i>
+                    <strong>【重要】</strong>別途、<strong>一般管理費として税込22,000円</strong>がかかることを必ずお伝えしてください。
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>わかりました。検討してみます。</li>
+                        <li><span class="label-self">サニックス：</span>冷え込み対策として非常に効果的ですので、ぜひご検討ください。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="h8" class="content-section">
+                <h2>床下断熱材</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">商品の特徴とメリット</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>床下断熱材の工事とは、どういったものですか。</li>
+                        <li><span class="label-self">サニックス：</span>床を解体することなく、住みながら断熱リフォームができる商品です。床下の冷気を遮断し、冬場の足元の冷え込みを和らげます。</li>
+                        <li><span class="label-cust">お客様：</span>どのような方法で工事をしますか？</li>
+                        <li><span class="label-self">サニックス：</span>床板の裏面（床下側）に防腐処理を施したあと、断熱材（ポリウレタン）を隙間なく設置いたします。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">価格の案内</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>価格はいくらですか。</li>
+                        <li><span class="label-self">サニックス：</span>33㎡までの基本価格は（価格表参照）円、それ以降は1㎡あたり（価格表参照）円で承っております。</li>
+                    </ul>
+                    <div class="highlight-box" style="margin-top: 10px; border-color: #d32f2f;">
+                        <strong>【重要】</strong>別途、<strong>一般管理費として税込22,000円</strong>がかかることを必ずお伝えしてください。
+                    </div>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>わかりました。検討してみます。</li>
+                        <li><span class="label-self">サニックス：</span>冷え込み対策として非常に効果的ですので、ぜひご検討ください。お電話ありがとうございました。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="h9" class="content-section">
+                <h2>リフォーム工事</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">受付の基本ルール</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>外壁や屋根の工事なども行っていますか。</li>
+                        <li><span class="label-self">サニックス：</span>はい、当社でも取り扱いがございます。外壁塗装や屋根の改修など、幅広く対応しております。</li>
+                        <li><span class="label-cust">お客様：</span>サニックスさんでは、家を建てたり（新築）はしないの？</li>
+                        <li><span class="label-self">サニックス：</span>既存のお住まいの改築（リフォーム）は承っておりますが、新築や増築については取り扱っておりません。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">費用・見積もりについて</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>だいたい、いくらくらいかかるものかしら？</li>
+                        <li><span class="label-self">サニックス：</span>お住まいの状況や施工範囲を確認させていただかないと、お電話では正確な回答が難しい状況でございます。</li>
+                        <li><span class="label-self">サニックス：</span>現地調査・お見積もりは無料で承っておりますので、まずは担当部署よりご連絡を差し上げ、詳しいお話をお伺いしましょうか。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="background-color: #f0f7ff; border-color: #2b6cb0;">
+                    <i class="fas fa-info-circle" style="color: #2b6cb0; margin-right: 5px;"></i>
+                    <strong>【オペレーター対応のポイント】</strong><br>
+                    お電話口での概算回答はトラブルの元となるため控え、必ず「担当による無料調査」をご案内してください。
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>（承諾の場合）じゃあ、一度見てもらおうかしら。</li>
+                        <li><span class="label-self">サニックス：</span>ありがとうございます。それでは、担当より日程調整のお電話を差し上げます。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="h10" class="content-section">
+                <h2>耐震診断</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">診断の費用</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>耐震診断はいくらかかりますか。</li>
+                        <li><span class="label-self">サニックス：</span>当社保証期間中のお客様は<strong>（価格表参照）円</strong>、それ以外のお客様は<strong>（価格表参照）円</strong>で承っております。</li>
+                        <li><span class="label-self">サニックス：</span>なお、診断後に耐震改修工事をご契約いただいた場合は、工事費用からこの<strong>診断料を値引き</strong>させていただきます。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">診断の方法と流れ</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>どのような方法で診断するのですか。</li>
+                        <li><span class="label-self">サニックス：</span>社内認定された「耐震技能者」がお伺いし、目視や図面に基づき、基礎・床・柱・壁・屋根などを約3時間かけて詳細に調査いたします。</li>
+                        <li><span class="label-cust">お客様：</span>結果はその場でわかりますか？</li>
+                        <li><span class="label-self">サニックス：</span>いいえ。一度持ち帰り、当社の一級建築士監修のもとで耐震性を計算いたします。1〜2週間後に、細かい資料をもとに結果をご説明に伺います。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="background-color: #f0f7ff; border-color: #2b6cb0;">
+                    <i class="fas fa-microscope" style="color: #2b6cb0; margin-right: 5px;"></i>
+                    <strong>【一般診断法とは】</strong><br>
+                    <p style="margin-top: 5px; font-size: 0.85em; line-height: 1.6;">
+                       国土交通省監修の指針に基づいた、信頼性の高い診断方法です。地震の力に対して家屋が倒壊する可能性がどの程度あるかを数値化し、どこを補強すべきかを明確にします。
+                    </p>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>わかりました。一度家族と相談してみます。</li>
+                        <li><span class="label-self">サニックス：</span>よろしくお願いいたします。地震への備えとして大切な調査ですので、ぜひご検討ください。失礼いたします。
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="h11" class="content-section">
+                <h2>ポータブル蓄電池</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">商品の特徴と用途</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>ポータブル蓄電池は、家の（据置型）蓄電池とどう違うのですか？</li>
+                        <li><span class="label-self">サニックス：</span>ポータブル蓄電池は持ち運びが可能です。停電・災害時の避難所や仮設住宅での使用はもちろん、コンセントがない場所でのDIY作業やレジャーなど、幅広いシーンで活躍します。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">スペック・仕様</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>容量はどれくらいですか？</li>
+                        <li><span class="label-self">サニックス：</span><strong>2Kwh</strong>でございます。</li>
+                        <li><span class="label-cust">お客様：</span>寿命（サイクル）はどれくらいですか？</li>
+                        <li><span class="label-self">サニックス：</span>使用状況にもよりますが、充放電サイクルの寿命は<strong>1,500回</strong>です。（※初期容量の80％以上を保持）</li>
+                        <li><span class="label-cust">お客様：</span>保証期間は何年ですか？</li>
+                        <li><span class="label-self">サニックス：</span><strong>1年間</strong>でございます。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>分かりました。ありがとうございます。</li>
+                        <li><span class="label-self">サニックス：</span>ご不明な点がございましたら、いつでもお問い合わせください。お電話ありがとうございました。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="h11" class="content-section">
+                <h2>ポータブル蓄電池</h2>
+
+                <div class="highlight-box">詳細確認中</div>
+            </div>
+
+            <div id="m1" class="content-section">
+                <h2>太陽光メンテナンス（改正FIT法関連）</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">点検義務化への回答</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>太陽光の点検が義務になったと聞いたのですが、本当ですか？</li>
+                        <li><span class="label-self">サニックス：</span>はい、2017年4月の改正FIT法により、これまでは産業用のみだった「保守点検・メンテナンス」の義務が、家庭用（10kW未満）を含めた全ての設備に拡大されました。</li>
+                        <li><span class="label-cust">お客様：</span>点検をしないと罰金などの罰則があるのですか？</li>
+                        <li><span class="label-self">サニックス：</span>厳密な意味での罰則や罰金はございません。法律では「適切な保守管理に努めること」という努力義務として定められています。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">メンテナンスの必要性と頻度</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>それなら、しなくてもいいのではないですか？</li>
+                        <li><span class="label-self">サニックス：</span>多くのメーカー保証では「適切なメンテナンス」が保証適用の条件となっている場合がございます。また、故障の早期発見や発電性能を維持し、大切なお住まいの資産価値を守るためにも定期的な点検を勧めしております。</li>
+                        <li><span class="label-cust">お客様：</span>どれくらいの頻度で点検すればいいですか。</li>
+                        <li><span class="label-self">サニックス：</span>一般家庭（低圧50kW未満）の場合は、<strong>設置後1年目と、その後は4年ごと</strong>の点検が推奨されています。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="background-color: #f0f7ff; border-color: #2b6cb0;">
+                    <i class="fas fa-info-circle" style="color: #2b6cb0; margin-right: 5px;"></i>
+                    <strong>【オペレーター対応のポイント】</strong><br>
+                    <p style="margin-top: 5px; font-size: 0.85em;">
+                       お客様が「義務」という言葉に不安を感じている場合は、「罰則はないが、長く安心してお使いいただくための大切なメンテナンスである」というニュアンスでご案内してください。
+                    </p>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>わかりました。一度検討してみます。</li>
+                        <li><span class="label-self">サニックス：</span>ありがとうございます。発電状況の確認やパネルの清掃なども含め、トータルでサポートさせていただきます。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="m2" class="content-section">
+                <h2>認定通知書・パスワード・設備ID</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">ID・パスワードを知りたい場合</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>太陽光の認定通知書や、ログイン用のパスワード、設備IDを教えてほしいのですが。</li>
+                        <li><span class="label-self">サニックス：</span>承知いたしました。それらの情報は各営業所にて管理しておりますので、担当の営業所より改めてご連絡を差し上げ、回答させていただきます。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">代行手続きの注意点</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>サニックスで代わりに手続きをしてもらえませんか？</li>
+                        <li><span class="label-self">サニックス：</span>はい、当社で代行することも可能でございます。ただし、その場合は委任状や印鑑証明書といった書類のご準備が必要となり、お手続き完了までにお時間をいただく形となります。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="background-color: #fff9f9; border-color: #d32f2f;">
+                    <strong>【お客様ご自身で直接問い合わせる場合】</strong><br>
+                    <p style="margin-top: 5px; font-size: 0.9em; line-height: 1.6;">
+                       お急ぎの場合は、お客様ご自身で以下の「JPEA代行申請センター」へ直接お問い合わせいただく方法もございますとお伝えください。<br>
+                       <strong>JPEA代行申請センター：0570-03-8210</strong>
+                    </p>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>わかりました。営業所からの連絡を待ちます。</li>
+                        <li><span class="label-self">サニックス：</span>ありがとうございます。それでは、担当より折り返しご連絡いたします。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="m3" class="content-section">
+                <h2>太陽光パネルの撤去・処分</h2>
+
+                <div class="highlight-box" style="background-color: #fff9f9; border-color: #d32f2f;">
+                    <strong>【重要：他社施工品への対応】</strong><br>
+                    <p style="margin-top: 5px; font-size: 0.85em; line-height: 1.6;">
+                       原則として、<strong>当社（サニックス）で設置した太陽光設備のみ</strong>の対応となります。他社施工品の場合、撤去時に万が一事故やトラブルが起こった際の責任が取れないためです。
+                    </p>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">受付の基本ルールと施工業者の確認</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>他社で付けた太陽光なのですが、撤去してもらえますか。</li>
+                        <li><span class="label-self">サニックス：</span>恐れ入りますが、基本的には当社で施工した設備のみの対応とさせていただいております。他社様施工の場合、万が一の際の責任が負いかねるためでございます。</li>
+                        <li><span class="label-cust">お客様：</span>取り付けた業者が倒産して連絡が取れないのですが…。</li>
+                        <li><span class="label-self">サニックス：</span>左様でございますか。施工業社様が倒産されているなどのご事情がある場合は、一度対応が可能か担当部署へ確認させていただきます。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">撤去の可否と受付フロー</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>（サニックス施工の場合）パネルを外して処分してほしい。</li>
+                        <li><span class="label-self">サニックス：</span>承知いたしました。太陽光の撤去は行っておりますが、設置場所やパネルの枚数、屋根の状況などによってご対応が変わってまいります。</li>
+                        <li><span class="label-self">サニックス：</span>まずは詳しい担当より折り返しご連絡を差し上げ、状況を確認させていただきます。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">費用に関する案内</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>費用はどれくらいかかりますか。</li>
+                        <li><span class="label-self">サニックス：</span>足場の有無やパネルの枚数、廃棄処分の費用などにより異なります。担当者が現地を確認した上で、正確なお見積りを作成させていただきます。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>では、連絡を待っています。</li>
+                        <li><span class="label-self">サニックス：</span>ありがとうございます。担当拠点より改めてお電話を差し上げます。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="m4" class="content-section">
+                <h2>太陽光発電システム名義変更</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">受付の基本回答</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>太陽光発電システムの名義変更をしたいのですが、どうすればいいですか？</li>
+                        <li><span class="label-self">サニックス：</span>名義変更のお手続きは有償にて承っております。お手続きに必要な書類等について、担当者より改めてご連絡を差し上げます。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="border-color: #d32f2f; background-color: #fff9f9;">
+                    <i class="fas fa-exclamation-triangle" style="color: #d32f2f; margin-right: 5px;"></i>
+                    <strong>【重要：費用について】</strong><br>
+                    <p style="margin-top: 5px; font-size: 0.95em;">
+                       保証が切れたお客様が電力申請名義変更代行申請を行う場合は、<strong>一律 33,000円（税込）</strong>の費用が発生します。
+                    </p>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">オペレーター用補足（保証・継承の確認）</h3>
+                    <div style="padding: 0 20px; font-size: 0.9em; line-height: 1.6;">
+                        <p>保証や補償の継承ができるかどうかは、案件ごとに異なります。詳細は必ず以下のイントラネット資料を参照してください。</p>
+                        <ul style="margin-top: 5px; color: #555;">
+                            <li>SE事業本部 ＞ 事務 ＞ 名義変更 ＞ 別紙3・5</li>
+                            <li>「太陽光発電システム名義変更における保証・補償継承可否一覧」</li>
+                            <li>「有償になる名義変更一覧および保証・補償継承早見表」</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>わかりました。連絡を待っています。</li>
+                        <li><span class="label-self">サニックス：</span>承知いたしました。それでは担当よりご連絡差し上げます。お電話ありがとうございました。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="m5" class="content-section">
+                <h2>太陽光買取価格終了（卒FIT）</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">買取期間満了後の流れ</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>太陽光の買い取り価格が終了したら（10年経ったら）どうなりますか？</li>
+                        <li><span class="label-self">サニックス：</span>法律に基づく電力会社の買取義務はなくなりますが、その後は「自家消費」としてご自宅で使われるか、電力会社と個別に契約して「余剰電力を売電」し続けることが可能です。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">通知の時期について</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>いつ頃、どのような連絡が来るのですか。</li>
+                        <li><span class="label-self">サニックス：</span>買取期間が満了するおおむね<strong>6ヶ月〜4ヶ月前</strong>に、現在電気を買い取っている電力会社から個別で通知が届きます。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="background-color: #f0f7ff; border-color: #2b6cb0;">
+                    <i class="fas fa-info-circle" style="color: #2b6cb0; margin-right: 5px;"></i>
+                    <strong>【オペレーター対応のポイント】</strong><br>
+                    <p style="margin-top: 5px; font-size: 0.9em; line-height: 1.6;">
+                       具体的な売電価格や手続きは電力会社によって異なります。通知が届いているか確認し、蓄電池による自家消費（m6参照）に興味がある場合は、担当部署による無料調査をご案内してください。
+                    </p>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>分かりました。通知を待ってみます。</li>
+                        <li><span class="label-self">サニックス：</span>承知いたしました。ご不明な点がございましたら、いつでもお問い合わせください。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="m6" class="content-section">
+                <h2>蓄電池（新規・増設）</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">商品の特徴</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>蓄電池とはどういう商品ですか？</li>
+                        <li><span class="label-self">サニックス：</span>太陽光などで発電した電気や、安価な深夜電力を蓄えておき、必要な時に繰り返し使用できる電池です。災害時の非常用電源としても活用いただけます。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">容量と寿命について</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>容量は何キロ（kWh）ですか？</li>
+                        <li><span class="label-self">サニックス：</span>お客様のご希望や設置環境に合わせて複数のシステムがございます。最新の取り扱いラインナップや詳細な仕様については、担当より資料をお持ちしてご説明させていただきます。</li>
+                        <li><span class="label-cust">お客様：</span>蓄電池の寿命はどれくらいですか？</li>
+                        <li><span class="label-self">サニックス：</span>一般的には年数で表されますが、実際には「どのくらい充放電を繰り返したか（サイクル数）」によって決まります。充放電の回数が少ないほど、寿命は長くなる傾向にあります。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="background-color: #f0f7ff; border-color: #2b6cb0;">
+                    <i class="fas fa-desktop" style="color: #2b6cb0; margin-right: 5px;"></i>
+                    <strong>【オペレーター用参照情報】</strong><br>
+                    <p style="margin-top: 5px; font-size: 0.85em; line-height: 1.6;">
+                        具体的な容量やシステム構成の詳細は、イントラネットの以下の場所を確認してください：<br>
+                        <strong>SE事業部 ＞ 技術ページ ＞ 蓄電システム参照</strong>
+                    </p>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>一度、詳しい話を聞いてみたいです。</li>
+                        <li><span class="label-self">サニックス：</span>ありがとうございます。それでは、お住まいの地域の担当営業所より、日程調整のご連絡を差し上げます。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="m7" class="content-section">
+                <h2>蓄電池設定変更（売電終了時など）</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">売電終了に伴うモード変更のご案内</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>太陽光の売電期間が終了すると通知がありました。蓄電池の設定か何か必要ですか？</li>
+                        <li><span class="label-self">サニックス：</span>はい。売電終了後は、発電した電気を売るよりもご自宅で効率よく使う方がおトクになるため、設定モードの変更をお勧めしております。</li>
+                        <li><span class="label-cust">お客様：</span>いつ、どのように設定すればいいですか？</li>
+                        <li><span class="label-self">サニックス：</span>売電終了の時期に合わせて、改めて担当よりご連絡し、設定の変更についてお手伝いさせていただきましょうか。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="background-color: #f0f7ff; border-color: #2b6cb0;">
+                    <i class="fas fa-cog" style="color: #2b6cb0; margin-right: 5px;"></i>
+                    <strong>【オペレーター用：機種別推奨モード】</strong><br>
+                    <p style="margin-top: 5px; font-size: 0.9em; line-height: 1.6;">
+                        設置機種を確認し、以下のモードへの変更をご案内してください。<br>
+                        ・<strong>パナソニック製：</strong>「環境優先モード」<br>
+                        ・<strong>田淵電機製：</strong>「節エネモード」<br>
+                        ・<strong>フレキシブル蓄電システム：</strong>「グリーンモード」
+                    </p>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">技術資料の参照先（イントラネット）</h3>
+                    <div style="padding: 0 20px; font-size: 0.85em; line-height: 1.6; color: #555;">
+                        <p>具体的な操作手順は、以下のマニュアルを参照してください。</p>
+                        <p><strong>場所：イントラ ＞ SE ＞ 技術・CS資料 ＞ 蓄電システム ＞ 各種資料</strong></p>
+                        <ul style="margin-top: 5px;">
+                            <li>ハイブリッド（パナソニック）：HBパワコン取説 <strong>P.38</strong></li>
+                            <li>ハイブリッド（田淵電機）：HB蓄電システム取説 <strong>P.34</strong></li>
+                            <li>フレキシブル蓄電システム：パワコン取説 <strong>P.32</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>（売電終了日が分かっている場合）〇月〇日に終わるので、連絡をください。</li>
+                        <li><span class="label-self">サニックス：</span>承知いたしました。終了日より前に担当よりご連絡を差し上げるよう手配いたします。お電話ありがとうございました。</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="y1" class="content-section">
+                <h2>排水管洗浄</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">サービスの内容と特徴</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>排水管洗浄とは、どういったことをするのですか。</li>
+                        <li><span class="label-self">サニックス：</span>専用の高圧洗浄機を使用し、屋外の排水桝（ます）からノズルを挿入して、排水管内部の汚れや油カス、ヌメリなどを強力な水圧で落とすメンテナンスです。</li>
+                        <li><span class="label-cust">お客様：</span>薬剤などは使いますか？</li>
+                        <li><span class="label-self">サニックス：</span>いいえ、薬剤や洗剤は一切使用せず、水の圧力だけで洗浄いたしますので、配管や環境にも優しい洗浄方法です。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="background-color: #fff9f9; border-color: #d32f2f; color: #333;">
+                    <h3 style="color: #d32f2f; font-size: 1.1em; margin-top: 0;">
+                        <i class="fas fa-exclamation-triangle"></i>【重要】洗浄の対象外となる箇所
+                    </h3>
+                    <p style="font-weight: bold; margin-bottom: 8px;">※以下の箇所は洗浄できません。必ず事前にお伝えください。</p>
+                    <ul style="font-size: 0.95em; line-height: 1.8; margin-left: 10px;">
+                        <li><strong>浄化槽</strong></li>
+                        <li><strong>汚水桝（トイレ）</strong></li>
+                        <li><strong>雨水桝</strong></li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">価格の案内</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>料金はいくらですか。</li>
+                        <li><span class="label-self">サニックス：</span>排水桝5箇所までは一律<strong>（価格表参照）円</strong>で承っております。</li>
+                        <li><span class="label-self">サニックス：</span>5箇所を超える場合は、1箇所あたり<strong>（価格表参照）円</strong>が追加となります。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="border-color: #d32f2f; background-color: #fff9f9;">
+                    <i class="fas fa-exclamation-circle" style="color: #d32f2f;"></i>
+                    <strong>【重要】</strong>別途、<strong>一般管理費として税込22,000円</strong>がかかることを必ずお伝えしてください。
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">保証について</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>詰まりに対する保証はありますか。</li>
+                        <li><span class="label-self">サニックス：</span>申し訳ございませんが、排水管洗浄につきましては<strong>保証制度はございません。</strong>あくまでも現状の汚れを落とすメンテナンスとして承っております。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>わかりました。一度検討します。</li>
+                        <li><span class="label-self">サニックス：</span>油汚れなどは放っておくと詰まりの原因になりますので、早めのメンテナンスをお勧めいたします。お電話ありがとうございました。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="y2" class="content-section">
+                <h2>ドールマン・ショック（住宅機器）</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">商品の特徴と仕組み</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>ドールマン・ショックとは、どういった商品ですか。</li>
+                        <li><span class="label-self">サニックス：</span>給水管の外側にコイルを巻き、微弱な電流を流すことで、水中の汚れ（スケールなど）を付きにくくする装置です。</li>
+                        <li><span class="label-cust">お客様：</span>水の成分が変わるのですか？</li>
+                        <li><span class="label-self">サニックス：</span>いいえ、水の成分そのものは変えません。汚れがマイナスの電気を帯びるようにすることで、シンクの水垢や油、便器の尿石などが付着するのを抑える仕組みです。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">期待できる効果</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>どんなメリットがありますか。</li>
+                        <li><span class="label-self">サニックス：</span>水まわりの汚れが落ちやすくなるため、お掃除が楽になります。また、配管内部のクリーンな状態を保つのにも役立ちます。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">価格と保証について</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>価格はいくらですか。</li>
+                        <li><span class="label-self">サニックス：</span>工事費込みで<strong>（価格表参照）円</strong>でございます。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="border-color: #d32f2f; background-color: #fff9f9;">
+                    <i class="fas fa-exclamation-circle" style="color: #d32f2f;"></i>
+                    <strong>【重要】</strong>別途、<strong>一般管理費として税込22,000円</strong>がかかります。
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">保証の注意点</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>保証はありますか。</li>
+                        <li><span class="label-self">サニックス：</span>機器本体については<strong>5年間の保証</strong>がございます。</li>
+                    </ul>
+                </div>
+
+                <div
+                    style="margin: 10px 0; padding: 15px; background: #fff9f9; border-left: 5px solid #d32f2f; font-size: 0.9em; border-radius: 4px;">
+                    <strong style="color: #d32f2f;"><i class="fas fa-user-shield"></i> 【案内時の注意点】</strong><br>
+                    <p style="margin-top: 5px; margin-bottom: 0;">
+                        製品の故障に対する保証はありますが、<strong>「汚れの落ち具合」などの効果そのものを保証するものでではない</strong>ことを、トラブル防止のため丁寧にお伝えしてください。
+                    </p>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-self">サニックス：</span>お電話ありがとうございました。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="y3" class="content-section">
+                <h2>害虫獣・PCS（ペストコントロール）</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">受付の基本ルール</h3>
+                    <p style="padding: 0 20px; font-size: 0.9em;">
+                       害虫獣のお問い合わせは、相談室で直接可否を判断せず、まずは<strong>「一旦受付をして、担当部署より折り返し回答する」</strong>流れを徹底してください。
+                    </p>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>ネズミ（またはゴキブリ等）が出て困っているのですが、駆除してもらえますか。</li>
+                        <li><span class="label-self">サニックス：</span>お困りの状況を承知いたしました。担当部署にて状況を確認し、対応の可否を含め、当日中に折り返しご連絡させていただきます。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="background-color: #fff9f9; border-color: #d32f2f;">
+                    <strong>【重要：お断りしているケース】</strong><br>
+                    <p style="margin-top: 5px; font-size: 0.85em; line-height: 1.6;">
+                        以下の場合は、その場でお断りするか、慎重な対応が必要です。<br>
+                        ・<strong>中京（愛知・三重）以東</strong>の個人・戸建の害虫獣依頼：原則お断り<br>
+                        ・<strong>全地区共通</strong>：一般家庭の<strong>トコジラミ</strong>依頼：お断り
+                    </p>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">価格の目安（税抜）</h3>
+                    <p style="padding: 0 20px; font-size: 0.8em; color: #666;">※状況により変動するため、必ず「詳細は見積もり」とお伝えください。</p>
+                    <table
+                        style="width: calc(100% - 40px); margin: 10px 20px; border-collapse: collapse; font-size: 0.85em;">
+                        <tr style="background: #eee;">
+                            <th style="border: 1px solid #ddd; padding: 5px;">対象</th>
+                            <th style="border: 1px solid #ddd; padding: 5px;">価格目安</th>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #ddd; padding: 5px;">スズメバチ</td>
+                            <td style="border: 1px solid #ddd; padding: 5px;">屋外 25,000円〜 / 屋内 40,000円〜</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #ddd; padding: 5px;">アシナガバチ</td>
+                            <td style="border: 1px solid #ddd; padding: 5px;">15,000円〜</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #ddd; padding: 5px;">ムカデ</td>
+                            <td style="border: 1px solid #ddd; padding: 5px;">50,000円〜</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #ddd; padding: 5px;">ダニ（個人宅）</td>
+                            <td style="border: 1px solid #ddd; padding: 5px;">50,000円〜</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">聞き取り事項と結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-self">サニックス：</span>恐れ入りますが、以下の点をお聞かせいただけますか。</li>
+                        <li style="list-style: none; font-size: 0.9em; color: #555; padding-left: 20px;">
+                            ① 対象の種類（ネズミ、ハチ、ゴキブリなど）<br>
+                            ② 発生場所（天井裏、庭、室内など）<br>
+                            ③ 建物種別（戸建、アパート、店舗など）
+                        </li>
+                        <li><span class="label-cust">お客様：</span>（回答後）連絡を待っています。</li>
+                        <li><span class="label-self">サニックス：</span>ありがとうございます。それでは、担当の事業所より改めてご連絡差し上げます。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="c1" class="content-section">
+                <h2>高齢者契約（70歳以上のお客様）</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">契約の基本ルール</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>70歳以上になったら、契約できないのですか？</li>
+                        <li><span class="label-self">サニックス：</span>いえ、ご契約いただけないということはございません。ただ、当社では社内ルールとして、70歳を超えるお客様にご契約いただく場合は、実子または親族の方に契約内容を説明し、皆様にご納得いただいてからご契約させていただいております。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="background-color: #fff9f9; border-color: #d32f2f;">
+                    <h3 style="color: #d32f2f; font-size: 1.1em; margin-top: 0;">
+                        <i class="fas fa-exclamation-circle"></i> なぜ確認が必要なのか（案内理由）
+                    </h3>
+                    <p style="font-size: 0.9em; line-height: 1.6; margin-bottom: 0;">
+                       年齢で判断するのは大変失礼とは存じますが、近年一般的に高齢者との契約が社会問題になっております。当社でもそういった背景を受け、現在はご年齢に応じた確認の方法をとらせていただいております。
+                    </p>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">親族がいない場合の対応</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>子供もいないし、確認を取れるような親族もいない場合はどうなりますか？</li>
+                        <li><span class="label-self">サニックス：</span>そのような場合は、民生委員の方や町内会長、介護士の方など、消費者側の立場にある方に、お客様から連絡していただき、確認者になっていただけるようお願いしております。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>そうですか。相談してまた連絡します。</li>
+                        <li><span class="label-self">サニックス：</span>お手数をおかけいたしますが、よろしくお願いいたします。お電話ありがとうございました。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="c2" class="content-section">
+                <h2>クーリング・オフ（ご契約の解除）</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">受付時の基本対応</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>先日契約しましたが、クーリング・オフ（キャンセル）したいです。</li>
+                        <li><span class="label-self">サニックス：</span>お客様のご登録から確認いたしますので、お電話番号とお名前を教えていただけますでしょうか。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="background-color: #fff9f9; border-color: #d32f2f;">
+                    <h3 style="color: #d32f2f; font-size: 1.1em; margin-top: 0;">
+                        <i class="fas fa-clipboard-list"></i> 【最重要】ヒアリング・確認事項
+                    </h3>
+                    <div style="font-size: 0.95em; line-height: 1.7; margin: 10px 0 0 10px;">
+                        <p style="margin-bottom: 8px;">お手元に<strong>契約書、赤いA4サイズのチラシ、青い冊子のカタログ</strong>があるか確認し、以下を伺ってください。</p>
+                        <ul style="margin-left: 20px; font-weight: bold; color: #d32f2f;">
+                            <li>契約日</li>
+                            <li>契約者名（本人以外の場合は関係性と意思確認）</li>
+                            <li>契約内容（工事の種類など）</li>
+                            <li>担当者名</li>
+                            <li>施工予定日（施工後の場合は取り外し連絡が必要なため）</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">成立の案内と手続き方法</h3>
+                    <ul class="script-list">
+                        <li><span class="label-self">サニックス：</span>私は（自分の名前）と申します。当社は口頭でもクーリング・オフをお受けしておりますので、<strong>このお電話の時点でクーリング・オフは成立しております。</strong></li>
+                        <li><span class="label-self">サニックス：</span>ただし、法律上は書面での通知が原則となっております。記録として残りますので、以下のいずれかの方法でお手続きをお願いしております。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="border-color: #005599; background-color: #f0f7ff;">
+                    <h3 style="color: #005599; font-size: 1.1em; margin-top: 0;">
+                        <i class="fas fa-envelope-open-text"></i> 書面でのお申し出
+                    </h3>
+                    <div style="font-size: 0.9em; line-height: 1.6; margin-bottom: 0;">
+                        <p>法律では<strong>書面でのお申し出が原則</strong>のため、お手元のツールからお手続きをお願いしております。</p>
+                        <ul style="margin-left: 15px; margin-top: 5px;">
+                            <li><strong>ハガキでの郵送：</strong><br>
+                                赤いチラシとパンフレットの一番後ろに<strong>切り取り式のハガキ</strong>がございます。必要事項を記入し、切手を貼って投函してください。
+                            </li>
+                            <li style="margin-top: 8px;"><strong>専用フォーム（QRコード）：</strong><br>
+                                赤いパンフレットに記載されている<strong>QRコード</strong>を読み取ると専用フォームが表示されます。必要事項を入力して送信してください。
+                            </li>
+                        </ul>
+                        <p style="margin-top: 8px; font-weight: bold;">※記録として残るため、いずれか一方をお送りいただくようお願いしております。</p>
+                    </div>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-self">サニックス：</span>お手続き完了後、担当部署より改めて取り消しの確認書類を送付、またはお電話を差し上げます。お電話ありがとうございました。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="c3" class="content-section">
+                <h2>保証書（発行時期の案内）</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">受付時の基本対応</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>工事をしてもらいましたが、保証書はいつ届きますか？</li>
+                        <li><span class="label-self">サニックス：</span>工事完了後、週ごとに取りまとめて福岡県の本社よりお送りしております。</li>
+                        <li><span class="label-self">サニックス：</span>現在の状況をお調べしますので、お客様のご登録確認のためにお電話番号とお名前を教えていただけますでしょうか。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="background-color: #f0f7ff; border-color: #005599;">
+                    <h3 style="color: #005599; font-size: 1.1em; margin-top: 0;">
+                        <i class="fas fa-calendar-alt"></i> 発送スケジュール（目安）
+                    </h3>
+                    <p style="font-size: 0.95em; line-height: 1.6; margin-bottom: 0;">
+                        保証書は以下のサイクルで作成・発送されています。<br>
+                        ・<strong>土曜日：</strong> 締め切り<br>
+                        ・<strong>火曜日：</strong> 発行<br>
+                        ・<strong>水曜日：</strong> 本社（福岡）より発送
+                    </p>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">確認後の案内</h3>
+                    <div style="padding: 0 20px; font-size: 0.9em; color: #555;">
+                        <p><i class="fas fa-search"></i> 顧客システムで「保証書発行日」または「売上計上日」を確認し、状況を説明してください。</p>
+                    </div>
+                    <ul class="script-list">
+                        <li><span class="label-self">サニックス：</span>（確認結果に基づき）ただいま準備中でございますので、来週の○曜日ごろにはお手元に届く予定です。</li>
+                        <li><span class="label-cust">お客様：</span>分かりました。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-self">サニックス：</span>お電話ありがとうございました。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="c4" class="content-section">
+                <h2>支払方法（2025/4/1 改定）</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">受付時の基本対応</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>契約した場合、どのような支払方法がありますか。</li>
+                        <li><span class="label-self">サニックス：</span>お支払方法については、大きく分けて4つの方法がございます。お客様のご都合に合わせてお選びいただけます。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="background-color: #f8f9fa; border-color: #005599;">
+                    <h3 style="color: #005599; font-size: 1.1em; margin-top: 0;">
+                        <i class="fas fa-wallet"></i> 選択できる4つの支払方法
+                    </h3>
+                    <div style="font-size: 0.9em; line-height: 1.7;">
+                        <ul style="list-style: none; padding-left: 5px;">
+                            <li style="margin-bottom: 10px;">
+                                <strong>1. 銀行振込</strong><br>
+                                工事後1週間以内のお振込み。※振込手数料はお客様負担。
+                            </li>
+                            <li style="margin-bottom: 10px;">
+                                <strong>2. ローン支払い（信販会社使用）</strong><br>
+                                分割払い。※審査により保証人が必要になる場合があります。
+                            </li>
+                            <li style="margin-bottom: 10px;">
+                                <strong>3. コンビニ払い・決済アプリ</strong><br>
+                                税込30万円が上限。工事後7日以内に「払込票」で支払い。※手数料無料。
+                            </li>
+                            <li style="margin-bottom: 10px;">
+                                <strong>4. 口座自動引落（27日引落）</strong><br>
+                                WEB登録または依頼書での手続き。手数料無料、金額制限なし。
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="background-color: #fff9f9; border-color: #d32f2f;">
+                    <i class="fas fa-info-circle" style="color: #d32f2f;"></i>
+                    <strong>【注意点】</strong>口座引落の時期は、工事日や申込日により当月・翌月・翌々月と変動する場合があります。
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>分かりました。また相談して連絡します。</li>
+                        <li><span class="label-self">サニックス：</span>承知いたしました。ご検討よろしくお願いいたします。お電話ありがとうございました。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="c5" class="content-section">
+                <h2>信販問合せ（残金確認・一括返済など）</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">受付時の基本対応</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>ローンの残金がいくらあるか知りたい。一括で支払いたい。</li>
+                        <li><span class="label-self">サニックス：</span>信販会社での分割払いの場合、取引履歴の管理やお手続きは信販会社が直接行っております。お手数ですが、信販会社へ直接お申し出いただけますでしょうか。</li>
+                        <li><span class="label-cust">お客様：</span>そちらで調べて連絡をもらうことはできないのですか？</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="background-color: #fff9f9; border-color: #d32f2f;">
+                    <h3 style="color: #d32f2f; font-size: 1.1em; margin-top: 0;">
+                        <i class="fas fa-shield-alt"></i> 直接問合せが必要な理由
+                    </h3>
+                    <p style="font-size: 0.95em; line-height: 1.6; margin-bottom: 0;">
+                        <strong>個人情報保護法</strong>により、ご契約者本人様からの直接のお申し出でなければ、信販会社から情報を開示してもらうことができません。そのため、当社から回答を差し上げることができない仕組みとなっております。
+                    </p>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">信販会社の特定と案内</h3>
+                    <ul class="script-list">
+                        <li><span class="label-self">サニックス：</span>ご利用の信販会社名をお調べしますので、お客様のお名前、お電話番号を教えていただけますか。また、いつ頃の何の工事分でしょうか。</li>
+                        <li><span class="label-cust">お客様：</span>（回答後）</li>
+                        <li><span class="label-self">サニックス：</span>（確認後）〇〇信販でのお支払い分ですね。連絡先を申し上げます。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="background-color: #f8f9fa; border-color: #005599;">
+                    <h3 style="color: #005599; font-size: 1.1em; margin-top: 0;">
+                        <i class="fas fa-search"></i> 案内時の確認・留意事項
+                    </h3>
+                    <div style="font-size: 0.95em; line-height: 1.7; margin: 10px 0 0 10px;">
+                        <ul style="margin-left: 20px; color: #333;">
+                            <li><strong>顧客管理システム</strong>で利用している信販会社を特定する。</li>
+                            <li>各信販会社の連絡先については<strong>別紙（信販会社一覧）</strong>を参照して案内する。</li>
+                            <li>個人情報における信販会社との窓口は、HS事業本部およびお客様相談室であることを念頭に置く。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-self">サニックス：</span>お手数をおかけいたしますが、よろしくお願いいたします。お電話ありがとうございました。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="c6" class="content-section">
+                <h2>個人情報開示（工事内容・金額等の書面による確認）</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">受付時の基本対応</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>契約書が手元にないので、今までの契約内容や金額を詳しく知りたい。</li>
+                        <li><span class="label-self">サニックス：</span>お問い合わせありがとうございます。ご本人様確認のため、まずはフルネームとご住所、お電話番号を教えていただけますでしょうか。</li>
+                        <li><span class="label-self">サニックス：</span>詳細な開示につきましては、個人情報保護の観点から<strong>「書面でのやり取り」</strong>が必要となります。また、郵送実費として<strong>手数料940円</strong>がかかりますが、よろしいでしょうか。</li>
+                    </ul>
+                </div>
+                <div class="case-box">
+                    <h3 class="case-title">お申し出者別の必要書類</h3>
+                    <table
+                        style="width: calc(100% - 40px); margin: 10px 20px; border-collapse: collapse; font-size: 0.85em; background: #fff;">
+                        <thead>
+                            <tr style="background: #eee;">
+                                <th style="border: 1px solid #ddd; padding: 8px; width: 30%;">お申し出者</th>
+                                <th style="border: 1px solid #ddd; padding: 8px;">必要書類</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px; text-align: center; font-weight: bold;">
+                                    本人
+                                </td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">
+                                    ・申立書<br>
+                                    ・手数料（送料）
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px; text-align: center; font-weight: bold;">
+                                    代理人
+                                </td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">
+                                    ・申立書<br>
+                                    ・委任状<br>
+                                    ・印鑑証明<br>
+                                    ・手数料（送料）
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px; text-align: center; font-weight: bold;">
+                                    相続人<br><small>(契約者が亡くなった場合)</small>
+                                </td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">
+                                    ・申立書<br>
+                                    ・除籍謄本<br>
+                                    ・印鑑証明<br>
+                                    ・手数料（送料）
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p style="padding: 0 20px; font-size: 0.8em; color: #d32f2f; font-weight: bold;">
+                        ※手数料（送料）は940円実費でいただくことを必ず伝えてください。
+                    </p>
+                </div>
+
+                <div class="highlight-box" style="border-color: #005599; background-color: #f0f7ff;">
+                    <h3 style="color: #005599; font-size: 1.1em; margin-top: 0;">
+                        <i class="fas fa-info-circle"></i> お手続きの流れと実費負担
+                    </h3>
+                    <div style="font-size: 0.9em; line-height: 1.6; margin-bottom: 0;">
+                        <p><strong>1. 書留郵送代（実費）：940円</strong><br>
+                            （内訳：定形郵便110円 ＋ 書留480円 ＋ 配達証明350円）<br>
+                            <small>※2024年10月の郵便料金値上げ後の金額です。</small>
+                        </p>
+
+                        <p style="margin-top: 10px;"><strong>2. 手続きのステップ：</strong></p>
+                        <ul style="margin-left: 15px;">
+                            <li>当社から「お手続き書類」を郵送します。</li>
+                            <li>書類に記入し、必要書類と実費940円分の切手を同封して返送してください。</li>
+                            <li>返送が届き次第、開示書類をお送りいたします。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-self">サニックス：</span>具体的なお手続き方法については、本社お客様相談室が受付窓口となっております。担当者より本日中に改めてご連絡を差し上げます。そのままお待ちください。お電話ありがとうございました。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="c7" class="content-section">
+                <h2>消費生活センターからの入電対応</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">受付時の基本対応</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">相談員：</span>〇〇市消費生活センターの〇〇と申します。今、サニックスで契約された相談者がご相談に来られています。</li>
+                        <li><span class="label-self">サニックス：</span>お電話ありがとうございます。私、カスタマー相談室の（自分の名前）と申します。内容を確認させていただきます。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="background-color: #fff9f9; border-color: #d32f2f;">
+                    <h3 style="color: #d32f2f; font-size: 1.1em; margin-top: 0;">
+                        <i class="fas fa-clipboard-list"></i> 【重要】ヒアリング事項
+                    </h3>
+                    <div style="font-size: 0.95em; line-height: 1.7; margin: 10px 0 0 10px;">
+                        <ul style="margin-left: 20px; font-weight: bold; color: #d32f2f;">
+                            <li>消費生活センターの正式名称</li>
+                            <li>担当相談員のお名前</li>
+                            <li>連絡先（折り返し可能な時間帯も確認）</li>
+                            <li>相談者の状況（来訪中か、お電話での相談か）</li>
+                            <li>相談者と契約者の関係（本人、家族など）</li>
+                            <li>具体的な相談内容</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-self">サニックス：</span>詳細を確認のうえ、担当者より折り返しご連絡を差し上げます。本日は何時までにお電話すればよろしいでしょうか。</li>
+                        <li><span class="label-cust">相談員：</span>〇〇時までにお願いします。</li>
+                        <li><span class="label-self">サニックス：</span>承知いたしました。お電話ありがとうございました。失礼いたします。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="border-color: #005599; background-color: #f0f7ff;">
+                    <h3 style="color: #005599; font-size: 1.1em; margin-top: 0;">
+                        <i class="fas fa-headset"></i> 社内報告ルール
+                    </h3>
+                    <p style="font-size: 0.9em; line-height: 1.6; margin-bottom: 0; font-weight: bold;">
+                       ※消費生活センターからの入電があった場合は、直ちにお客様相談室の責任者まで報告・連絡を行ってください。
+                    </p>
+                </div>
+            </div>
+
+            <div id="c8" class="content-section">
+                <h2>一般管理費について</h2>
+
+                <div class="case-box">
+                    <h3 class="case-title">受付時の基本対応</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>見積書（契約書）にある「一般管理費」とは何のことですか？</li>
+                        <li><span class="label-self">サニックス：</span>一般管理費とは、商品やサービスを継続的・安定的にご提供するために必要な諸費用のことでございます。</li>
+                        <li><span class="label-self">サニックス：</span>昨今の物価や人件費の高騰、通信費の値上げといった社会情勢の変化を受け、サービスの維持・向上のための<strong>実質的な値上げ</strong>として、事務手数料等の名目で設定させていただいております。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="background-color: #fff9f9; border-color: #d32f2f;">
+                    <h3 style="color: #d32f2f; font-size: 1.1em; margin-top: 0;">
+                        <i class="fas fa-table"></i> 一般管理費の料金体系
+                    </h3>
+                    <table
+                        style="width: calc(100% - 20px); margin: 10px auto; border-collapse: collapse; font-size: 1em; background: #fff; text-align: center;">
+                        <thead>
+                            <tr style="background: #fdeaea; color: #d32f2f;">
+                                <th style="border: 1px solid #d32f2f; padding: 10px;">ご契約合計金額（税込）</th>
+                                <th style="border: 1px solid #d32f2f; padding: 10px;">一般管理費（税込）</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="border: 1px solid #d32f2f; padding: 10px;">33,000円 未満</td>
+                                <td style="border: 1px solid #d32f2f; padding: 10px; font-weight: bold;">無料</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #d32f2f; padding: 10px;">33,000円 以上</td>
+                                <td style="border: 1px solid #d32f2f; padding: 10px; font-weight: bold; color: #d32f2f; font-size: 1.1em;">
+                                    22,000円
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p style="font-size: 0.85em; margin: 10px 10px 0; color: #666; font-weight: bold;">
+                        ※複数契約でも同日締結であれば一律料金（1回分）となります。
+                    </p>
+                </div>
+
+                <div class="highlight-box" style="background-color: #f8f9fa; border-color: #005599;">
+                    <h3 style="color: #005599; font-size: 1.1em; margin-top: 0;">
+                        <i class="fas fa-info-circle"></i> 費用が必要な背景と内訳
+                    </h3>
+                    <div style="font-size: 0.95em; line-height: 1.7; margin: 10px 0 0 10px;">
+                        <p><strong>【背景】</strong> 物価高騰や物流費・通信費等のコスト上昇に伴い、従来通りのサービス品質を維持するための諸費用として申し受けております。</p>
+                        <p style="margin-top: 8px;"><strong>【主な用途】</strong></p>
+                        <ul style="margin-left: 20px;">
+                            <li>ご契約に際しての<strong>書類作成・管理費用</strong></li>
+                            <li>定期点検のご案内（DM等）の<strong>発行および発送費用</strong></li>
+                            <li>その他、各種<strong>事務手数料</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>今の時代はどこも値上がりしていますもんね、わかりました。</li>
+                        <li><span class="label-self">サニックス：</span>ご理解いただきありがとうございます。今後とも変わらぬサービスをご提供できるよう努めてまいります。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="etc1" class="content-section">
+                <h2>【車両クレーム】</h2>
+
+                <div class="case-box">
+                    <ul class="script-list">
+                        <li><span class="label-cust">通報者：</span>（例）サニックスの車が無理やり車線変更してきて、接触しそうになりました。</li>
+                        <li><span class="label-self">サニックス：</span>ご不快な思いをおかけし、大変申し訳ございません。</li>
+                        <li><span class="label-self">サニックス：</span>今後の指導のために社員を特定したく存じます。恐れ入りますが、詳しく状況を教えていただけますでしょうか。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <strong>【特定のために伺う事項】</strong><br>
+                    ① 車のナンバー（必須）<br>
+                    ② 発生した日時と具体的な場所<br>
+                    ③ 状況（無理な割り込み、スピード出しすぎ、横断歩行者無視、無断駐車 等）
+                </div>
+
+                <div class="case-box">
+                    <ul class="script-list">
+                        <li><span class="label-self">サニックス：</span>お詫びのご連絡を差し上げたいので、お客様のお名前とお電話番号をお伺いできますでしょうか。</li>
+                        <li><span class="label-self">サニックス：</span>今後このようなことが無いよう、徹底して指導してまいります。ご連絡ありがとうございました。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="etc2" class="content-section">
+                <h2>【つながるホームサポート】</h2>
+
+                <div class="case-box">
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>サニックスを名乗る所から電話（またはSMS）が来たが、本物ですか？</li>
+                        <li><span class="label-self">サニックス：</span>ご心配をおかけし申し訳ございません。弊社で新しく始めたサービスのご案内で間違いございません。</li>
+                        <li><span class="label-self">サニックス：</span>匠ワランティアンドプロテクション社の「つながるホームサポート」という商品で、弊社は総代理店を務めております。</li>
+                        <li><span class="label-self">サニックス：</span>もしよろしければ、担当窓口より改めて詳細をご案内差し上げますが、いかがいたしましょうか。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <strong>【サービスの主な特徴】</strong><br>
+                    ● 月額料金：3,480円（税込3,828円）<br>
+                    ● サポート内容：住宅設備、家電、PC・スマホ等の故障修理・設定サポート<br>
+                    ● 修理特典：自然故障や物損に対し、最大10万円/回まで補償（回数無制限）<br>
+                    ● <strong>専用窓口電話番号：0120-984-590</strong>
+                </div>
+
+                <div class="case-box">
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>どんな家電が対象になりますか？</li>
+                        <li><span class="label-self">サニックス：</span>テレビ、冷蔵庫、洗濯機、エアコンなどの主要家電から、パソコンやゲーム機などの通信機器まで幅広く対象となります。</li>
+                        <li><span class="label-self">サニックス：</span>詳細な対象範囲や条件については、専門の担当者から詳しくご説明させていただきます。</li>
+                    </ul>
+                </div>
+
+                <div class="memo-text">
+                    ※ショートメールの送信元番号：050-8892-1346 も弊社の案内用番号です。<br>
+                    ※サニックス公式HPの「その他商品・サービス」欄にも掲載されている旨を伝えると安心感に繋がります。
+                </div>
+            </div>
+
+            <div id="etc3" class="content-section">
+                <h2>【ハウスクリーニング（おそうじ革命）】</h2>
+
+                <div class="case-box">
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>エアコンや水まわりの掃除をお願いしたいのですが。</li>
+                        <li><span class="label-self">サニックス：</span>ご検討いただきありがとうございます。対応可能な地域かお調べしますので、お住まいの市区町村を教えていただけますか？</li>
+                        <li><span class="label-self">サニックス：</span>（エリア確認後）ありがとうございます。ご対応可能です。詳しい担当者より折り返し、日程や詳細についてご連絡差し上げます。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <strong>【受付時に伺う事項】</strong><br>
+                    ● <strong>希望メニュー：</strong> エアコン（お掃除機能の有無）、キッチン、浴室、換気扇など<br>
+                    ● <strong>駐車場の有無：</strong> 駐車スペースがない場合、付近の有料駐車場代をご負担いただく旨を伝える<br>
+                    ● <strong>対応エリア確認：</strong> 「対応可能エリア表」で「〇」がついているか必ず確認
+                </div>
+
+                <div class="case-box">
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>料金はいくらくらいかかりますか？</li>
+                        <li><span class="label-self">サニックス：</span>例えば、一般的な壁掛けエアコンですと1台10,400円（税込）で、2台目以降は割引もございます。</li>
+                        <li><span class="label-self">サニックス：</span>メニューによって異なりますので、まずは目安の金額をご案内しましょうか？</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <strong>【主な料金目安（税込）】</strong> ※2024.3時点<br>
+                    ・壁掛けエアコン（一般）：10,400円<br>
+                    ・壁掛けエアコン（お掃除機能付）：19,400円<br>
+                    ・レンジフード（換気扇）：15,400円<br>
+                    ・浴室クリーニング：15,400円<br>
+                    ※作業料金の合計が<strong>最低出張料 7,950円</strong>を下回る場合は、差額が発生する旨を伝える。
+                </div>
+
+                <div class="memo-text">
+                    ※業務用エアコンや、一部離島などの対応不可エリアについては、担当部署へ確認が必要です。<br>
+                    ※「おそうじ革命」ブランドでのサービス提供となる旨を伝えるとスムーズです。
+                </div>
+            </div>
+
+            <div id="etc4" class="content-section">
+                <h2>【お客様紹介制度】</h2>
+
+                <div class="case-box">
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>知り合いを紹介したいのですが、何か特典はありますか？</li>
+                        <li><span class="label-self">サニックス：</span>ご紹介いただきありがとうございます。ご紹介いただいた方が無料調査や太陽光のお見積りを受けられますと、ご紹介者様に商品券のプレゼントがございます。</li>
+                        <li><span class="label-self">サニックス：</span>また、ご成約に至った場合には、ご紹介者様とご友人様の両方にさらに特典がございます。</li>
+                        <li><span class="label-self">サニックス：</span>まずはご紹介先様のご連絡先などを専用の申込書、または担当者へお伝えいただけますでしょうか。</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <strong>【紹介特典の内容】</strong>（2024.10.1～）
+
+                    <table
+                        style="border: 2px solid #555; border-collapse: collapse; width: 100%; margin-top: 10px; background-color: #fff;">
+                        <thead>
+                            <tr style="background-color: #f2f2f2;">
+                                <th style="border: 1px solid #555; padding: 10px; font-size: 0.9em;">タイミング</th>
+                                <th style="border: 1px solid #555; padding: 10px; font-size: 0.9em;">紹介元（お客様）</th>
+                                <th style="border: 1px solid #555; padding: 10px; font-size: 0.9em;">紹介先（ご友人等）</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="border: 1px solid #555; padding: 10px; text-align: center; font-weight: bold;">調査・見積完了</td>
+                                <td style="border: 1px solid #555; padding: 10px; text-align: center;">商品券 2,000円分</td>
+                                <td style="border: 1px solid #555; padding: 10px; text-align: center; color: #888;">（特典なし）</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #555; padding: 10px; text-align: center; font-weight: bold;">ご成約（追加分）</td>
+                                <td style="border: 1px solid #555; padding: 10px; text-align: center;">商品券 5,000円分</td>
+                                <td style="border: 1px solid #555; padding: 10px; text-align: center;">商品券 7,000円分</td>
+                            </tr>
+                            <tr style="background-color: #fff9c4; font-weight: bold;">
+                                <td style="border: 1px solid #555; padding: 10px; text-align: center;">合計最大</td>
+                                <td style="border: 1px solid #555; padding: 10px; text-align: center;">7,000円分</td>
+                                <td style="border: 1px solid #555; padding: 10px; text-align: center;">7,000円分</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div style="font-size: 0.8em; margin-top: 8px; color: #555;">
+                        ※調査特典は、紹介先が「無料調査」または「太陽光・蓄電池の見積り」を完了した時点で発生します。
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <strong>【対象外となる主な条件】</strong> ※重要<br>
+                    ・紹介先が既に当社の保証期間中、または保証満了後6ヶ月以内の場合。<br>
+                    ・紹介先が既に当社と契約済み、または商談中の場合。<br>
+                    ・紹介先が社員本人の場合は「紹介先特典」は対象外。
+                </div>
+
+                <div class="case-box">
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>どんな工事が対象になりますか？</li>
+                        <li><span class="label-self">サニックス：</span>シロアリ消毒や床下換気システムなどの商材に加え、太陽光発電や蓄電池などの商材も対象となっております。</li>
+                    </ul>
+                </div>
+
+                <div class="memo-text">
+                    ※商品券は、工事完了・入金確認後に本社より郵送されます。<br>
+                    ※2024年10月以降、旧書式の申込書は使用不可。必ず新書式を使用してください。
+                </div>
+            </div>
+            
+            <div id="etc5" class="content-section">
+                <h2>項目5（未設定）</h2>
+                <div class="highlight-box">詳細確認中</div>
+            </div>
+
+            <!--ここから非表示
+            <div id="etc6" class="content-section">
+                <h2>項目6（未設定）</h2>
+                <div class="highlight-box">詳細確認中</div>
+            </div>
+            ここまで-->
+
+        </div>
+
+        <script>
+            function showContent(id) {
+                // すべてのコンテンツを非表示にする
+                const sections = document.querySelectorAll('.content-section');
+                sections.forEach(section => section.classList.remove('active'));
+
+                // 指定されたIDのコンテンツを表示する
+                const targetSection = document.getElementById(id);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                } else {
+                    console.error('Section not found:', id);
+                }
+
+                // サイドバーのactiveクラスを更新
+                const menuItems = document.querySelectorAll('.menu-item');
+                menuItems.forEach(item => item.classList.remove('active'));
+
+                if (event && event.currentTarget) {
+                    event.currentTarget.classList.add('active');
+                }
+
+                // スクロールをトップに戻す
+                document.querySelector('.main-content').scrollTop = 0;
+            }
+        </script>
+    </div>
+
+</body>
+
+</html>
