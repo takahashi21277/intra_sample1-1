@@ -257,6 +257,7 @@
         <div class="menu-item" onclick="showContent('h9')">・リフォーム工事</div>
         <div class="menu-item" onclick="showContent('h10')">・耐震診断</div>
         <div class="menu-item" onclick="showContent('h11')">・ポータブル蓄電池</div>
+        <div class="menu-item" onclick="showContent('h12')">・害虫駆除（HS）</div>
 
         <div class="category-title">【太陽光】</div>
         <div class="menu-item" onclick="showContent('m1')">・メンテナンス</div>
@@ -270,7 +271,7 @@
         <div class="category-title">【ES商品】</div>
         <div class="menu-item" onclick="showContent('y1')">・排水管洗浄</div>
         <div class="menu-item" onclick="showContent('y2')">・ドールマンショック</div>
-        <div class="menu-item" onclick="showContent('y3')">・害虫獣／PCS</div>
+        <div class="menu-item" onclick="showContent('y3')">・害虫／害獣駆除（PCS）</div>
 
         <div class="category-title">【契約関連】</div>
         <div class="menu-item" onclick="showContent('c1')">・高齢者契約について</div>
@@ -391,11 +392,12 @@
                     <h3 class="case-title">価格案内の冒頭フロー</h3>
                     <ul class="script-list">
                         <li><span class="label-cust">お客様：</span>白蟻消毒の価格を教えてください。</li>
-                        <li><span class="label-self">サニックス：</span>以前、当社をご利用いただいたことはございますか。</li>
-                        <li><strong>【判定】</strong>
+                        <li><span class="label-self">サニックス：</span>概算になりますがよろしいでしょうか？</li>
+                        <li><span class="label-cust">お客様：</span>概算でいいので教えてください。</li>
+                        <li><span class="label-self">サニックス：</span>サニックスのご利用は初めてでしょうか？</li>
                             <ul>
-                                <li>初めて・調査のみ → <strong>新規価格</strong></li>
-                                <li>保証切れ7ヶ月目以降5年以内 → <strong>保証切れ価格</strong>（予防消毒のみ）</li>
+                                <li>初めて → <strong>新規価格</strong></li>
+                                <li>以前ご利用　→ <strong>保証切れ価格</strong>（予防消毒のみ）</li>
                             </ul>
                         </li>
                     </ul>
@@ -404,8 +406,11 @@
                 <div class="case-box">
                     <h3 class="case-title">＜新規価格＞の案内</h3>
                     <ul class="script-list">
-                        <li><span class="label-self">サニックス：</span>当社は、調査・見積もりまでは無料で行っております。</li>
-                        <li><span class="label-self">サニックス：</span>生息がなかった場合は「予防消毒」、生息・痕跡があった場合は「駆除消毒」となります。</li>
+                        <li><span class="label-self">サニックス：</span>一階の床下平米数を教えてください。</li>
+                        <li><span class="label-cust">お客様：</span>○○平米です。</li>
+                        <li><span class="label-self">サニックス：</span>○○平米の場合は○○,○○○円になります。こちらに別途一般管理費として22,000円いただいております。</li>
+                        <li><span class="label-cust">お客様：</span>検討します。</li>
+                        <li><span class="label-self">サニックス：</span>当社は、調査・見積もりまでは無料で行っております。ぜひご検討ください。</li>
                     </ul>
                     <div style="padding: 0 20px 20px;">
                         <table style="width: 100%; border-collapse: collapse; font-size: 0.9em;">
@@ -416,16 +421,22 @@
                             </tr>
                             <tr>
                                 <td style="border: 1px solid #ddd; padding: 8px;">予防消毒</td>
-                                <td style="border: 1px solid #ddd; padding: 8px;">（価格表参照）円</td>
-                                <td style="border: 1px solid #ddd; padding: 8px;">（価格表参照）円</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">（価格表参照）110,000円</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">（価格表参照）2,530円</td>
                             </tr>
                             <tr>
                                 <td style="border: 1px solid #ddd; padding: 8px;">駆除消毒</td>
-                                <td style="border: 1px solid #ddd; padding: 8px;">（価格表参照）円</td>
-                                <td style="border: 1px solid #ddd; padding: 8px;">（価格表参照）円</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">（価格表参照）154,000円</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">（価格表参照）3,630円</td>
                             </tr>
                         </table>
                     </div>
+                    <div class="highlight-box" style="background-color: #fff9f9; border: 2px solid #d32f2f; padding: 12px; margin: 0 20px 15px; border-radius: 4px;">
+                        <p style="color: #d32f2f; font-weight: bold; margin: 0; font-size: 0.95em; line-height: 1.5;">
+                            <i class="fas fa-exclamation-triangle"></i> 
+                            <span style="font-size: 1.1em; text-decoration: underline;">別途、一般管理費として【税込22,000円】がかかること</span>を必ずお客様にお伝えしてください。
+                        </p>
+                </div>
                 </div>
 
                 <div class="case-box">
@@ -435,12 +446,68 @@
                         <li><span class="label-self">サニックス：</span>よろしければ履歴を確認いたしますので、お客様の電話番号とお名前を教えていただけますでしょうか。</li>
                         <li><span class="label-self">サニックス：</span>保証切れ予防消毒は、40㎡までの基本価格が（価格表参照）円、40㎡を超える部分は1㎡当たり（価格表参照）円になります。</li>
                     </ul>
+                     <div style="padding: 0 20px 20px;">
+                        <table style="width: 100%; border-collapse: collapse; font-size: 0.9em;">
+                            <tr style="background: #f0f0f0;">
+                                <th style="border: 1px solid #ddd; padding: 8px;">項目</th>
+                                <th style="border: 1px solid #ddd; padding: 8px;">40㎡まで（基本）</th>
+                                <th style="border: 1px solid #ddd; padding: 8px;">40㎡超（1㎡当り）</th>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px;">保証切れ予防消毒</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">（価格表参照）96,800円</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">（価格表参照）2,200円</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="highlight-box" style="background-color: #fff9f9; border: 2px solid #d32f2f; padding: 12px; margin: 0 20px 15px; border-radius: 4px;">
+                        <p style="color: #d32f2f; font-weight: bold; margin: 0; font-size: 0.95em; line-height: 1.5;">
+                            <i class="fas fa-exclamation-triangle"></i> 
+                            <span style="font-size: 1.1em; text-decoration: underline;">別途、一般管理費として【税込22,000円】がかかること</span>を必ずお客様にお伝えしてください。
+                        </p>
+                </div>
                 </div>
 
-                <div class="highlight-box" style="border-color: #d32f2f; background-color: #fff9f9;">
-                    <i class="fas fa-exclamation-circle" style="color: #d32f2f; margin-right: 5px;"></i>
-                    <strong>【重要】</strong>別途、<strong>一般管理費として税込22,000円</strong>がかかることを必ずお伝えしてください。
+                <div class="case-box">
+                    <h3 class="case-title">＜再消毒価格＞の案内</h3>
+                    <p style="padding: 0 20px; font-size: 0.85em; color: #666;">※継続消毒のお客様が対象</p>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>更新した場合の再消毒の価格を教えてください。</li>
+                        <li><span class="label-self">サニックス：</span>概算になりますがよろしいでしょうか？</li>
+                        <li><span class="label-cust">お客様：</span>概算でいいので教えてください。</li>
+                        <li><span class="label-self">サニックス：</span>再消毒は、40㎡までの基本価格が（価格表参照）円、40㎡を超える部分は1㎡当たり（価格表参照）円になります。
+                            前回消毒したの平米数と同じ平米数ですと〇〇円になります。最終点検の際にお見積もりをお渡しします。お見積もりが正式な金額となります。</li>
+                    </ul>
+                     <div style="padding: 0 20px 20px;">
+                        <table style="width: 100%; border-collapse: collapse; font-size: 0.9em;">
+                            <tr style="background: #f0f0f0;">
+                                <th style="border: 1px solid #ddd; padding: 8px;">項目</th>
+                                <th style="border: 1px solid #ddd; padding: 8px;">40㎡まで（基本）</th>
+                                <th style="border: 1px solid #ddd; padding: 8px;">40㎡超（1㎡当り）</th>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px;">再消毒</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">（価格表参照）77,000円</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">（価格表参照）1,650円</td>
+                            </tr>
+                    </div>
+                        </table>
+                    </div>
+                    <div class="highlight-box" style="background-color: #fff9f9; border: 2px solid #d32f2f; padding: 12px; margin: 0 20px 15px; border-radius: 4px;">
+                        <p style="color: #d32f2f; font-weight: bold; margin: 0; font-size: 0.95em; line-height: 1.5;">
+                            <i class="fas fa-exclamation-triangle"></i> 
+                            <span style="font-size: 1.1em; text-decoration: underline;">別途、一般管理費として【税込22,000円】がかかること</span>を必ずお客様にお伝えしてください。
+                        </p>
                 </div>
+                <div class="pdf-link-box" style="display: flex; gap: 10px; align-items: center; justify-content: center;">
+                    <a href="pdf/kakaku.pdf" target="_blank" class="pdf-button">
+                        <i class="far fa-file-pdf"></i> 印刷用PDFを開く
+                    </a>
+                    <a href="pdf/kakakuhyo.pdf" target="_blank" class="pdf-button" style="background-color: #28a745; border-color: #28a745;">
+                        <i class="fas fa-table"></i> 価格表PDFを開く
+                    </a>
+                </div>
+            </div>
             </div>
 
             <div id="id4" class="content-section">
@@ -451,11 +518,10 @@
                     <ul class="script-list">
                         <li><span class="label-cust">お客様：</span>白蟻消毒は保証がありますか。</li>
                         <li><span class="label-self">サニックス：</span>5年間の保証がございます。</li>
-                        <li><span class="label-self">サニックス：</span>（詳細は保証書の表面および裏面の約款に記載しております）</li>
                     </ul>
                 </div>
                 <div class="highlight-box">
-                    <strong>【保証の2大柱】</strong>
+                    <strong>【保証内容】</strong>
                     <ul style="margin-top: 10px; padding-left: 20px;">
                         <li><strong>無料再消毒：</strong>保証期間中に白蟻の生息を当社で確認した場合、再発箇所を無料で消毒します。</li>
                         <li><strong>修復補償：</strong>修復が必要な損傷箇所に限り、1,000万円を限度とした原状回復工事の費用を補償します。</li>
@@ -470,11 +536,29 @@
                     </ul>
                 </div>
 
-                <div class="highlight-box" style="background-color: #f0f7ff; border-color: #005599;">
-                    <strong>【名義変更の注意点】</strong>
-                    <ul style="margin-top: 10px; padding-left: 20px;">
-                        <li>保証書の名義書き換え・再発行には、<strong>手数料 5,500円（税込）</strong>がかかります。</li>
+                <div class="highlight-box" style="background-color: #f9fbfd; border-color: #00a0e9; margin: 0 0 20px 0;">
+                    <strong>【現在の保証の証明について】</strong>
+                    <ul style="margin-top: 10px; padding-left: 20px; font-size: 0.9em; line-height: 1.6;">
+                        <li>2025/9/1施工分より、従来の「保証書」ではなく、<strong>「施工・業務完了カード」</strong>もしくは<strong>「※完成検査表兼報告書」</strong>が新しい保証の証明となっております。</li>
+                        <li>「施工・業務完了カード」「完成検査表兼報告書」は各工事の保証を証明するものになりますので、大切に保管いただくようお願いします。</li>
+                        <p style="padding: 0 20px; font-size: 0.85em; color: #666;">※「完成検査表兼報告書」は工事内容に応じてお渡しする書類が異なります。</p>
                     </ul>
+                </div>
+
+                <div class="highlight-box" style="background-color: #f0f7ff; border-color: #005599; margin: 0 0 20px 0;">
+                    <strong>【注意点】</strong>
+                    <ul style="margin-top: 10px; padding-left: 20px; font-size: 0.9em; line-height: 1.6;">
+                        <li>保証書の名義書き換え・再発行には、<strong>手数料 5,500円（税込）</strong>がかかります。</li>
+                        <li>紙面での保証書をご希望のお客様向けに、1契約ごと5,500円（税込）で発行しております。</li>
+                        <p style="padding: 0 20px; font-size: 0.85em; color: #666;">※「施工・業務完了カード」「完成検査表兼報告書」の再発行は無料</p>
+                    </ul>
+                </div>
+
+
+                <div class="pdf-link-box">
+                    <a href="pdf/hosyou.pdf" target="blank" class="pdf-button">
+                        <i class="far fa-file-pdf"></i> 印刷用PDFを開く
+                    </a>
                 </div>
             </div>
 
@@ -1810,11 +1894,112 @@
                 </div>
             </div>
 
-            <div id="h11" class="content-section">
-                <h2>ポータブル蓄電池</h2>
+            <div id="h12" class="content-section">
+                <h2>害虫駆除（HS）の受付対応</h2>
+                
+                <div class="case-box">
+                    <h3 class="case-title">受付時の基本対応</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>家に害虫が出たので駆除してほしいのですが、対応していますか？</li>
+                        <li><span class="label-self">サニックス：</span>お問合せありがとうございます。害虫の種類にもよりますが承っております。</li>
+                        <li><span class="label-self">サニックス：</span>どのような害虫でお困りか教えていただけますでしょうか。</li>
+                    </ul>
+                </div>
 
-                <div class="highlight-box">詳細確認中</div>
-            </div>
+                <div class="highlight-box" style="background-color: #fff9f9; border-color: #d32f2f;">
+                    <h3 style="color: #d32f2f; font-size: 1.1em; margin-top: 0;">
+                        <i class="fas fa-exclamation-triangle"></i> 【重要】受付時の確認・注意事項
+                    </h3>
+                    <div style="font-size: 0.95em; line-height: 1.7; margin: 10px 0 0 10px;">
+                        <ul style="margin-left: 20px; font-weight: bold; color: #d32f2f;">
+                            <li><strong>戸建て住宅向け</strong>のメニューです（ビル・マンション・店舗等は別メニュー）。</li>
+                            <li>本工事は対象害虫の駆除を目的としており、他所からの侵入や長期的な発生防止を確約するものではないため、<strong>「保証はない」</strong>旨を予めお伝えください。</li>
+                            <li>工事中、乳幼児・妊婦・体調の優れない方・ペット等は薬剤の影響がない場所への移動が必要です（状況によりお断りする場合もあります）。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">害虫別の基本料金表（税込）</h3>
+                    <p style="font-size: 0.85em; margin: 0 20px 10px; color: #666;">※建物の構造や発生状況、基本数量を超える部分によって追加料金が発生します。</p>
+                    
+                    <table style="width: calc(100% - 40px); margin: 10px 20px; border-collapse: collapse; font-size: 0.85em; background: #fff;">
+                        <thead>
+                            <tr style="background: #005599; color: #fff;">
+                                <th style="border: 1px solid #ddd; padding: 8px; width: 25%;">商品（役務）名</th>
+                                <th style="border: 1px solid #ddd; padding: 8px; width: 20%;">対象害虫</th>
+                                <th style="border: 1px solid #ddd; padding: 8px; width: 25%;">基本単価（税込）</th>
+                                <th style="border: 1px solid #ddd; padding: 8px; width: 30%;">超過単価（税込）</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">アリ駆除</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">アリ</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">40mまで：27,500円</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">40m超 1mあたり 1,100円</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">ムカデ駆除</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">ムカデ（屋外）</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">40mまで：22,000円</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">40m超 1mあたり 550円</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">ヤスデ・クモ駆除</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">ヤスデ・クモ</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">40mまで：22,000円</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">40m超 1mあたり 550円</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px; font-weight: bold; background: #fff9f9;">ハチ駆除</td>
+                                <td style="border: 1px solid #ddd; padding: 8px; background: #fff9f9;">スズメバチ<br>アシナガバチ<br>ミツバチ</td>
+                                <td style="border: 1px solid #ddd; padding: 8px; background: #fff9f9; font-weight: bold; color: #d32f2f;">
+                                    【屋外】1ヵ所 27,500円<br>
+                                    【屋内】1ヵ所 44,000円<br>
+                                    <small>（※スズメバチは各+16,500円）</small>
+                                </td>
+                                <td style="border: 1px solid #ddd; padding: 8px; background: #fff9f9;">
+                                    追加1ヵ所につき：<br>
+                                    【屋外】+22,000円<br>
+                                    【屋内】+27,500円<br>
+                                    <small>（※スズメバチは追加各+11,000円）</small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">ゴキブリ駆除</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">ゴキブリ（屋内）</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">20㎡まで：22,000円</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">20㎡超 1㎡あたり 550円</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">樹木害虫駆除</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">ケムシ・カメムシ</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">樹木1本あたり：22,000円</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">追加1本につき 11,000円</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">料金案内時の対応</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>（例）ハチ駆除です。ハチ駆除はいくらくらいかかりますか？</li>
+                        <li><span class="label-self">サニックス：</span>ハチ駆除の場合、基本料金は屋外の巣1ヵ所あたり27,500円（税込）、屋根裏などの屋内の場合は44,000円（税込）となります。</li>
+                        <li><span class="label-self">サニックス：</span>ただし、ハチの種類がスズメバチの場合や、巣が複数ある場合は料金がプラスとなります。詳しい状況を担当者が現地で確認の上、正確なお見積もりを差し上げます。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">対応の結び（折り返し連絡先確認）</h3>
+                    <ul class="script-list">
+                        <li><span class="label-self">サニックス：</span>現地にお伺いするスケジュールの調整のため、担当者より折り返しお電話を差し上げます。恐れ入りますが、ご連絡先のお電話番号とお名前を教えていただけますでしょうか。</li>
+                        <li><span class="label-cust">お客様：</span>〇〇〇-〇〇〇〇-〇〇〇〇の、サニックス太郎です。</li>
+                        <li><span class="label-self">サニックス：</span>サニックス太郎様、ありがとうございます。それではその旨担当者へ申し伝えますので、ご連絡まで今しばらくお待ちください。お電話ありがとうございました。失礼いたします。</li>
+                    </ul>
+                </div>
+            </div> 
 
             <div id="m1" class="content-section">
                 <h2>太陽光メンテナンス（改正FIT法関連）</h2>
@@ -2155,7 +2340,7 @@
             </div>
 
             <div id="y2" class="content-section">
-                <h2>ドールマン・ショック（住宅機器）</h2>
+                <h2>ドールマン・ショック</h2>
 
                 <div class="case-box">
                     <h3 class="case-title">商品の特徴と仕組み</h3>
@@ -2195,6 +2380,38 @@
                         <li><span class="label-self">サニックス：</span>機器本体については<strong>5年間の保証</strong>がございます。</li>
                     </ul>
                 </div>
+                <div class="case-box" style="margin-top: 20px;">
+                    <h3 class="case-title" style="background-color: #005599; color: #fff; padding: 8px 12px; margin: 0; font-size: 1em;">
+                        <i class="fas fa-info-circle"></i> ドールマンショックの耐用年数（寿命・税務）に関する案内
+                    </h3>
+                    
+                    <table style="width: calc(100% - 40px); margin: 15px 20px 10px; border-collapse: collapse; font-size: 0.85em; background: #fff;">
+                        <thead>
+                            <tr style="background: #f2f2f2; color: #333; border-bottom: 2px solid #005599;">
+                                <th style="border: 1px solid #ddd; padding: 10px; width: 40%; text-align: left;">お問い合わせ内容</th>
+                                <th style="border: 1px solid #ddd; padding: 10px; width: 60%; text-align: left;">オペレーター回答・案内基準</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; background: #fdfdfd;">寿命的な耐用年数について</td>
+                                <td style="border: 1px solid #ddd; padding: 10px; font-size: 1.05em;">
+                                    装置商品のため、<strong>約10年</strong>とご案内してください。
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; background: #fdfdfd;">税務上の耐用年数について</td>
+                                <td style="border: 1px solid #ddd; padding: 10px;">
+                                    税務上の法定耐用年数については、建物付属設備の給排水設備として<br><strong>15年</strong>で計算をする。<br>詳細や確実な処理については<strong>「お客様の担当税理士（または税務署）にご相談・ご確認ください」</strong>とご案内してください。
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p style="font-size: 0.8em; margin: 0 20px 15px; color: #666; line-height: 1.4;">
+                        ※本対応は小早川次長への確認済み。
+                    </p>
+                </div>
 
                 <div
                     style="margin: 10px 0; padding: 15px; background: #fff9f9; border-left: 5px solid #d32f2f; font-size: 0.9em; border-radius: 4px;">
@@ -2203,77 +2420,118 @@
                         製品の故障に対する保証はありますが、<strong>「汚れの落ち具合」などの効果そのものを保証するものでではない</strong>ことを、トラブル防止のため丁寧にお伝えしてください。
                     </p>
                 </div>
+            </div>
+
+
+            <div id="y3" class="content-section">
+                <h2>害虫／害獣駆除（PCS）の受付対応</h2>
+                
+                <div class="case-box">
+                    <h3 class="case-title">受付時の基本対応</h3>
+                    <ul class="script-list">
+                        <li><span class="label-cust">お客様：</span>ネズミ（またはその他害虫・害獣）の駆除をお願いしたいのですが。</li>
+                        <li><span class="label-self">サニックス：</span>お問合せありがとうございます。内容を一度お受付いたしまして、担当の事業所より折り返しご連絡とご判断をさせていただきます。</li>
+                        <li><span class="label-self">サニックス：</span>（稼働日の場合）本日中には何らかの連絡を入れさせていただきますので、まずはお住まいの地区と詳しい状況を教えていただけますでしょうか。</li>
+                    </ul>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">地区別・お申込区分別 担当窓口一覧</h3>
+                    <p style="font-size: 0.85em; margin: 0 20px 10px; color: #666;">※迷った場合は注記のルールや「ES害虫・害獣駆除一覧表（★Q&A PCS関連対応マニュアル）」を確認してください。</p>
+                    
+                    <table style="width: calc(100% - 40px); margin: 10px 20px; border-collapse: collapse; font-size: 0.85em; background: #fff;">
+                        <thead>
+                            <tr style="background: #005599; color: #fff;">
+                                <th style="border: 1px solid #ddd; padding: 8px; width: 25%;">地区</th>
+                                <th style="border: 1px solid #ddd; padding: 8px; width: 25%;">法人</th>
+                                <th style="border: 1px solid #ddd; padding: 8px; width: 25%;">個人・戸建て</th>
+                                <th style="border: 1px solid #ddd; padding: 8px; width: 25%;">トコジラミ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">九州地区<br><small>（北九州、大分除く）</small></td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">福岡事業所</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">福岡事業所</td>
+                                <td style="border: 1px solid #ddd; padding: 8px; rowspan: 6; text-align: center; font-weight: bold; background: #fff9f9; color: #d32f2f; vertical-align: middle;">
+                                    法人（〇）のみ対応<br>
+                                    <small style="color: #333; font-weight: normal;">※一般家庭は×</small><br><br>
+                                    立岡課長本人へ着確<br>
+                                    <small style="color: #555; font-weight: normal;">（メール可）</small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">北九州、大分</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">北九州事業所<br><small>（中濱副主任）</small></td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">北九州事業所<br><small>（中濱副主任）</small></td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">山口県</td>
+                                <td style="border: 1px solid #ddd; padding: 8px; background: #f9f9f9;">PCS事業課<br><small>（※1）</small></td>
+                                <td style="border: 1px solid #ddd; padding: 8px; background: #f9f9f9;">PCS事業課<br><small>（※1）</small></td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">中国地区<br><small>（山口県除く）</small></td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">関西事業所</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">関西事業所</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">四国地区</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">高松分室</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">高松分室</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">関西地区</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">関西事業所</td>
+                                <td style="border: 1px solid #ddd; padding: 8px;">関西事業所</td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 8px; font-weight: bold;">中京（愛知三重）以東</td>
+                                <td style="border: 1px solid #ddd; padding: 8px; background: #f9f9f9;">PCS事業課<br><small>（※1）</small></td>
+                                <td style="border: 1px solid #ddd; padding: 8px; background: #ddd; color: #d32f2f; font-weight: bold; text-align: center;">お断り</td>
+                                <td style="border: 1px solid #ddd; padding: 8px; background: #ddd; color: #d32f2f; font-weight: bold; text-align: center;">お断り</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div style="font-size: 0.85em; margin: 10px 20px; line-height: 1.6; color: #333;">
+                        <p><strong>※1【PCS事業課への連絡について】</strong><br>
+                           PCS事業課（有馬副主任か原口係長へ着確）を行ってください。</p>
+                        <p style="margin-top: 4px;"><strong>【福岡県のエリア判断に迷ったら】</strong><br>
+                           福岡県内は、宗像ぐらいまでが福岡事業所の管轄です。判断に迷った場合は、人の多い福岡事業所へお繋ぎ（または回送）してください。</p>
+                    </div>
+                </div>
+
+                 <div class="highlight-box" style="background-color: #fff9f9; border-color: #d32f2f;">
+                    <h3 style="color: #d32f2f; font-size: 1.1em; margin-top: 0;">
+                        <i class="fas fa-exclamation-triangle"></i> 【最重要】受付お断り・確認事項
+                    </h3>
+                    <div style="font-size: 0.95em; line-height: 1.7; margin: 10px 0 0 10px;">
+                        <ul style="margin-left: 20px; font-weight: bold; color: #d32f2f;">
+                            <li>【トコジラミ】全地区共通で<span style="font-size: 1.1em; text-decoration: underline;">一般家庭はお断り</span>です（法人のみ対応可能）。</li>
+                            <li>【地区制限】中京（愛知・三重）以東の<span style="font-size: 1.1em; text-decoration: underline;">「個人・戸建て」はお断り</span>となります。</li>
+                            <li>【ビル・マンション】<strong>関西・関東は小口（ビル・マンション）も対応しません。</strong>（全国展開レベルや工場は対応確認が必要です）。</li>
+                            <li>【九州・中四国】ビル・マンション等の小口は対応可能かも含めて確認し、担当より折り返し連絡となります。</li>
+                            <li>【HSとの切り分け】<strong>HSで対応できる害虫（ハチ・ムカデ・ゴキブリ等）はHSで対応します。</strong>迷ったらパンフレットP17を参照してください。</li>
+                            <li>【保証】原則として<strong>「保証はつかない」</strong>旨を予めご了承ください（再侵入を完全に防ぐものではないため）。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="case-box">
+                    <h3 class="case-title">料金・調査案内時のスクリプト</h3>
+                    <ul class="script-list">
+                        <li><span class="label-self">サニックス：</span>（対応可能地区の場合）ネズミ駆除の基本料金は50㎡まで44,000円（税込）となっております。建物の広さや被害状況、侵入口の遮断工事の有無によって総額が変動いたします。</li>
+                        <li><span class="label-self">サニックス：</span>まずは担当の事業所より折り返しお電話を差し上げ、状況を詳しくお伺いした上で現地調査やお見積もり（無料）の手配を進めさせていただきます。</li>
+                    </ul>
+                </div>
 
                 <div class="case-box">
                     <h3 class="case-title">対応の結び</h3>
                     <ul class="script-list">
-                        <li><span class="label-self">サニックス：</span>お電話ありがとうございました。失礼いたします。</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div id="y3" class="content-section">
-                <h2>害虫獣・PCS（ペストコントロール）</h2>
-
-                <div class="case-box">
-                    <h3 class="case-title">受付の基本ルール</h3>
-                    <p style="padding: 0 20px; font-size: 0.9em;">
-                       害虫獣のお問い合わせは、相談室で直接可否を判断せず、まずは<strong>「一旦受付をして、担当部署より折り返し回答する」</strong>流れを徹底してください。
-                    </p>
-                    <ul class="script-list">
-                        <li><span class="label-cust">お客様：</span>ネズミ（またはゴキブリ等）が出て困っているのですが、駆除してもらえますか。</li>
-                        <li><span class="label-self">サニックス：</span>お困りの状況を承知いたしました。担当部署にて状況を確認し、対応の可否を含め、当日中に折り返しご連絡させていただきます。</li>
-                    </ul>
-                </div>
-
-                <div class="highlight-box" style="background-color: #fff9f9; border-color: #d32f2f;">
-                    <strong>【重要：お断りしているケース】</strong><br>
-                    <p style="margin-top: 5px; font-size: 0.85em; line-height: 1.6;">
-                        以下の場合は、その場でお断りするか、慎重な対応が必要です。<br>
-                        ・<strong>中京（愛知・三重）以東</strong>の個人・戸建の害虫獣依頼：原則お断り<br>
-                        ・<strong>全地区共通</strong>：一般家庭の<strong>トコジラミ</strong>依頼：お断り
-                    </p>
-                </div>
-
-                <div class="case-box">
-                    <h3 class="case-title">価格の目安（税抜）</h3>
-                    <p style="padding: 0 20px; font-size: 0.8em; color: #666;">※状況により変動するため、必ず「詳細は見積もり」とお伝えください。</p>
-                    <table
-                        style="width: calc(100% - 40px); margin: 10px 20px; border-collapse: collapse; font-size: 0.85em;">
-                        <tr style="background: #eee;">
-                            <th style="border: 1px solid #ddd; padding: 5px;">対象</th>
-                            <th style="border: 1px solid #ddd; padding: 5px;">価格目安</th>
-                        </tr>
-                        <tr>
-                            <td style="border: 1px solid #ddd; padding: 5px;">スズメバチ</td>
-                            <td style="border: 1px solid #ddd; padding: 5px;">屋外 25,000円〜 / 屋内 40,000円〜</td>
-                        </tr>
-                        <tr>
-                            <td style="border: 1px solid #ddd; padding: 5px;">アシナガバチ</td>
-                            <td style="border: 1px solid #ddd; padding: 5px;">15,000円〜</td>
-                        </tr>
-                        <tr>
-                            <td style="border: 1px solid #ddd; padding: 5px;">ムカデ</td>
-                            <td style="border: 1px solid #ddd; padding: 5px;">50,000円〜</td>
-                        </tr>
-                        <tr>
-                            <td style="border: 1px solid #ddd; padding: 5px;">ダニ（個人宅）</td>
-                            <td style="border: 1px solid #ddd; padding: 5px;">50,000円〜</td>
-                        </tr>
-                    </table>
-                </div>
-
-                <div class="case-box">
-                    <h3 class="case-title">聞き取り事項と結び</h3>
-                    <ul class="script-list">
-                        <li><span class="label-self">サニックス：</span>恐れ入りますが、以下の点をお聞かせいただけますか。</li>
-                        <li style="list-style: none; font-size: 0.9em; color: #555; padding-left: 20px;">
-                            ① 対象の種類（ネズミ、ハチ、ゴキブリなど）<br>
-                            ② 発生場所（天井裏、庭、室内など）<br>
-                            ③ 建物種別（戸建、アパート、店舗など）
-                        </li>
-                        <li><span class="label-cust">お客様：</span>（回答後）連絡を待っています。</li>
-                        <li><span class="label-self">サニックス：</span>ありがとうございます。それでは、担当の事業所より改めてご連絡差し上げます。失礼いたします。</li>
+                        <li><span class="label-self">サニックス：</span>折り返しのスケジュール調整をスムーズに行うため、お客様のフルネーム、ご住所、日中つながりやすいご連絡先を教えていただけますでしょうか。</li>
+                        <li><span class="label-cust">お客様：</span>（情報の聞き取り）</li>
+                        <li><span class="label-self">サニックス：</span>ご登録ありがとうございます。それでは担当事業所より、本日中に折り返しご連絡を差し上げます。今しばらくお待ちください。お電話ありがとうございました。失礼いたします。</li>
                     </ul>
                 </div>
             </div>
@@ -2471,7 +2729,7 @@
             </div>
 
             <div id="c5" class="content-section">
-                <h2>信販問合せ（残金確認・一括返済など）</h2>
+                <h2>ローン支払い問合せ（残金確認・口座変更など）</h2>
 
                 <div class="case-box">
                     <h3 class="case-title">受付時の基本対応</h3>
@@ -2498,6 +2756,62 @@
                         <li><span class="label-cust">お客様：</span>（回答後）</li>
                         <li><span class="label-self">サニックス：</span>（確認後）〇〇信販でのお支払い分ですね。連絡先を申し上げます。</li>
                     </ul>
+                </div>
+
+                <div class="case-box" style="margin-top: 20px;">
+                    <h3 class="case-title" style="background-color: #005599; color: #fff; padding: 8px 12px; margin: 0; font-size: 1em;">
+                        <i class="fas fa-phone-alt"></i> ローン会社へのお問い合わせ案内（お客様直接連絡用）
+                    </h3>
+                    
+                    <p style="font-size: 0.85em; margin: 10px 20px; color: #d32f2f; font-weight: bold; line-height: 1.5;">
+                        ※個人情報保護のため、原則としてお客様から各ローン会社へ直接お問い合わせをいただくようご案内してください。
+                    </p>
+                    
+                    <table style="width: calc(100% - 40px); margin: 10px 20px 20px; border-collapse: collapse; font-size: 0.85em; background: #fff;">
+                        <thead>
+                            <tr style="background: #f2f2f2; color: #333; border-bottom: 2px solid #005599;">
+                                <th style="border: 1px solid #ddd; padding: 10px; width: 40%; text-align: left;">ローン会社名</th>
+                                <th style="border: 1px solid #ddd; padding: 10px; width: 60%; text-align: left;">お客様案内用 電話番号 /（受付時間）</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; background: #fdfdfd;">〈九州日本信販〉</td>
+                                <td style="border: 1px solid #ddd; padding: 10px;">
+                                    <span style="font-size: 1.1em; font-weight: bold; color: #d32f2f;">093-663-1817</span><br>
+                                    <small style="color: #666; margin-top: 2px; display: inline-block;">（受付時間：平日 9:00 ～ 18:00）</small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; background: #fdfdfd;">〈オリコ〉</td>
+                                <td style="border: 1px solid #ddd; padding: 10px; vertical-align: middle;">
+                                    <span style="font-size: 1.1em; font-weight: bold; color: #d32f2f;">052-231-3711</span><br>
+                                    <small style="color: #666; margin-top: 2px; display: inline-block;">&nbsp;</small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; background: #fdfdfd;">〈トワライズ（山陰）〉</td>
+                                <td style="border: 1px solid #ddd; padding: 10px; vertical-align: middle;">
+                                    <span style="font-size: 1.1em; font-weight: bold; color: #00a0e9;">0120-31-4839</span><br>
+                                    <small style="color: #666; margin-top: 2px; display: inline-block;">&nbsp;</small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; background: #fdfdfd;">〈アプラス〉</td>
+                                <td style="border: 1px solid #ddd; padding: 10px; vertical-align: middle;">
+                                    <span style="font-size: 1.1em; font-weight: bold; color: #00a0e9;">0570-001-770</span><br>
+                                    <small style="color: #666; margin-top: 2px; display: inline-block;">（受付時間：平日 9:30 ～ 17:30）</small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; background: #fdfdfd;">〈イオン〉</td>
+                                <td style="border: 1px solid #ddd; padding: 10px; vertical-align: middle;">
+                                    <span style="font-size: 1.1em; font-weight: bold; color: #00a0e9;">0120-104-839</span><br>
+                                    <small style="color: #666; margin-top: 2px; display: inline-block;">（受付時間：平日 9:30 ～ 17:30）</small>
+                                </td>
+                            </tr>  
+                        </tbody>
+                    </table>
                 </div>
 
                 <div class="highlight-box" style="background-color: #f8f9fa; border-color: #005599;">
