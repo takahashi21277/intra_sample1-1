@@ -134,23 +134,23 @@
                 }
             });
         });
-    
-function resetForm() {
-    // チェックボックスをすべて解除
-    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+
+        function resetForm() {
+        // チェックボックスをすべて解除
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
         checkbox.checked = false;
-    });
+        });
 
-    // 選択状態のスタイルをリセット
-    document.querySelectorAll('.work-item').forEach(item => {
-        item.classList.remove('selected');
-    });
-
-    // 結果表示をクリア
-    const result = document.getElementById('result');
-    result.style.display = 'none';
-    result.innerHTML = '';
-}
+        // 選択状態のスタイルをリセット
+        document.querySelectorAll('.work-item').forEach(item => {
+            item.classList.remove('selected');
+            });
+        
+        // 結果表示をクリア
+        const result = document.getElementById('result');
+        result.style.display = 'none';
+        result.innerHTML = '';
+        }
 
     </script>
 </body>
