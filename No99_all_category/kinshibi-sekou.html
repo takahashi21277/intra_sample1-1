@@ -1,189 +1,198 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>公休日及び施工禁止日の対応</title>
-        <style>
-            body {
-                font-family: "meiryo", "Segoe UI", Arial, sans-serif;
-                line-height: 1.7;
-                margin: 10px;
-                background-color: #f8f9fa;
-                color: #333;
-            }
 
-            h1, h2, h3 {
-                color: #2c3e50;
-                margin-top: 1.2em;
-            }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公休日及び施工禁止日の対応</title>
+    <style>
+        body {
+            font-family: "meiryo", "Segoe UI", Arial, sans-serif;
+            line-height: 1.7;
+            margin: 10px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
 
-            h1 {
-                border-bottom: 3px solid #3498db;
-                padding-bottom: 5px;                
-            }
+        h1,
+        h2,
+        h3 {
+            color: #2c3e50;
+            margin-top: 1.2em;
+        }
 
-            h2{
-                border-left: 5px solid #000096;
-                padding-left: 10px;
-            }
+        h1 {
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 5px;
+            font-size: 1.5rem;
+        }
 
-            section {
-                background: #fff;
-                padding: 1px 20px;
-                margin-bottom: 10px;
-                border-radius: 6px;
-                box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-                width:50%;
-            }
+        h2 {
+            border-left: 5px solid #000096;
+            padding-left: 10px;
+            font-size: 1.2rem;
+        }
 
-            ul ol{
-                padding-left: 20px;
-            }
+        section {
+            background: #fff;
+            padding: 1px 20px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            width: 50%;
+        }
 
-            li {
-                margin-bottom: 6px;
-            }
+        ul ol {
+            padding-left: 20px;
+        }
 
-            table {
-                border-collapse: collapse;
-                width: 100%;
-                margin-top: 10px;
-            }
+        li {
+            margin-bottom: 6px;
+        }
 
-            table th, table td {
-                border: 1px solid #ccc;
-                padding: 10px;
-                text-align: left;
-            }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 10px;
+        }
 
-            table th {
-                background-color: #3498db;
-                color: white;
-            }
+        table th,
+        table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
 
-            .note {
-                font-size: 0.9em;
-                color: #555;
-                margin-top: 5px;
-            }
+        table th {
+            background-color: #3498db;
+            color: white;
+        }
 
-            .highlight {
-                background-color: #fff3cd;
-                padding: 10px;
-                border-left: 5px solid #ffc107;               
-            }
-        </style>
-    </head>
+        .note {
+            font-size: 0.9em;
+            color: #555;
+            margin-top: 5px;
+        }
 
-    <body>
-        
-        <div style="text-align: right; position: sticky; top: 20px; z-index: 10;">
-            <form>
-                <input type="button" value="➡お客様相談室HOME" onclick="location.href='https://snavi.sanix.jp/intranet/customer/index.html';" style="width: 150px; height: 30px; font:10pt MS ゴシック; font-weight: bold; color:red">
-            </form>
+        .highlight {
+            background-color: #fff3cd;
+            padding: 10px;
+            border-left: 5px solid #ffc107;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div style="text-align: right; position: sticky; top: 20px; z-index: 10;">
+        <form>
+            <input type="button" value="➡お客様相談室HOME"
+                onclick="location.href='https://snavi.sanix.jp/intranet/customer/index.html';"
+                style="width: 150px; height: 30px; font:10pt MS ゴシック; font-weight: bold; color:red">
+        </form>
+    </div>
+
+    <h1>公休日及び施工禁止日の対応</h1>
+
+    <section>
+        <h2>基本認識</h2>
+        <ul>
+            <li>公休日および施工禁止日の施工設定は、原則「禁止」とする。</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>対象商品</h2>
+        <ul>
+            <li>HS商材</li>
+            <li>SE商材</li>
+            <li>住宅改修全商品</li>
+        </ul>
+    </section>
+
+    <section style="background-color:#e7aaa5;">
+        <h2>特例条件（施工可能なケース）</h2>
+        <p>以下のいずれかに該当し、かつ所定の手順を踏む場合のみ施工を認める。</p>
+        <ul>
+            <li>駆除消毒の場合</li>
+            <li>子供（親族）の立ち会い日が当該日に限定される場合</li>
+            <li>新築・改築工事で業者主導の場合（太陽光・建前・改築消毒など）</li>
+            <li>リフォーム工事で協力業者主導の場合（産廃回収や工程上の都合）</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2 style="color: brown">公休日の施工手順</h2>
+        <ol>
+            <li>施工理由および技術リーダーの認可をヒアリング</li>
+            <li>特例条件に該当するか確認</li>
+            <li>契約者および確認者への挨拶時に事実確認</li>
+            <li>受注備考にヒアリング内容を記録</li>
+            <li>「公休日 ver.c」にて案件共有</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2 style="color: brown">施工禁止日の施工手順</h2>
+        <ol>
+            <li>施工理由および承認者の認可をヒアリング</li>
+            <li>特例条件に該当するか確認</li>
+            <li>契約者および確認者への挨拶時に事実確認</li>
+            <li>下記の承認者へ確認申請</li>
+            <li>下記の共有者（出井課長または原田課長）へ報告</li>
+            <li>「公休日 ver.c」にて案件共有</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>地区別承認者一覧</h2>
+        <p class="note">※ 技術リーダーの承認は必須ではありません。</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>地区</th>
+                    <th>承認者</th>
+                    <th>共有者</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>北部九州地区</td>
+                    <td>高橋部長</td>
+                    <td rowspan="5">出井課長・原田課長</td>
+                </tr>
+                <tr>
+                    <td>西南部九州地区</td>
+                    <td>出井課長・原田課長</td>
+                </tr>
+                <tr>
+                    <td>中四国地区</td>
+                    <td>勝力部長</td>
+                </tr>
+                <tr>
+                    <td>関西地区</td>
+                    <td>溝口部長</td>
+                </tr>
+                <tr>
+                    <td>東日本地区</td>
+                    <td>川添部長</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>再設定が必要なケース</h2>
+        <div class="highlight">
+            <ul>
+                <li>事後報告（挨拶後に公休日・施工禁止日へ変更）</li>
+                <li>特例条件に該当しない</li>
+                <li>上記の承認者への報告未実施</li>
+                <li>公休日前（土曜）に連絡があり、工事枠が空いていない場合</li>
+            </ul>
         </div>
+    </section>
+</body>
 
-        <h1>公休日及び施工禁止日の対応</h1>
-
-        <section>
-            <h2>基本認識</h2>
-            <ul>
-                <li>公休日および施工禁止日の施工設定は、原則「禁止」とする。</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>対象商品</h2>
-            <ul>
-                <li>HS商材</li>
-                <li>SE商材</li>
-                <li>住宅改修全商品</li>
-            </ul>
-        </section>
-
-        <section style="background-color:#e7aaa5;">
-            <h2>特例条件（施工可能なケース）</h2>
-            <p>以下のいずれかに該当し、かつ所定の手順を踏む場合のみ施工を認める。</p>
-            <ul>
-                <li>駆除消毒の場合</li>
-                <li>子供（親族）の立ち会い日が当該日に限定される場合</li>
-                <li>新築・改築工事で業者主導の場合（太陽光・建前・改築消毒など）</li>
-                <li>リフォーム工事で協力業者主導の場合（産廃回収や工程上の都合）</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2 style="color: brown">公休日の施工手順</h2>
-            <ol>
-                <li>施工理由および技術リーダーの認可をヒアリング</li>
-                <li>特例条件に該当するか確認</li>
-                <li>契約者および確認者への挨拶時に事実確認</li>
-                <li>受注備考にヒアリング内容を記録</li>
-                <li>「公休日 ver.c」にて案件共有</li>
-            </ol>
-        </section>
-
-        <section>
-            <h2 style="color: brown">施工禁止日の施工手順</h2>
-            <ol>
-                <li>施工理由および承認者の認可をヒアリング</li>
-                <li>特例条件に該当するか確認</li>
-                <li>契約者および確認者への挨拶時に事実確認</li>
-                <li>下記の承認者へ確認申請</li>
-                <li>下記の共有者（出井課長または原田課長）へ報告</li>
-                <li>「公休日 ver.c」にて案件共有</li>
-            </ol>
-        </section>
-
-        <section>
-            <h2>地区別承認者一覧</h2>
-            <p class="note">※ 技術リーダーの承認は必須ではありません。</p>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>地区</th>
-                        <th>承認者</th>
-                        <th>共有者</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>北部九州地区</td>
-                        <td>高橋部長</td>
-                        <td rowspan="5">出井課長・原田課長</td>
-                    </tr>
-                    <tr>
-                        <td>西南部九州地区</td>
-                        <td>出井課長・原田課長</td>
-                    </tr>
-                    <tr>
-                        <td>中四国地区</td>
-                        <td>勝力部長</td>
-                    </tr>
-                    <tr>
-                        <td>関西地区</td>
-                        <td>溝口部長</td>
-                    </tr>
-                    <tr>
-                        <td>東日本地区</td>
-                        <td>川添部長</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <section>
-            <h2>再設定が必要なケース</h2>
-            <div class="highlight">
-                <ul>
-                    <li>事後報告（挨拶後に公休日・施工禁止日へ変更）</li>
-                    <li>特例条件に該当しない</li>
-                    <li>上記の承認者への報告未実施</li>
-                    <li>公休日前（土曜）に連絡があり、工事枠が空いていない場合</li>
-                </ul>
-            </div>
-        </section>
-    </body>
 </html>
