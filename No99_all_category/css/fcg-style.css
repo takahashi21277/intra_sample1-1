@@ -1,0 +1,103 @@
+@charset "utf-8";
+
+/* フリーコールガイダンス */
+
+body {
+    font-family: "meiryo","Yu Gothic", sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 5px;
+}
+
+h1 {
+    font-size: 1.6em;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.2em;
+    border-left: 5px solid #0078d4;
+    padding-left: 8px;
+ }
+
+/* ボックス */
+.card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* アイコン */
+.icon {
+    margin-right: 6px;
+}
+
+/* テーブル */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    font-size: 0.9em;
+}
+
+th {
+    background: #0078d4;
+    color: white;
+}
+
+/* スマホ対応（ここが重要） */
+@media screen and (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tr {
+        background: #fff;
+        margin-bottom: 12px;
+        border-radius: 8px;
+        padding: 10px;
+    }
+
+    td {
+        border: none;
+        padding: 6px 0;
+    }
+
+    td::before {
+        font-weight: bold;
+        display: block;
+        color: #555;
+    }
+
+    td:nth-child(1)::before { content: "階層1（番号選択）"; }
+    td:nth-child(2)::before { content: "番号"; }
+    td:nth-child(3)::before { content: "階層2（番号選択）"; }
+    td:nth-child(4)::before { content: "番号"; }
+    td:nth-child(5)::before { content: "接続部署"; }
+    td:nth-child(6)::before { content: "接続電話"; }
+    td:nth-child(7)::before { content: "相談室備考"; }
+}
+
+/* バッジ */
+.badge {
+    display: inline-block;
+    background: #0078d4;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+ }
