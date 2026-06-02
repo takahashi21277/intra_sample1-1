@@ -298,7 +298,7 @@
         <div class="category-title">【契約関連】</div>
         <div class="menu-item" onclick="showContent('c1')">・高齢者契約について</div>
         <div class="menu-item" onclick="showContent('c2')">・クーリングオフ</div>
-        <div class="menu-item" onclick="showContent('c3')">・保証書（発行時期の案内）</div>
+        <div class="menu-item" onclick="showContent('c3')">・施工完了カード（保証書）</div>
         <div class="menu-item" onclick="showContent('c4')">・支払い方法</div>
         <div class="menu-item" onclick="showContent('c5')">・信販問合せ</div>
         <div class="menu-item" onclick="showContent('c6')">・個人情報開示</div>
@@ -2826,49 +2826,104 @@
                 </div>
             </div>
 
+            <!-- ==========================================
+                 ★c3：施工完了カード（保証書）★
+            ========================================== -->
             <div id="c3" class="content-section">
-                <h2>保証書（発行時期の案内）</h2>
-
+                <h2>施工完了カード（保証書）</h2>
+                
+                <!-- 【ケース1】保証書の発行・送付に関するお問い合わせ -->
                 <div class="case-box">
-                    <h3 class="case-title">受付時の基本対応</h3>
+                    <h3 class="case-title">保証書の発行・送付に関するお問い合わせ</h3>
                     <ul class="script-list">
-                        <li><span class="label-cust">お客様</span>工事をしてもらいましたが、保証書はいつ届きますか？</li>
-                        <li><span class="label-self">サニックス</span>工事完了後、週ごとに取りまとめて福岡県の本社よりお送りしております。</li>
-                        <li><span class="label-self">サニックス</span>現在の状況をお調べしますので、お客様のご登録確認のためにお電話番号とお名前を教えていただけますでしょうか。</li>
+                        <li>
+                            <span class="label-cust">お客様</span>
+                            <span>保証書は発行されないのですか?</span>
+                        </li>
+                        <li>
+                            <span class="label-self">サニックス</span>
+                            <span>保証書の代わりに施工完了カードをお渡ししております。施工完了カードが今までの保証書の代わりになり保証の証です。</span>
+                        </li>
+                        <li>
+                            <span class="label-cust">お客様</span>
+                            <span>どこから送られてきますか?</span>
+                        </li>
+                        <li>
+                            <span class="label-self">サニックス</span>
+                            <span>工事後に営業所から写真等と同封してお送りします。</span>
+                        </li>
                     </ul>
                 </div>
 
-                <div class="highlight-box" style="background-color: #f0f7ff; border-color: #005599;">
-                    <h3 style="color: #005599; font-size: 1.1em; margin-top: 0;">
-                        <i class="fas fa-calendar-alt"></i> 発送スケジュール（目安）
-                    </h3>
-                    <p style="font-size: 0.95em; line-height: 1.6; margin-bottom: 0;">
-                        保証書は以下のサイクルで作成・発送されています。<br>
-                        ・<strong>土曜日：</strong> 締め切り<br>
-                        ・<strong>火曜日：</strong> 発行<br>
-                        ・<strong>水曜日：</strong> 本社（福岡）より発送
-                    </p>
+                <!-- 【ケース2】建物の売却・名義変更について -->
+                <div class="case-box">
+                    <h3 class="case-title">建物の売却・名義変更について</h3>
+                    <ul class="script-list">
+                        <li>
+                            <span class="label-cust">お客様</span>
+                            <span>保証中に建物を売却した時は、保証はどうなるのですか。</span>
+                        </li>
+                        <li>
+                            <span class="label-self">サニックス</span>
+                            <span>建物への保証ですので継続可能ですが、<strong>名義変更の手続き</strong>必要となります。</span>
+                        </li>
+                        <li>
+                            <span class="label-self">サニックス</span>
+                            <span>新しく入居される方へ保証書をお渡しください。新しいオーナー様から当社へご連絡いただければ、手続きを開始いたします。</span>
+                        </li>
+                    </ul>
                 </div>
 
-                <div class="case-box">
-                    <h3 class="case-title">確認後の案内</h3>
-                    <div style="padding: 0 20px; font-size: 0.9em; color: #555;">
-                        <p><i class="fas fa-search"></i> 顧客システムで「保証書発行日」または「売上計上日」を確認し、状況を説明してください。</p>
+                <!-- ★ご提示いただいたオリジナルの保証情報・手数料枠（バグを修正して完全再現）★ -->
+                <div class="guarantee-info-box" style="background-color: #f4f8fc; border: 1px solid #b8d4ee; padding: 15px; margin: 0 0 20px 0; border-radius: 6px; display: flex; gap: 15px; align-items: flex-start;">
+                    <div style="color: #00a0e9; font-size: 1.4em; padding-top: 2px;">
+                        <i class="fas fa-info-circle"></i>
                     </div>
-                    <ul class="script-list">
-                        <li><span class="label-self">サニックス</span>（確認結果に基づき）ただいま準備中でございますので、来週の○曜日ごろにはお手元に届く予定です。</li>
-                        <li><span class="label-cust">お客様</span>分かりました。</li>
-                    </ul>
-                </div>
+                    <div style="flex: 1; font-size: 0.9em; line-height: 1.7; color: #333;">
+                        <strong style="color: #005599; display: block; margin-bottom: 6px; font-size: 1.05em;">【現在の保証の証明について】</strong>
+                        <ul style="margin: 0; padding-left: 15px; list-style-type: disc;">
+                            <li style="margin-bottom: 6px;">
+                                2025/9/1施工分より、従来の「保証書」ではなく、<span style="color: #005599; font-weight: bold;">「施工・業務完了カード」</span>もしくは<span style="color: #28a745; font-weight: bold;">「※完成検査表兼報告書」</span>が新しい保証の証明となっています。<span style="font-size: 0.9em; color: #666; margin-left: 6px;">（※「完成検査表兼報告書」は工事内容に応じてお渡しする書類が異なる場合があります）</span>
+                            </li>
+                            <li style="margin-bottom: 10px;">各工事の保証を証明するものになりますので、大切に保管いただくようご案内してください。</li>
+                        </ul>
+                        
+                        <div style="margin-top: 10px; border-top: 1px dashed #b8d4ee; padding-top: 10px;">
+                            <strong style="color: #cc0000; display: block; margin-bottom: 6px;"><i class="fas fa-exclamation-circle"></i> 【注意点】保証書の再発行・手数料について</strong>
+                            <table style="width: 100%; border-collapse: collapse; font-size: 0.95em; background: #fff;">
+                                <tr>
+                                    <td style="border: 1px solid #b8d4ee; padding: 6px 10px; width: 15%; background: #fff5f5; color: #c00; font-weight: bold; text-align: center;">有料</td>
+                                    <td style="border: 1px solid #b8d4ee; padding: 6px 10px; line-height: 1.4;">
+                                        ・従来の「保証書」の<strong>名義書き換え・再発行</strong><br>
+                                        ・<strong>紙面での保証書</strong>を希望される場合（1契約ごと）<br>
+                                        <span style="color: #d32f2f; font-weight: bold;">➔ 手数料 5,500円（税込）</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid #b8d4ee; padding: 6px 10px; background: #f5fff5; color: #008800; font-weight: bold; text-align: center;">無料</td>
+                                    <td style="border: 1px solid #b8d4ee; padding: 6px 10px; line-height: 1.4;">
+                                        ・「施工・業務完了カード」「完成検査表兼報告書」の<strong>再発行</strong><br>
+                                        <span style="color: #008800; font-weight: bold;">➔ 手数料 無料</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div> <!-- ←ここ！この閉じタグが抜けていたため枠の反応がおかしくなっていました -->
 
-                <div class="case-box">
-                    <h3 class="case-title">対応の結び</h3>
-                    <ul class="script-list">
-                        <li><span class="label-self">サニックス</span>お電話ありがとうございました。失礼いたします。</li>
-                    </ul>
+                <!-- PDFリンクボタン -->
+                <div class="pdf-link-box">
+                    <a href="pdf/sekoukannryouka-do.pdf" target="_blank" class="pdf-button">
+                        <i class="far fa-file-pdf"></i> 印刷用PDFを開く
+                    </a>
+                    <a href="pdf/sekoukannryouka-domihonn.pdf" target="_blank" class="pdf-button" style="background-color: #28a745; border-color: #28a745;">
+                        <i class="fas fa-table"></i> 施工完了カード見本をPDF開く
+                    </a>
                 </div>
-            </div>
+            </div> 
+            
 
+                
             <div id="c4" class="content-section">
                 <h2>支払方法（2025/4/1 改定）</h2>
 
@@ -2978,14 +3033,14 @@
                                 <td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; background: #fdfdfd;">〈オリコ〉</td>
                                 <td style="border: 1px solid #ddd; padding: 10px; vertical-align: middle;">
                                     <span style="font-size: 1.1em; font-weight: bold; color: #d32f2f;">052-231-3711</span><br>
-                                    <small style="color: #666; margin-top: 2px; display: inline-block;">&nbsp;</small>
+                                    <small style="color: #666; margin-top: 2px; display: inline-block;">（受付時間：平日 9:30 ～ 17:30）</small>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="border: 1px solid #ddd; padding: 10px; font-weight: bold; background: #fdfdfd;">〈トワライズ（山陰）〉</td>
                                 <td style="border: 1px solid #ddd; padding: 10px; vertical-align: middle;">
                                     <span style="font-size: 1.1em; font-weight: bold; color: #00a0e9;">0120-31-4839</span><br>
-                                    <small style="color: #666; margin-top: 2px; display: inline-block;">&nbsp;</small>
+                                    <small style="color: #666; margin-top: 2px; display: inline-block;">（受付時間：平日 10:00～ 17:00）</small>
                                 </td>
                             </tr>
                         </tbody>
