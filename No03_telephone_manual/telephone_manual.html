@@ -298,6 +298,7 @@
         <div class="category-title">【契約関連】</div>
         <div class="menu-item" onclick="showContent('c1')">・高齢者契約について</div>
         <div class="menu-item" onclick="showContent('c2')">・クーリングオフ</div>
+        <div class="menu-item" onclick="showContent('c9')">・クーリングオフ受理通知はがき</div>
         <div class="menu-item" onclick="showContent('c3')">・施工完了カード（保証書）</div>
         <div class="menu-item" onclick="showContent('c4')">・支払い方法</div>
         <div class="menu-item" onclick="showContent('c5')">・信販問合せ</div>
@@ -1552,18 +1553,22 @@
                     </ul>
                 </div>
 
-                <div class="pdf-link-box">
-                    <a href="pdf/MC_controler.pdf" target="blank" class="pdf-button">
+                <div class="pdf-link-box" style="background-color: #f8f9fa; border: 1px solid #e9ecef; border-radius: 6px; padding: 15px; text-align: center; margin: 25px 0 15px;">
+                    <!-- 印刷用PDF（赤） -->
+                    <a href="pdf/MC_controler.pdf" target="_blank" class="pdf-button" style="background-color: #d32f2f; border-color: #d32f2f; display: inline-block; margin: 5px 7px;">
                         <i class="far fa-file-pdf"></i> 印刷用PDFを開く
                     </a>
-                    <a href="pdf/mcsetumei.pdf" target="blank" class="pdf-button" style="background-color: #288ea7; border-color: #289fa7;">
-                        <i class="fas fa-table"></i> 取り扱い説明書
+                    <!-- 取扱説明書（青） -->
+                    <a href="pdf/mcsetumei.pdf" target="_blank" class="pdf-button" style="background-color: #005599; border-color: #005599; display: inline-block; margin: 5px 7px;">
+                        <i class="fas fa-book"></i> 取り扱い説明書
                     </a>
-                    <a href="pdf/kakakuitirann.pdf" target="blank" class="pdf-button" style="background-color: #929697; border-color: #929697;">
-                        <i class="fas fa-table"></i> 動作表示
+                    <!-- 動作表示（緑） -->
+                    <a href="pdf/kakakuitirann.pdf" target="_blank" class="pdf-button" style="background-color: #28a745; border-color: #28a745; display: inline-block; margin: 5px 7px;">
+                        <i class="fas fa-desktop"></i> 動作表示
                     </a>
-                    <a href="pdf/kakakuitirann.pdf" target="blank" class="pdf-button" style="background-color: #929697; border-color: #929697;">
-                        <i class="fas fa-table"></i> エラー表示
+                    <!-- エラー表示（オレンジ） -->
+                    <a href="pdf/kakakuitirann.pdf" target="_blank" class="pdf-button" style="background-color: #e67e22; border-color: #e67e22; display: inline-block; margin: 5px 7px;">
+                        <i class="fas fa-exclamation-circle"></i> エラー表示
                     </a>
                 </div>
                 
@@ -3021,6 +3026,118 @@
                         <li><span class="label-self">サニックス</span>お手続き完了後、担当部署より改めて取り消しの確認書類（受理通知）を送付、またはお電話を差し上げます。お電話ありがとうございました。失礼いたします。</li>
                     </ul>
                 </div>
+            </div>
+
+            <div id="c9" class="content-section">
+                <h2>クーリング・オフ受理通知はがき</h2>
+
+                <!-- 【1つ目のハコ】受付時チェック・判断基準 -->
+                <div class="case-box">
+                    <h3 class="case-title">受付時チェック・判断基準</h3>
+
+                    <div style="padding: 10px 20px 15px;">
+                        <table style="width: 100%; border-collapse: collapse; font-size: 0.95em; table-layout: fixed; margin-bottom: 15px;">
+                            <tr style="background: #f0f0f0;">
+                                <th style="border: 1px solid #ddd; padding: 10px 8px; width: 20%; text-align: center;">区分</th>
+                                <th style="border: 1px solid #ddd; padding: 10px 8px; width: 26%; text-align: center;">はがき</th>
+                                <th style="border: 1px solid #ddd; padding: 10px 8px; width: 27%; text-align: center;">契約者架電</th>
+                                <th style="border: 1px solid #ddd; padding: 10px 8px; width: 27%; text-align: center;">確認者架電</th>
+                            </tr>
+
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 15px 8px; font-weight: bold; background: #fafafa; text-align: center; color: #005599;">クーリングオフ</td>
+                                <td style="border: 1px solid #ddd; padding: 15px 8px; text-align: center;">往復はがき発送 <span style="color: #cc0000;">※1</span></td>
+                                <td style="border: 1px solid #ddd; padding: 15px 8px; text-align: center;">架電する <span style="color: #cc0000;">※2</span></td>
+                                <td style="border: 1px solid #ddd; padding: 15px 8px; text-align: center;">架電する <span style="color: #cc0000;">※2</span></td>
+                            </tr>
+
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 15px 8px; font-weight: bold; background: #fafafa; text-align: center; color: #cc0000;">契約解除</td>
+                                <td style="border: 1px solid #ddd; padding: 15px 8px; text-align: center;">往復はがき発送<span style="color: #cc0000;">※1</span></td>
+                                <td style="border: 1px solid #ddd; padding: 15px 8px; text-align: center;">架電する <span style="color: #cc0000;">※2</span></td>
+                                <td style="border: 1px solid #ddd; padding: 15px 8px; text-align: center;">架電する <span style="color: #cc0000;">※2</span></td>
+                            </tr>
+
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 15px 8px; font-weight: bold; background: #fafafa; text-align: center; color: #333333;">ローン否決</td>
+                                <td style="border: 1px solid #ddd; padding: 15px 8px; text-align: center;">官製はがき発送 <span style="color: #cc0000;">※1</span></td>
+                                <td style="border: 1px solid #ddd; padding: 15px 8px; text-align: center;">架電しない<br><span style="font-size: 0.85em; color: #333;">（担当者よりご説明）</span></td>
+                                <td style="border: 1px solid #ddd; padding: 15px 8px; text-align: center;">架電しない</td>
+                            </tr>
+
+                            <tr>
+                                <td style="border: 1px solid #ddd; padding: 15px 8px; font-weight: bold; background: #fafafa; text-align: center; color: #e67e22;">契約変更</td>
+                                <td style="border: 1px solid #ddd; padding: 15px 8px; text-align: center; color: #cc0000;">ハガキ発送しない</td>
+                                <td style="border: 1px solid #ddd; padding: 15px 8px; text-align: center; color: #cc0000;">架電しない</td>
+                                <td style="border: 1px solid #ddd; padding: 15px 8px; text-align: center; color: #cc0000;">架電しない</td>
+                            </tr>
+                        </table>
+
+                        <!-- 表の補足注記 -->
+                        <div style="font-size: 0.85em; color: #555; line-height: 1.5; padding: 5px 10px;">
+                            <span style="color: #cc0000; font-weight: bold;">※1</span> お客様から「不要」とお申し出がある場合は発送しません。<br>
+                            <span style="color: #cc0000; font-weight: bold;">※2</span> お客様から「不要」とお申し出がある場合は架電しません。
+                        </div>
+
+                        <!-- 黄色い別枠 -->
+                        <div style="margin-top: 15px; padding: 12px 15px; background-color: #fffde6; border: 1px solid #f5e68c; border-left: 5px solid #f1c40f; border-radius: 3px; color: #333; font-size: 0.95em; line-height: 1.6;">
+                            <strong style="color: #d35400;">【未締結時の対応について】</strong><br>
+                            契約未締結の場合でもお客様がハガキ発送を希望される場合は、未成約ハガキをお送りします。必要な場合は、お客様相談室にご相談ください。
+                        </div>
+                    </div>
+                </div>
+                <!-- 1つ目のハコ終了 -->
+
+                <!-- 【2つ目のハコ】受付・処理時の注意点 -->
+                <div class="case-box" style="margin-top: 20px;">
+                    <h3 class="case-title" style="background-color: #d32f2f; color: #fff;">
+                        <i class="fas fa-exclamation-triangle" style="margin-right: 5px;"></i> 受付・処理時の注意点
+                    </h3>
+
+                    <div style="padding: 15px 20px 20px;">
+                        <ul style="margin: 0; padding-left: 20px; line-height: 1.8; font-size: 0.95em;">
+                            <li style="margin-bottom: 12px; border-bottom: 1px dashed #eee; padding-bottom: 8px;">
+                                <strong style="color: #cc0000;">【ハガキの種類】</strong><br>
+                                「クーリング・オフ」と「契約解除」は<strong>アンケート付きの往復はがき。</strong>（一部内容は異なる）<br>
+                                「ローン不可」は<strong>アンケートなしの官製はがき。</strong>
+                            </li>
+
+                            <li style="margin-bottom: 12px; border-bottom: 1px dashed #eee; padding-bottom: 8px;">
+                                <strong style="color: #cc0000;">【社内メモ記載】</strong><br>
+                                契約書の切り直しはSNX都合のため<strong>社内メモの記載不要。</strong><br>
+                                クーリング・オフ・契約解除はお客様都合のため<strong>社内メモ記載が必要。</strong>
+                            </li>
+
+                            <li style="margin-bottom: 12px; border-bottom: 1px dashed #eee; padding-bottom: 8px;">
+                                <strong style="color: #cc0000;">【ハガキ発送】</strong><br>
+                                ローン不可の場合の官製はがき発送は、<br>
+                                <strong>ご本人様から「発送不要」との特段のお申し出がない限りは発送。</strong>
+                            </li>
+
+                            <li style="margin-bottom: 12px; border-bottom: 1px dashed #eee; padding-bottom: 8px;">
+                                <strong style="color: #cc0000;">【架電不要の例外】</strong><br>
+                                <strong>契約者様と確認者様の電話番号が同一</strong>である場合は、確認者への架電は不要。
+                            </li>
+
+                            <li style="margin-top: 4px;">
+                                <strong style="color: #cc0000;">【本社入電時の架電基準】</strong><br>
+                                本社入電にて契約者様からクーリング・オフの申し出があった場合、<br>
+                                <strong>確認者様が状況を把握できていない可能性があるため架電する。</strong>確認者様への架電は不要とお申し出があれば架電しない。
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 2つ目のハコ終了 -->
+
+                <div class="pdf-link-box" style="background-color: #f8f9fa; border: 1px solid #e9ecef; border-radius: 6px; padding: 15px; text-align: center; margin: 25px 0 15px;">
+                    <a href="pdf/jyurituutimihonn.pdf" target="_blank" class="pdf-button" style="background-color: #005599; border-color: #005599; display: inline-block; margin: 5px 7px;">
+                        <i class="fas fa-envelope"></i> 受理通知はがき見本
+                    </a>
+                    <a href="pdf/kannseihagakimihonn.pdf" target="_blank" class="pdf-button" style="background-color: #005599; border-color: #005599; display: inline-block; margin: 5px 7px;">
+                        <i class="fas fa-envelope"></i> 官製はがき見本
+                    </a>
+                </div>
+                
             </div>
 
             <!-- ==========================================
