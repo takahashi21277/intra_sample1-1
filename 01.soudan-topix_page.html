@@ -365,13 +365,14 @@
       <!-- Sidebar -->
       <div id="sidebar">
         <div class="inner">
+
           <!-- Search Box -->
           <section id="search" class="alt">
-            <form method="get" action="#">
-              <input type="text" name="search" id="search" placeholder="ページ内を検索..." />
+            <form onsubmit="return false;">
+              <input type="text" id="pageSearch" placeholder="ページ内を検索..." onkeyup="searchPage()" />
             </form>
           </section>
-              
+                        
           <!-- Menu -->
           <nav id="menu">
             <ul>
@@ -451,5 +452,60 @@
     <script src="assets/js/transition.js"></script>
     <script src="assets/js/owl-carousel.js"></script>
     <script src="assets/js/custom.js"></script>
+    <script>
+    function searchPage() {
+      // 以前のハイライト削除
+      document.querySelectorAll("mark.search-hit").forEach(function(mark){
+        const text = document.createTextNode(mark.textContent);
+        mark.parentNode.replaceChild(text, mark);
+      });
+      const keyword = document
+        .getElementById("pageSearch")
+        .value
+        .trim();
+      if (keyword === "") return;
+      const walker = document.createTreeWalker(
+        document.body,
+        NodeFilter.SHOW_TEXT,
+        null,
+        false
+      );
+      let node;
+      const nodes = [];
+      while(node = walker.nextNode()) {
+        if(
+          node.parentNode.tagName !== "SCRIPT" &&
+          node.parentNode.tagName !== "STYLE"
+        ){
+          nodes.push(node);
+        }
+      }
+      let firstMatch = null;
+      nodes.forEach(function(textNode){
+        const text = textNode.nodeValue;
+        const pos = text.toLowerCase()
+          .indexOf(keyword.toLowerCase());
+        if(pos >= 0){
+          const span = document.createElement("span");
+          span.innerHTML =
+            text.substring(0,pos) +
+            '<mark class="search-hit" style="background:yellow;">' +
+            text.substring(pos,pos+keyword.length) +
+            '</mark>' +
+            text.substring(pos+keyword.length);
+          textNode.parentNode.replaceChild(span,textNode);
+          if(!firstMatch){
+            firstMatch = span;
+          }
+        }
+      });
+      if(firstMatch){
+        firstMatch.scrollIntoView({
+          behavior:"smooth",
+          block:"center"
+        });
+      }
+    }
+    </script>
   </body>
 </html>
