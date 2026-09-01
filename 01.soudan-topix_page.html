@@ -453,55 +453,80 @@
     <script src="assets/js/custom.js"></script>
     <script>
     function searchPage() {
-      // 以前のハイライト削除
-      document.querySelectorAll("mark.search-hit").forEach(function(mark){
-        const text = document.createTextNode(mark.textContent);
-        mark.parentNode.replaceChild(text, mark);
-      });
-      const keyword = document
-        .getElementById("pageSearch")
-        .value
-        .trim();
-      if (keyword === "") return;
-      const walker = document.createTreeWalker(
-        document.body,
-        NodeFilter.SHOW_TEXT,
-        null,
-        false
-      );
-      let node;
-      const nodes = [];
-      while(node = walker.nextNode()) {
-        if(
-          node.parentNode.tagName !== "SCRIPT" &&
-          node.parentNode.tagName !== "STYLE"
-        ){
-          nodes.push(node);
+    // 1. 以前のハイライト（markタグ）を元のテキストに復元
+    document.querySelectorAll("mark.search-hit").forEach(function(mark) {
+      const parent = mark.parentNode;
+      parent.replaceChild(document.createTextNode(mark.textContent), mark);
+      parent.normalize(); // 分割されたテキストノードを1つに統合する
+    });
+
+    // 生成された不要な outer span（親span）も解除してクリーンアップ
+    document.querySelectorAll("span.search-wrapper").forEach(function(span) {
+      const parent = span.parentNode;
+      while (span.firstChild) {
+        parent.insertBefore(span.firstChild, span);
+      }
+      parent.removeChild(span);
+      parent.normalize();
+    });
+
+    const keyword = document.getElementById("pageSearch").value.trim();
+    if (keyword === "") return;
+
+    // 2. メインコンテンツ領域を中心に検索（サイドバーやスクリプト等を除外）
+    const mainTarget = document.getElementById("main") || document.body;
+    const walker = document.createTreeWalker(
+      mainTarget,
+      NodeFilter.SHOW_TEXT,
+      null,
+      false
+    );
+
+    let node;
+    const nodes = [];
+    while ((node = walker.nextNode())) {
+      const tag = node.parentNode.tagName;
+      // SCRIPT, STYLE, INPUT, TEXTAREA などは検索対象外とする
+      if (tag !== "SCRIPT" && tag !== "STYLE" && tag !== "INPUT" && tag !== "TEXTAREA") {
+        nodes.push(node);
+      }
+    }
+
+    let firstMatch = null;
+    nodes.forEach(function(textNode) {
+      const text = textNode.nodeValue;
+      const pos = text.toLowerCase().indexOf(keyword.toLowerCase());
+      if (pos >= 0) {
+        const span = document.createElement("span");
+        span.className = "search-wrapper";
+      
+        const before = text.substring(0, pos);
+        const matchText = text.substring(pos, pos + keyword.length);
+        const after = text.substring(pos + keyword.length);
+
+        span.appendChild(document.createTextNode(before));
+      
+        const mark = document.createElement("mark");
+        mark.className = "search-hit";
+        mark.style.backgroundColor = "yellow";
+        mark.appendChild(document.createTextNode(matchText));
+        span.appendChild(mark);
+      
+        span.appendChild(document.createTextNode(after));
+
+        textNode.parentNode.replaceChild(span, textNode);
+      
+        if (!firstMatch) {
+          firstMatch = mark;
         }
       }
-      let firstMatch = null;
-      nodes.forEach(function(textNode){
-        const text = textNode.nodeValue;
-        const pos = text.toLowerCase()
-          .indexOf(keyword.toLowerCase());
-        if(pos >= 0){
-          const span = document.createElement("span");
-          span.innerHTML =
-            text.substring(0,pos) +
-            '<mark class="search-hit" style="background:yellow;">' +
-            text.substring(pos,pos+keyword.length) +
-            '</mark>' +
-            text.substring(pos+keyword.length);
-          textNode.parentNode.replaceChild(span,textNode);
-          if(!firstMatch){
-            firstMatch = span;
-          }
-        }
-      });
-      if(firstMatch){
-        firstMatch.scrollIntoView({
-          behavior:"smooth",
-          block:"center"
+    });
+
+    // 3. 最初のヒット位置へスムーズにスクロール
+    if (firstMatch) {
+      firstMatch.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
         });
       }
     }
